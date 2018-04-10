@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='images/boat-32.png') }}">
+    <title>{% block title %}{% endblock %} | Index Builder</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='dist/base_styles_bundle.js') }}"></script>
+    {% block css %}{% endblock %}
+    {#
+        Despite the fact we reload these again later on, in order for the header to rendered correctly
+        before the rest of the page is built we need to load them here as well.
+    #}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}" />
+    </head>
+    <body>
+        {% block full_content %}{% endblock %}
+        {% if page == 'login' %}
+        <footer class="footer">
+            <div><strong>FOR EDUCATIONAL AND DISCUSSION PURPOSES ONLY</strong></div>
+            <p>Certain model portfolio and market data has been provided by Sustainalytics US Inc. ("Sustainalytics").  Sustainalytics is not affiliated with Man Group plc or any of its affiliates or subsidiaries including Numeric Investors LLC (collectively, "Man").  Man cannot guarantee the accuracy of the information presented.  The model returns shown herein are presented for educational and discussion purposes only and do not represent actual returns received by any investor or any investment portfolio.  This material does not constitute a personal recommendation or take into account the particular investment objectives, financial situations, or needs of individual clients, and this information should not be relied upon by the reader as research or investment advice.</p>
+            <p>All investments involve risks including the potential for loss of principal. Alternative investment strategies involve magnified risks, are speculative, are not suitable for all clients, and intended for experienced and sophisticated investors who are willing to bear the high economic risks of the investment. Past performance does not guarantee similar future results.</p>
+        </footer>
+        {% endif %}
+        <script type="text/javascript" src="{{ url_for('static', filename='dist/polyfills_bundle.js') }}"></script>
+        {% block js %}{% endblock %}
+        {#
+          In order to get styles to load correctly, we need to reload these files.
+          In CSS, the last style declared takes precedence.
+        #}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}" />
+    </body>
+</html>

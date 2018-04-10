@@ -1,0 +1,8 @@
+*
+!requirements.*
+!**/docker-entrypoint.sh
+
+!.git
+!grail
+!grail_gen
+!setup*.py

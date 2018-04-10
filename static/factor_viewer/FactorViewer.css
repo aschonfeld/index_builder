@@ -1,0 +1,121 @@
+.FactorViewer .row {
+  margin-top: 10px;
+}
+
+.FactorViewer .row.returns-header {
+  margin-top: 0;
+}
+
+.FactorViewer .returns .chart-wrapper {
+  margin-top: 0;
+}
+
+.FactorViewer .list-group-item,
+.FactorViewer .alert-primary {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.FactorViewer .btn-group {
+  padding-bottom: 5px;
+}
+
+.FactorViewer .header-and-inputs {
+  width: 100%;
+  padding-bottom: 0.3em;
+  position: relative;
+}
+
+.FactorViewer .header-and-inputs h2 {
+  float: left;
+}
+
+.FactorViewer .factor-inputs {
+  float: right;
+}
+
+.option-weight {
+  float: right;
+}
+
+.factor-inputs .strength-input {
+  width: 12em;
+  display: inline-block;
+  padding-right: 0.5em;
+}
+
+.factor-inputs .weight-input {
+  width: 10em;
+  display: inline-block;
+  padding-right: 0.5em;
+}
+
+.reasons-select {
+  width: 30em;
+  display: inline-block;
+  padding-right: 0.5em;
+}
+
+.reasons-select .column-toggle {
+  width: 100%;
+}
+
+.reasons-select button.form-control span {
+  width: 100%;
+  text-align: left;
+}
+
+.reasons-select button.form-control {
+  width: 100%;
+  border: solid 1px #a7b3b7;
+  -webkit-box-shadow: 0 0 2px 0 rgba(125, 143, 149, 0.5) inset;
+  box-shadow: 0 0 2px 0 rgba(125, 143, 149, 0.5) inset;
+  border-radius: 0 0.25rem 0.25rem 0 !important;
+  cursor: pointer;
+}
+
+.factor-inputs .save-inputs {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.FactorViewer button.btn-primary {
+  cursor: pointer;
+}
+
+.FactorViewer .active {
+  cursor: default;
+}
+
+.FactorViewer div.btn-group .inactive {
+  color: #337ab7;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.FactorViewer .return-types button {
+  font-size: 12px;
+  padding: 4px 5px;
+  border: 1px solid lightgrey;
+}
+
+@media (max-width: 1024px) {
+  .factor-inputs .weight-input {
+    padding-right: 0;
+    padding-bottom: 0.5em;
+  }
+
+  .reasons-select {
+    width: 100%;
+    padding-bottom: 0.5em;
+  }
+
+  .factor-inputs .save-inputs {
+    margin-bottom: 0.5em;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    word-break: normal;
+  }
+}

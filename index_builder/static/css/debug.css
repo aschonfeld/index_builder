@@ -1,0 +1,21 @@
+table.scrollable {
+    display: block;
+}
+table.scrollable thead, table.scrollable tbody {
+    display: block;
+}
+table.scrollable tbody {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 148px;
+}
+
+table.scrollable tbody tr td:first-child,
+table.scrollable thead tr th:first-child {
+  min-width: 300px !important;
+}
+
+table.scrollable tbody tr td:last-child,
+table.scrollable thead tr th:last-child {
+  width: 100%;
+}

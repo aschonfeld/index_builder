@@ -1,0 +1,23 @@
+*.pyc
+*.egg-info
+
+# test output files
+.cache
+.coverage
+.nyc_output
+tap-output
+results.tap
+
+build/
+dist/
+index_builder/data/users/
+index_builder/data/app_settings.yaml
+node_modules/
+npm-debug.log
+.idea
+.tern-port
+.vscode
+
+# built JS files
+index_builder/static/dist
+jest_tmp

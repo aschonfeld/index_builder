@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+  deploy:
+    build:
+      context: .
+      args: { USER, USERID, GROUPID }
+      dockerfile: docker/deploy/Dockerfile
+    image: docker.niartifactory.maninvestments.com/$USER/grail:deploy
+    command: python server.py
+    user: $USER
+    environment: { NetAcro, NOSNAP, NIXONHOME, FREETDSCONF, LANG=en_US.UTF-8, WERKEUG_RUN_MAIN=true, CROWD_AUTH=true }
+    ports:
+      - 9200:9200
+    volumes:
+      - /NImounts/Common/data:$CommonData:shared
+      - /NImounts/NiNoSnapUsers/$USER:$NOSNAP:shared
+      - /NImounts/NiDev/apps/Linux/nixon/release:$NIXONHOME:shared
+      - /home/$USER:/home/$USER:shared
+
+  develop:
+    build:
+      context: .
+      args: { USER, USERID, GROUPID }
+      dockerfile: docker/develop/Dockerfile
+    image: docker.niartifactory.maninvestments.com/$USER/grail:develop
+    command: bash
+    user: $USER
+    environment: { NetAcro, NOSNAP, NIXONHOME, FREETDSCONF, LANG=en_US.UTF-8, CROWD_AUTH=true }
+    ports:
+      - 9200:9200
+    volumes:
+      - /NImounts/Common/data:$CommonData:shared
+      - /NImounts/NiNoSnapUsers/$USER:$NOSNAP:shared
+      - /NImounts/NiDev/apps/Linux/nixon/release:$NIXONHOME:shared
+      - /home/$USER:/home/$USER:shared
+      - ./:/grail:shared

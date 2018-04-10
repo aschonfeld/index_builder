@@ -1,0 +1,93 @@
+.ResultsViewer .row {
+  margin-top: 10px;
+}
+
+.ResultsViewer .list-group-item {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.ResultsViewer .BarraSections .list-group-item {
+  padding: 2px 4px;
+  font-size: 12px;
+}
+
+.ResultsViewer .chart-wrapper {
+  margin-top: 0;
+}
+
+.ResultsViewer .btn-group {
+  padding-bottom: 5px;
+}
+
+.ResultsViewer .selected-row {
+  cursor: default;
+  background-color: rgba(82, 187, 239, 0.2);
+  font-weight: bold;
+}
+
+.ResultsViewer .unselected-row {
+  cursor: pointer;
+}
+
+.ResultsViewer button.btn-primary {
+  cursor: pointer;
+}
+
+.ResultsViewer div.btn-group .active {
+  cursor: default;
+}
+
+.ResultsViewer div.btn-group .inactive {
+  color: #337ab7;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.ResultsViewer .return-types button {
+  font-size: 12px;
+  padding: 4px 5px;
+  border: 1px solid lightgrey;
+}
+
+.ResultsViewer i.ico-check-box,
+.ResultsViewer i.ico-check-box-outline-blank,
+.ResultsViewer i.ico-lock-open {
+  padding-right: 0.5em;
+  cursor: pointer;
+}
+
+.ResultsViewer .sample-index,
+.ResultsViewer .table-hover tbody tr.sample-index:hover {
+  background-color: rgba(128, 255, 128, 0.2);
+}
+
+.ResultsViewer .ico-star {
+  margin-top: -0.25em;
+}
+
+.ResultsViewer .results-grid .col0 {
+  width: 17%;
+}
+.ResultsViewer .results-grid .col3 {
+  width: 13%;
+}
+.ResultsViewer .results-grid .col1,
+.ResultsViewer .results-grid .col2,
+.ResultsViewer .results-grid .col4,
+.ResultsViewer .results-grid .col5,
+.ResultsViewer .results-grid .col6,
+.ResultsViewer .results-grid .col7,
+.ResultsViewer .results-grid .col8 {
+  width: 10%;
+}
+
+.ResultsViewer .data-table + .data-table {
+  margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .SectorExposures .chart-wrapper {
+    height: 40em;
+  }
+}

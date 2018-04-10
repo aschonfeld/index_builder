@@ -1,0 +1,76 @@
+{% set include_classic = true %}
+{% extends "index_builder/base.html" %}
+
+
+{% block full_content %}
+{% set locked_users = (user_counts['locked'] if user_counts is defined else 0) > 0 %}
+{% set summary_viewable = (
+  (session.get('username') == 'admin' or (app_settings is defined and app_settings['summary_viewable'])) and locked_users
+) %}
+<header class="app-header">
+	<h1 class="app-header__logo"><a class="logo--man-grail" href="/index-builder/factors">Index Builder</a></h1>
+	<nav class="app-header__nav--main">
+        {% if page != 'login' %}
+		<ul>
+			<li {% if page == 'factors' %}class="active"{% endif %}>
+			<a href="/index-builder/factors">Factors</a>
+			</li>
+            {% if (session.get('factor_settings', {}).get('locked', false) or session.get('username') == 'admin') and locked_users  %}
+                <li {% if page == 'results' %}class="active"{% endif %}>
+                <a href="/index-builder/results">Results</a>
+                </li>
+            {% endif %}
+            {% if summary_viewable %}
+                <li {% if page == 'summary' %}class="active"{% endif %}>
+                <a href="/index-builder/summary">Summary</a>
+                </li>
+            {% endif %}
+		</ul>
+        {% endif %}
+    </nav>
+    {% if page != 'login' %}
+    {% if not session.get('username') == 'admin' %}
+    {% if warning is not none %}
+        <div class="alert alert-warning flash-msg">
+        <span class="ico-warning float-left"></span>
+        <span class="ml-3 mr-3 float-left text-center">{{warning|safe}}</span>
+        <span class="ico-cancel float-right" onclick="$('.flash-msg').hide();"></span>
+        </div>
+    {% endif %}
+    {% endif %}
+    {% endif %}
+	<nav class="app-header__nav--secondary">
+        {% if page != 'login' %}
+        {% if not session.get('username') == 'admin' %}
+        {% if not session.get('factor_settings', {}).get('locked', false) %}
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger flash-msg">
+            <span class="ico-error"></span>
+            <span class="mr-3">{{message}}</span>
+            <span class="ico-cancel float-right" onclick="$('.flash-msg').hide();"></span>
+        </div>
+        {% endfor %}
+        <button class="btn btn-secondary lock-inputs" onclick="location.href='/index-builder/lock-factor-settings';">
+          {{ "Lock Selections" }}
+        </button>
+        {% else %}
+        <button class="btn btn-secondary lock-inputs" disabled>Selections Locked</button>
+        {% endif %}
+        {% endif %}
+        <ul class="logout">
+            <li>
+                <div class="dropdown">
+                    <a href="#" class="dropbtn nav-link dropdown-toggle">
+                        <span class="username">Welcome, {{session['username']}}</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        {% endif %}
+	</nav>
+</header>
+{% block content %}{% endblock %}
+{% endblock %}

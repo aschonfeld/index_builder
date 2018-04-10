@@ -1,0 +1,71 @@
+.SummaryViewer .row {
+  margin-top: 5px;
+}
+
+@media (max-width: 1024px) {
+  .SummaryViewer .row {
+    margin-top: 20px;
+  }
+}
+
+.SummaryViewer .row + .row {
+  margin-top: 5px;
+}
+
+.SummaryViewer .row + .row + .row {
+  margin-top: 10px;
+}
+
+.SummaryViewer .row.factors-header {
+  margin-top: 0;
+}
+
+.SummaryViewer .row.reasons-header {
+  margin-top: 30px;
+}
+
+.SummaryViewer .list-group-item {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.SummaryViewer .BarraSections .list-group-item {
+  padding: 2px 4px;
+  font-size: 12px;
+}
+
+.SummaryViewer .chart-wrapper {
+  margin-top: 0;
+  height: 55em;
+}
+
+.SummaryViewer .btn-group {
+  padding-bottom: 5px;
+}
+
+.SummaryViewer div.btn-group .active {
+  cursor: default;
+}
+
+.SummaryViewer div.btn-group .inactive {
+  color: #337ab7;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.SummaryViewer .factor-types button {
+  font-size: 12px;
+  padding: 4px 5px;
+  border: 1px solid lightgrey;
+}
+
+.SummaryViewer .factor-selections-grid .col0 {
+  width: 25%;
+}
+.SummaryViewer .factor-selections-grid .col1,
+.SummaryViewer .factor-selections-grid .col2 {
+  width: 10%;
+}
+.SummaryViewer .factor-selections-grid .col3 {
+  width: 50%;
+}

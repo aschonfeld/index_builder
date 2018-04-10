@@ -1,0 +1,16 @@
+{% extends "index_builder/nav.html" %}
+
+{% block title %}Summary{% endblock %}
+
+{% block content %}
+<input type="hidden" id="username" value="{{session['username']}}" />
+<input type="hidden" id="summary_viewable" value="{{app_settings['summary_viewable']}}" />
+<div class="container-fluid">
+    <div id="content">
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='dist/summary_viewer_bundle.js') }}"></script>
+{% endblock %}

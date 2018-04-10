@@ -1,0 +1,6 @@
+require("es6-object-assign").polyfill();
+require("es6-promise").polyfill();
+
+require("string.prototype.startswith");
+
+require("jquery");

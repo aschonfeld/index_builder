@@ -1,0 +1,121 @@
+{% extends "index_builder/nav.html" %}
+
+{% block title %}Debug{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/debug.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid debug">
+    <p>Process uptime: {{process_uptime}}
+    </p>
+
+    <p>System uptime: {{system_uptime}}
+    </p>
+
+    <h2>Last Commit</h2>
+
+    <pre>{{commit_message|safe}}</pre>
+
+    <h2>WSGI Settings</h2>
+
+    <table class="table table-bordered table-striped scrollable">
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for variable, value in wsgi_settings.items()|sort %}
+            <tr>
+                <td>{{variable}}</td>
+                <td>{{value}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Environment</h2>
+
+    <table class="table table-bordered table-striped scrollable">
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for variable, value in environ.items()|sort %}
+            <tr>
+                <td>{{variable}}</td>
+                <td>{{value.decode('utf-8')}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="margin-bottom: 10px"><h2 style="display: inline">Caches</h2> (<a href="javascript:void(0)" onclick="clearCache();">Clear All</a>)</div>
+
+    {% for cache_name, cache_info in caches.items() %}
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th colspan="4">
+                        <div style="float: left">{{cache_name}} (SIZE: {{cache_info['total_size']}}, ITEMS: {{cache_info['total_items']}}, LOCATION: {{cache_info.get('location', 'IN-MEMORY')}})</div>
+                        <div style="float: right"><a href="javascript:void(0)" onclick="clearCache('{{cache_name}}');">Clear</a></div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Key</th>
+                    <th>Expiration</th>
+                    <th>Saved</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cache_info['items'] %}
+                <tr>
+                    <td>{{item['key']}}</td>
+                    <td>{{item['expiration']}}</td>
+                    <td>{{item['saved']}}</td>
+                    <td>{{item['size']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+
+    <img src="{{ url_for('static', filename='images/haters-gonna-hate.gif') }}" width="480" height="320" alt="haters gonna hate"/>
+    
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+  $("table.scrollable").on("scroll", function () {
+    $("table.scrollable > *").width($("table.scrollable").width() + $("table.scrollable").scrollLeft());
+  });
+  function refreshPage() {
+    var page_y = $(document).scrollTop();
+    return function() {
+      window.location = 'debug?page_y=' + page_y;
+    };
+  }
+  window.onload = function() {
+    $.ajaxSetup({cache: false});
+    var page_y = {{ request.args.get('page_y')|tojson|safe }};
+    if (page_y) {
+      $('html, body').scrollTop(page_y);
+    }
+  }
+  function clearCache(cache){
+    if(cache){
+      $.get('/index_builder/clear-cache', {cache}, refreshPage());
+    }else{
+      $.get('/index_builder/force-refresh', {}, refreshPage());
+    }
+  }
+</script>
+{% endblock %}

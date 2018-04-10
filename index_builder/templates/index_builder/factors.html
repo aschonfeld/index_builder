@@ -1,0 +1,14 @@
+{% extends "index_builder/nav.html" %}
+
+{% block title %}Factors{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div id="content">
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{{ url_for('static', filename='dist/factor_viewer_bundle.js') }}"></script>
+{% endblock %}
