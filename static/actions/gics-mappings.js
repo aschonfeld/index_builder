@@ -2,7 +2,7 @@ import _ from "lodash";
 
 import { fetchJson } from "../fetcher";
 
-const GICS_MAPPINGS_URL = "/index_builder/gics-mappings";
+const GICS_MAPPINGS_URL = "/index-builder/gics-mappings";
 
 function loadGicsMappings(dispatch) {
   fetchJson(GICS_MAPPINGS_URL, data => {

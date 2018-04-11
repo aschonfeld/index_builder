@@ -3,8 +3,8 @@ import _ from "lodash";
 
 import { fetchJson } from "../fetcher";
 
-const FACTOR_LOAD_URL = "/index_builder/load-factor-settings";
-const FACTOR_SAVE_URL = "/index_builder/save-factor-settings?";
+const FACTOR_LOAD_URL = "/index-builder/load-factor-settings";
+const FACTOR_SAVE_URL = "/index-builder/save-factor-settings?";
 
 function loadFactorSettings(dispatch, postLoad = _.noop) {
   fetchJson(FACTOR_LOAD_URL, factorSettings => {

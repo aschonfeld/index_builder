@@ -19,7 +19,7 @@ import model as model
 
 logger = utils.get_logger()
 
-index_builder = Blueprint('index_builder', __name__, url_prefix='/index_builder')
+index_builder = Blueprint('index_builder', __name__, url_prefix='/index-builder')
 
 MONGOOSE_CONNECTIONS = {}
 
@@ -184,6 +184,7 @@ def find_factor_options():
 def find_factor_data():
     factor_id = utils.get_str_arg(request, 'factor')
     factor_data = get_factors().get(factor_id, {})
+    print factor_data
     return jsonify(factor_data)
 
 

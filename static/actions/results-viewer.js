@@ -5,9 +5,9 @@ import _ from "lodash";
 import { fetchJson } from "../fetcher";
 import { loadGicsMappings } from "./gics-mappings";
 
-const RESULTS_URL = "/index_builder/results-stats";
-const SAMPLE_INDEXES_URL = "/index_builder/sample-indexes";
-const USER_RESULTS_URL = "/index_builder/user-results?";
+const RESULTS_URL = "/index-builder/results-stats";
+const SAMPLE_INDEXES_URL = "/index-builder/sample-indexes";
+const USER_RESULTS_URL = "/index-builder/user-results?";
 
 function toggleUserResults(user) {
   return function(dispatch) {

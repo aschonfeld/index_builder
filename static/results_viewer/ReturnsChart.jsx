@@ -198,7 +198,7 @@ class ReactReturnsChart extends React.Component {
       case "cumulative": {
         const params = qs.stringify({ user: selectedUser, samples: _.join(selectedSamples, ",") });
         toggleBouncer();
-        fetchJsonPromise(`/index_builder/cumulative-returns?${params}`)
+        fetchJsonPromise(`/index-builder/cumulative-returns?${params}`)
           .then(data => {
             toggleBouncer();
             const colors = _.map(_.keys(data), k => (k === selectedUser ? chartUtils.TS_COLORS[0] : SAMPLE_COLORS[k]));

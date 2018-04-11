@@ -1,6 +1,6 @@
 import { fetchJson } from "../fetcher";
 
-const SUMMARY_URL = "/index_builder/summary-data";
+const SUMMARY_URL = "/index-builder/summary-data";
 
 function loadSummary(dispatch) {
   dispatch({ type: "loading-summary" });

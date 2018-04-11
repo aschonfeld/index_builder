@@ -11,7 +11,7 @@ class SummaryViewToggle extends React.Component {
     if (username === "admin") {
       const summaryViewable = document.getElementById("summary_viewable").value === "True";
       const toggleSummaryVisible = action => () => {
-        location.href = `/index_builder/${action}-summary`;
+        location.href = `/index-builder/${action}-summary`;
       };
       return (
         <div className="row">

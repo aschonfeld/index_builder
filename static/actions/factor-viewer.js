@@ -5,8 +5,8 @@ import { fetchJson } from "../fetcher";
 import { loadGicsMappings } from "./gics-mappings";
 import { loadFactorSettings, saveFactorSettings } from "./factor-settings";
 
-const FACTOR_OPTIONS_URL = "/index_builder/factor-options";
-const FACTOR_DATA_URL = "/index_builder/factor-data?";
+const FACTOR_OPTIONS_URL = "/index-builder/factor-options";
+const FACTOR_DATA_URL = "/index-builder/factor-data?";
 
 function loadFactor(dispatch, getState) {
   const { selectedFactor } = getState();

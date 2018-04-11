@@ -8,6 +8,10 @@ from utils import get_logger, dict_merge, fmt_df
 logger = get_logger()
 
 
+def build_percentages(count):
+    return np.random.dirichlet(np.ones(count), size=1)[0]
+
+
 def load_factors(path):
     logger.info('caching factors...')
     factor_ids = range(1,14)
@@ -25,25 +29,20 @@ def load_factors(path):
     sectors = {
         'factor_{}'.format(i): dict_merge({
             str(sector): pct * 10000
-            for sector, pct in zip(range(10, 61, 5), np.random.dirichlet(np.ones(11), size=1))
+            for sector, pct in zip(range(10, 61, 5), build_percentages(11))
         }, dict(Total=10000))
         for i in factor_ids
     }
     
     possible_cols = [3, 5, 6]
     possible_scores = [20, 25, 40, 50, 60, 75, 80]
+
     def build_scores():
         cols = possible_cols[random.randint(0,2)]
         if cols == 3:
-            return {
-                str(score): pct * 100
-                for score, pct in zip([0, 50, 100], np.random.dirichlet(np.ones(3), size=1))
-            }
+            return {str(score): pct for score, pct in zip([0, 50, 100], build_percentages(3))}
         random.shuffle(possible_scores)
-        return {
-            str(score): pct * 100
-            for score, pct in zip([0, 100] + possible_scores[2:cols - 3], np.random.dirichlet(np.ones(cols), size=1))
-        }
+        return {str(score): pct for score, pct in zip([0, 100] + possible_scores[2:cols - 1], build_percentages(cols))}
     
     scores = {'factor_{}'.format(i): build_scores() for i in factor_ids}
     score_defs = {
@@ -51,7 +50,8 @@ def load_factors(path):
         for factor_id, scores in scores.items()
     }
 
-    securities = map(lambda i: 'Company {}'.format(i), range(1,11))    
+    securities = map(lambda i: 'Company {}'.format(i), range(1, 11))
+
     def load_top_bottom():
         random.shuffle(securities)
         return dict(

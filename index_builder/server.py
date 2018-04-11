@@ -73,6 +73,7 @@ compress.init_app(app)
 @app.route('/index_builder')
 @app.route('/index_builder/main')
 def root():
+    print 'here'
     return redirect('/index_builder/factors')
 
 
@@ -124,5 +125,5 @@ def logout():
 startup(app.config['DATA_PATH'])
 
 if __name__ == '__main__':
-    debug = getuser() not in ['root']
+    debug = getuser() not in ['root', 'ni', 'devadm']
     app.run(host=app.config.get('HOST'), port=int(app.config.get('PORT', 9200)), debug=debug)

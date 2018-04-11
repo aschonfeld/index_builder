@@ -4,6 +4,21 @@
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/debug.css') }}" />
+<script type="text/javascript">
+    function refreshPage() {
+    var page_y = $(document).scrollTop();
+    return function() {
+      window.location = 'debug?page_y=' + page_y;
+    };
+  }
+  function clearCache(cache){
+    if(cache){
+      $.get('/index-builder/clear-cache', {cache}, refreshPage());
+    }else{
+      $.get('/index-builder/force-refresh', {}, refreshPage());
+    }
+  }
+</script>
 {% endblock %}
 
 {% block content %}
@@ -97,24 +112,11 @@
   $("table.scrollable").on("scroll", function () {
     $("table.scrollable > *").width($("table.scrollable").width() + $("table.scrollable").scrollLeft());
   });
-  function refreshPage() {
-    var page_y = $(document).scrollTop();
-    return function() {
-      window.location = 'debug?page_y=' + page_y;
-    };
-  }
   window.onload = function() {
     $.ajaxSetup({cache: false});
     var page_y = {{ request.args.get('page_y')|tojson|safe }};
     if (page_y) {
       $('html, body').scrollTop(page_y);
-    }
-  }
-  function clearCache(cache){
-    if(cache){
-      $.get('/index_builder/clear-cache', {cache}, refreshPage());
-    }else{
-      $.get('/index_builder/force-refresh', {}, refreshPage());
     }
   }
 </script>

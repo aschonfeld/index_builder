@@ -65,7 +65,7 @@ class ResultsGrid extends React.Component {
 
   buildAction(name, stats) {
     if (_.get(stats, "unlockable")) {
-      const url = `/index_builder/unlock-factor-settings?user=${name}`;
+      const url = `/index-builder/unlock-factor-settings?user=${name}`;
       return <i className="ico-lock-open" onClick={() => $.get(url, () => location.reload())} />;
     }
     if (_.get(stats, "sample")) {
