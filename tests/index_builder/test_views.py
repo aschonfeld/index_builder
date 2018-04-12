@@ -9,7 +9,7 @@ from index_builder.server import app
 def test_load_results_stats(unittest):
     with mock.patch('flask.session', mock.Mock(return_value=dict(username='test'))):
         with app.test_client() as c:
-            response = c.get('/index_builder/results-stats')
+            response = c.get('/index-builder/results-stats')
             assert response.status_code == 200
             assert response.content_type == 'application/json'
             response_data = json.loads(response.data)
@@ -19,7 +19,7 @@ def test_load_results_stats(unittest):
 @pytest.mark.unit
 def test_load_cumulative_returns(unittest):
     with app.test_client() as c:
-        response = c.get('/index_builder/cumulative-returns', query_string=dict(user='Fur Tailors', samples='sin'))
+        response = c.get('/index-builder/cumulative-returns', query_string=dict(user='Fur Tailors', samples='sin'))
         assert response.status_code == 200
         assert response.content_type == 'application/json'
         response_data = json.loads(response.data)
@@ -29,7 +29,7 @@ def test_load_cumulative_returns(unittest):
 @pytest.mark.unit
 def test_load_user_results(unittest):
     with app.test_client() as c:
-        response = c.get('/index_builder/user-results', query_string=dict(user='ethan'))
+        response = c.get('/index-builder/user-results', query_string=dict(user='ethan'))
         assert response.status_code == 200
         assert response.content_type == 'application/json'
         response_data = json.loads(response.data)

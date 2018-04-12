@@ -70,11 +70,10 @@ compress.init_app(app)
 
 
 @app.route('/')
-@app.route('/index_builder')
-@app.route('/index_builder/main')
+@app.route('/index-builder')
+@app.route('/index-builder/main')
 def root():
-    print 'here'
-    return redirect('/index_builder/factors')
+    return redirect('/index-builder/factors')
 
 
 @app.route('/favicon.ico')

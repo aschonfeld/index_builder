@@ -112,8 +112,8 @@ def load_factors(path):
 def load_indexes(path):
     logger.info('caching indexes...')
     
-    index_ids = map(lambda i: ['index_{}_hi'.format(i), 'index_{}_lo'.format(i)], range(1,14)) + SAMPLE_INDEXES
-    index_ids = [i_id for sub_ids in index_ids for i_id in sub_ids]
+    index_ids = map(lambda i: ['index_{}_hi'.format(i), 'index_{}_lo'.format(i)], range(1,14))
+    index_ids = [i_id for sub_ids in index_ids for i_id in sub_ids] + SAMPLE_INDEXES
     barra_factors = map(lambda i: 'Barra Factor {}'.format(i), range(1,12))
     build_exp = lambda: random.randint(-100, 100) / 100.0
     years = [pd.Timestamp('{}1231'.format(year)) for year in range(2010, 2018)]
@@ -153,14 +153,15 @@ def load_indexes(path):
         len(years) * [{i_id: random.randint(-2500, 2500) / 10000.0 for i_id in index_ids}],
         index=years
     )
+    excess_returns.loc[:, 'index'] = 0
     logger.info('cached {} excess returns'.format(len(excess_returns)))
 
     def build_stats():
         return {
             'annualized': random.randint(0, 100) / 100.0,
-            'compounded_return': random.randint(0, 20000) / 1000.0,
+            'compounded return': random.randint(0, 20000) / 1000.0,
             'excess over index (annualized)': random.randint(0, 1100) / 10000.0,
-            'tracking_error': random.randint(1000, 2100) / 1000.0,
+            'tracking error': random.randint(1000, 2100) / 1000.0,
             'volatility': random.randint(0, 1600) / 1000.0,
             'ir': random.randint(-150, 150) / 100.0
         }
@@ -175,12 +176,12 @@ def load_indexes(path):
         stats=stats
     )
 
-SAMPLE_INDEXES = map(lambda i: 'sample_index_{}'.format(i), range(1,5))
+SAMPLE_INDEXES = map(lambda i: 'sample_index_{}'.format(i), range(1,5)) + ['index']
 
 
 def build_index_id(factors, args):
     factor_id, settings = args
-    return '{} {}'.format(factors[factor_id].get('index_name'), settings['strength']).lower()
+    return '{}_{}'.format(factors[factor_id].get('index_name'), settings['strength']).lower()
 
 
 def load_returns(factors, returns, factor_settings):

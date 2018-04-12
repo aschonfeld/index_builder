@@ -36,15 +36,10 @@ const STATS_LABELS = [
   ["ir", "IR", formatters.formatFloat],
 ];
 
-const SAMPLE_INDEXES = [
-  "carbon250",
-  "carbonintensity250",
-  "index",
-  "sin",
-  "sharia",
-  "shareholder_friend hi",
-  "shareholder_friend lo",
-];
+const SAMPLE_INDEXES = _.concat(
+  _.map(_.range(1,6), i => `sample_index_${i}`),
+  [ "index" ],
+);
 
 const SAMPLE_COLORS = _.reduce(
   SAMPLE_INDEXES,

@@ -28,13 +28,12 @@ def requires_auth(f):
 
     @wraps(f)
     def decorated(*args, **kwargs):
-        if app.config.get('AUTH'):
-            if not session.get('logged_in'):
-                session['next'] = request.url
-                return redirect(url_for('login'))
-            elif not session.get('username'):
-                session['next'] = request.url
-                return redirect(url_for('login'))
+        if not session.get('logged_in'):
+            session['next'] = request.url
+            return redirect(url_for('login'))
+        elif not session.get('username'):
+            session['next'] = request.url
+            return redirect(url_for('login'))
         return f(*args, **kwargs)
     return decorated
 
@@ -184,7 +183,6 @@ def find_factor_options():
 def find_factor_data():
     factor_id = utils.get_str_arg(request, 'factor')
     factor_data = get_factors().get(factor_id, {})
-    print factor_data
     return jsonify(factor_data)
 
 
