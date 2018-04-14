@@ -87,7 +87,7 @@ class ResultsGrid extends React.Component {
         sortIcon = <i className={`ico-arrow-drop-${sortDirection === "ASC" ? "down" : "up"}`} />;
       }
       return (
-        <th key={`col-${c}`}>
+        <th key={`col-${c}`} colSpan={c === "name" ? 2 : 1}>
           <div className="form-group">
             <label className="mb-1 pointer" onClick={() => this.handleGridSort(c, newSortDir)}>
               {label} {sortIcon}
@@ -124,16 +124,19 @@ class ResultsGrid extends React.Component {
       <div className="data-table results-grid">
         <table className="table table-bordered table-hover">
           <ReportTitleRow title="Team Performance" />
-          <colgroup>{_.map(COLUMNS_AND_LABELS, (_c, i) => <col key={`col${i}`} className={`col${i}`} />)}</colgroup>
+          <colgroup>
+            <col />
+            {_.map(COLUMNS_AND_LABELS, (_c, i) => <col key={`col${i}`} className={`col${i}`} />)}
+          </colgroup>
           <thead className="thead-default">
             <tr>{headers}</tr>
           </thead>
           <tbody>
             {_.map(this.sortData(records), (record, i) => (
               <tr key={`row-${i}`} className={record.rowClass}>
-                <td className={`col${i}`}>
-                  {this.buildAction(record.name, record)}
-                  <span onClick={record.onClick}>{record.name}</span>
+                <td>{this.buildAction(record.name, record)}</td>
+                <td className={`col${i}`} onClick={record.onClick}>
+                  {record.name}
                 </td>
                 {_.map(STATS_LABELS, ([col, _label, fmt]) => (
                   <td key={`stat-${i}-${col}`} onClick={record.onClick}>

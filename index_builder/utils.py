@@ -513,6 +513,27 @@ def get_all_user_factor_settings(locked=True):
             yield user, factor_settings
 
 
+def get_all_user_factor_settings(locked=True, include_last_update=False):
+    for fname in os.listdir(USERS_PATH):
+        user, _ = os.path.splitext(fname)
+        factor_settings = get_factor_settings(user)
+        if not locked or factor_settings['locked']:
+            if include_last_update:
+                last_update = time.ctime(os.path.getmtime(os.path.join(USERS_PATH, fname)))
+                yield user, factor_settings, last_update
+            else:
+                yield user, factor_settings
+
+
+def archive_all_user_factor_settings():
+    try:
+        current_timestamp = pd.Timestamp('now').strftime('%Y%m%d%H%M%S')
+        os.rename(USERS_PATH, USERS_PATH.replace('users', 'users_{}'.format(current_timestamp)))
+        mkdir_p(USERS_PATH)
+    except Exception as ex:
+        logger.error(ex)
+
+
 def get_user_counts():
     user_counts = dict(locked=0, unlocked=0)
     for _, factor_settings in get_all_user_factor_settings(locked=False):

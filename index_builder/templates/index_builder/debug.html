@@ -18,6 +18,9 @@
       $.get('/index-builder/force-refresh', {}, refreshPage());
     }
   }
+  function archiveUsers(){
+    $.get('/esg/archive-user-settings', {}, refreshPage());
+  }
 </script>
 {% endblock %}
 
@@ -66,6 +69,34 @@
             <tr>
                 <td>{{variable}}</td>
                 <td>{{value.decode('utf-8')}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+     <div style="margin-bottom: 10px">
+        <h2 style="display: inline">Teams</h2>
+        {% if session.get('username') == 'admin' %}
+          (<a href="javascript:void(0)" onclick="archiveUsers();">Archive Data</a>)
+        {% endif %}
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Factors</th>
+                <th>Is Locked?</th>
+                <th>Last Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name, factor_settings, last_update in users %}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{ factor_settings['factors'].keys()|join(", ") }}</td>
+                <td>{{ 'Y' if factor_settings.get('locked') else 'N'}}</td>
+                <td>{{last_update}}</td>
             </tr>
             {% endfor %}
         </tbody>

@@ -150,6 +150,7 @@ def display_debug():
         wsgi_settings=dict(request.environ),
         page='debug',
         caches=caches,
+        users=list(utils.get_all_user_factor_settings(locked=False, include_last_update=True))
     )
 
 
@@ -249,6 +250,16 @@ def lock_summary():
     try:
         utils.dump_app_settings(utils.dict_merge(utils.get_app_settings(), dict(summary_viewable=False)))
         return redirect('/index-builder/summary')
+    except Exception as ex:
+        logger.info(ex)
+        return jsonify(dict(error=str(ex), traceback=str(traceback.format_exc())))
+
+
+@index_builder.route('/archive-user-settings')
+def archive_user_settings():
+    try:
+        utils.archive_all_user_factor_settings()
+        return jsonify(dict(success=True))
     except Exception as ex:
         logger.info(ex)
         return jsonify(dict(error=str(ex), traceback=str(traceback.format_exc())))
