@@ -175,9 +175,10 @@ def get_indexes():
 @index_builder.route('/factor-options')
 def find_factor_options():
     factor_data = get_factors()
-    return jsonify(
-        sorted([dict(id=k, label=v['label'], description=v['description']) for k, v in factor_data.items()], key=itemgetter('id'))
-    )
+    return jsonify(sorted(
+        [dict(id=k, label=v['label'], description=v['description']) for k, v in factor_data.items()],
+        key=lambda f: int(f['id'].split('_')[-1])
+    ))
 
 
 @index_builder.route('/factor-data')

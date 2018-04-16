@@ -14,7 +14,7 @@ def build_percentages(count):
 
 def load_factors(path):
     logger.info('caching factors...')
-    factor_ids = range(1,14)
+    factor_ids = range(1, 14)
     build_factor = lambda i: {
         'id': 'factor_{}'.format(i),
         'label': 'Factor {}'.format(i),
@@ -44,10 +44,10 @@ def load_factors(path):
         random.shuffle(possible_scores)
         return {str(score): pct for score, pct in zip([0, 100] + possible_scores[2:cols - 1], build_percentages(cols))}
     
-    scores = {'factor_{}'.format(i): build_scores() for i in factor_ids}
-    score_defs = {
+    factor_scores = {'factor_{}'.format(i): build_scores() for i in factor_ids}
+    factor_score_defs = {
         factor_id: {score: 'Rating of {}'.format(score) for score in scores}
-        for factor_id, scores in scores.items()
+        for factor_id, scores in factor_scores.items()
     }
 
     securities = map(lambda i: 'Company {}'.format(i), range(1, 11))
@@ -63,14 +63,15 @@ def load_factors(path):
         build_mean = lambda: random.randint(-100, 100) / 100.0
         build_std = lambda: random.randint(-500, 500) / 10000.0
         build_ir = lambda: random.randint(-2500, 2500) / 10000.0
-        return {
-            score: {
+        return [
+            {
+                'name': score,
                 'sa_Mean': build_mean(), 'total_Mean': build_mean(),
                 'sa_STD': build_std(), 'total_STD': build_std(),
                 'sa_IR': build_ir(), 'total_IR': build_ir(),
             }
-            for score in factor_scores
-        }
+            for score in sorted(map(int, factor_scores.keys()))
+        ]
 
     def load_returns(factor_scores):
         build_ret = lambda: random.randint(-1000, 1000) / 1000.0
@@ -97,10 +98,10 @@ def load_factors(path):
     def get_factor_data(factor_id):
         return dict_merge(dict(
             sectors=sectors.get(factor_id, {}),
-            scores=scores.get(factor_id, {}),
-            score_defs=score_defs.get(factor_id, {}),
-            ret_summary=load_ret_summary(scores.get(factor_id, {})),
-            returns=load_returns(scores.get(factor_id, {}))
+            scores=factor_scores.get(factor_id, {}),
+            score_defs=factor_score_defs.get(factor_id, {}),
+            ret_summary=load_ret_summary(factor_scores.get(factor_id, {})),
+            returns=load_returns(factor_scores.get(factor_id, {}))
         ), load_top_bottom())
 
     factors = {k: dict_merge(v, get_factor_data(k)) for k, v in factors.items()}
@@ -133,7 +134,7 @@ def load_indexes(path):
     logger.info('cached {} sectors exposures'.format(len(sectors)))
 
     dates = pd.bdate_range('20100101','20171231')
-    daily_returns = len(dates) * [{i_id: random.randint(-2500, 2500) / 10000.0 for i_id in index_ids}]
+    daily_returns = map(lambda _: {i_id: random.randint(-2500, 2500) / 10000.0 for i_id in index_ids}, range(len(dates)))
     cum_returns = [{i_id: 1 for i_id in index_ids}]
     for i, dr in enumerate(daily_returns[:-1]):
         cum_returns.append({i_id: dr[i_id] + cum_returns[i][i_id] for i_id in index_ids})
@@ -144,13 +145,13 @@ def load_indexes(path):
     logger.info('cached {} cumulative returns'.format(len(cum_returns)))
 
     annualized_returns = pd.DataFrame(
-        len(years) * [{i_id: random.randint(-1000, 1000) / 1000.0 for i_id in index_ids}],
+        map(lambda _: {i_id: random.randint(-1000, 1000) / 1000.0 for i_id in index_ids}, range(len(years))),
         index=years
     )
     logger.info('cached {} annualized returns'.format(len(annualized_returns)))
 
     excess_returns = pd.DataFrame(
-        len(years) * [{i_id: random.randint(-2500, 2500) / 10000.0 for i_id in index_ids}],
+        map(lambda _: {i_id: random.randint(-2500, 2500) / 10000.0 for i_id in index_ids}, range(len(years))),
         index=years
     )
     excess_returns.loc[:, 'index'] = 0

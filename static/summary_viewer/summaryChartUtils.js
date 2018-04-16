@@ -62,12 +62,13 @@ function buildChart(ctxId, data, xTitle, additionalOptions = {}) {
 }
 
 function buildReasonAvgChart(summaryData, onClick) {
+  const sortedKeys = _.sortBy(_.keys(summaryData), k => _.parseInt(_.last(_.split(k, "_"))));
   const data = {
-    ids: _.keys(summaryData),
-    labels: _.map(_.values(summaryData), sd => chartUtils.axisLabelChunker(sd.label)),
+    ids: sortedKeys,
+    labels: _.map(sortedKeys, factor => chartUtils.axisLabelChunker(summaryData[factor].label)),
     datasets: _.map(REASON_LABELS.HI, (reasonCfg, i) => ({
       label: reasonCfg.label,
-      data: _.map(summaryData, sd => _.get(sd, ["reason_avg", "HI", reasonCfg.key], 0)),
+      data: _.map(sortedKeys, factor => _.get(summaryData, [factor, "reason_avg", "HI", reasonCfg.key], 0)),
       backgroundColor: chartUtils.TS_COLORS[i],
       borderColor: chartUtils.TS_COLORS[i],
       borderWidth: 1,
@@ -110,14 +111,15 @@ function buildFactorChart(summaryData, summaryVal = "avg", onClick) {
   if (summaryVal === "reason_avg") {
     return buildReasonAvgChart(summaryData, onClick);
   }
+  const sortedKeys = _.sortBy(_.keys(summaryData), k => _.parseInt(_.last(_.split(k, "_"))));
   const data = {
-    ids: _.keys(summaryData),
-    labels: _.map(_.values(summaryData), sd => chartUtils.axisLabelChunker(sd.label)),
+    ids: sortedKeys,
+    labels: _.map(sortedKeys, k => chartUtils.axisLabelChunker(summaryData[k].label)),
     datasets: _.map(_.keys(STRENGTH_LABELS), (key, i) => {
       const datasetColor = _.times(_.size(summaryData), _.constant(chartUtils.TS_COLORS[i]));
       return {
         label: STRENGTH_LABELS[key],
-        data: _.map(summaryData, `${summaryVal}.${key}`),
+        data: _.map(sortedKeys, factor => _.get(summaryData, [factor, summaryVal, key])),
         backgroundColor: datasetColor,
         borderColor: datasetColor,
         borderWidth: 1,

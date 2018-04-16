@@ -95,12 +95,15 @@ class ReactResultsViewer extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {_.map(userResults.settings, (v, k) => (
-              <tr key={`row-${k}`}>
-                <td>{v.label}</td>
-                {_.map(SELECTIONS_COLS, ({ col, fmt }) => <td key={`stat-${k}-${col}`}>{fmt(v)}</td>)}
-              </tr>
-            ))}
+            {_.map(_.sortBy(_.keys(userResults.settings), k => _.parseInt(_.last(_.split(k, "_")))), k => {
+              const userFactor = userResults.settings[k];
+              return (
+                <tr key={`row-${k}`}>
+                  <td>{userFactor.label}</td>
+                  {_.map(SELECTIONS_COLS, ({ col, fmt }) => <td key={`stat-${k}-${col}`}>{fmt(userFactor)}</td>)}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>,

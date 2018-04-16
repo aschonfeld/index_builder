@@ -80,16 +80,16 @@ class ReactBarraExposures extends React.Component {
   renderFactors() {
     const { userResults } = this.props;
     const { barra } = userResults;
-    const barraOptions = _.map(barra, (_data, key) => {
+    const barraOptions = _.map(_.sortBy(_.keys(barra), k => _.parseInt(_.last(_.split(k, " ")))), factor => {
       const props = {
-        styleClass: `list-group-item list-group-item-action ${this.state.selectedFactor === key ? "active" : ""}`,
-        key: key,
-        onClick: () => this.toggleBarraFactor(key),
+        styleClass: `list-group-item list-group-item-action ${this.state.selectedFactor === factor ? "active" : ""}`,
+        key: factor,
+        onClick: () => this.toggleBarraFactor(factor),
       };
       return (
         <JSAnchor {...props}>
           <div>
-            <span>{key}</span>
+            <span>{factor}</span>
           </div>
         </JSAnchor>
       );

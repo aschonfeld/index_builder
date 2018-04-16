@@ -32,7 +32,7 @@ function formatByPercent(value, output = formatFloat) {
 }
 
 function formatPercent(formatter = formatByPercent) {
-  return value => `${formatter(value)}%`;
+  return value => (value == "N/A" ? value : `${formatter(value)}%`);
 }
 
 export default {

@@ -29,9 +29,7 @@ function showBest(prop, record, bests) {
   return null;
 }
 
-const COLUMNS_AND_LABELS = _.concat([["name", "User"]], STATS_LABELS, [
-  ["rating", "Rating"],
-]);
+const COLUMNS_AND_LABELS = _.concat([["name", "User"]], STATS_LABELS, [["rating", "Rating"]]);
 
 class ResultsGrid extends React.Component {
   constructor(props) {
