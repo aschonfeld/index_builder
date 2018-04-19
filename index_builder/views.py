@@ -230,7 +230,7 @@ def unlock_factor_settings():
         factor_settings = utils.get_factor_settings(user)
         factor_settings['locked'] = False
         utils.dump_factor_settings(user, factor_settings)
-        return jsonify(dict(success=True))
+        return jsonify(utils.dict_merge(utils.get_user_counts(), dict(success=True)))
     except Exception as ex:
         logger.info(ex)
         return jsonify(dict(error=str(ex), traceback=str(traceback.format_exc())))

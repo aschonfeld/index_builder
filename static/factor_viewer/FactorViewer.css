@@ -11,9 +11,14 @@
 }
 
 .FactorViewer .list-group-item,
-.FactorViewer .alert-primary {
+.FactorViewer .remaining-weight {
   padding: 5px 10px;
   font-size: 13px;
+}
+
+.FactorViewer .alert-success.remaining-weight {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
 }
 
 .FactorViewer .btn-group {

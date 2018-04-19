@@ -7,7 +7,7 @@ import { Bouncer } from "../Bouncer";
 import { RemovableError } from "../RemovableError";
 import ReportTitleRow from "../ReportTitleRow";
 import chartUtils from "../chartUtils";
-import { buildIdxColors, buildSectorColors } from "../colors";
+import { buildScoreColors, buildSectorColors } from "../colors";
 import formatters from "../valueFormatters";
 import { FactorInputs } from "./FactorInputs";
 import { ReturnSummary } from "./ReturnSummary";
@@ -26,7 +26,7 @@ function buildScoreChart(factorData) {
     const scoreDefs = factorData.score_defs;
     const scoreIds = _.map(_.without(_.keys(scores), "# Cols", "Total"), _.parseInt);
     const scoreTotal = _.get(scores, "Total", 1);
-    const scoreColors = buildIdxColors(scoreIds);
+    const scoreColors = buildScoreColors(scoreIds);
     chartUtils.buildLegend("scoreLegend", scoreIds, scoreDefs, scoreColors);
     const chartData = {
       labels: scoreIds,

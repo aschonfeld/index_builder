@@ -4,13 +4,13 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { Bouncer } from "../Bouncer";
-import { buildIdxColors } from "../colors";
+import { buildScoreColors } from "../colors";
 import { FACTOR_RET_LABELS as RET_LABELS } from "../constants";
 import tsChartUtils from "../tsChartUtils";
 
 function buildTsChart(factorData, selectedReturns) {
   const data = _.get(factorData, ["returns", selectedReturns], {});
-  const colors = buildIdxColors(_.keys(data));
+  const colors = buildScoreColors(_.keys(data));
   return tsChartUtils.buildTsChart("timeseries", data, {}, "", colors, "month");
 }
 

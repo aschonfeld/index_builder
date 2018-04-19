@@ -3,7 +3,7 @@ import numpy as np
 import random
 import os
 
-from utils import get_logger, dict_merge, fmt_df
+from utils import get_logger, dict_merge
 
 logger = get_logger()
 

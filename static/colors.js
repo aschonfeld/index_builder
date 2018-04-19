@@ -142,9 +142,10 @@ const COLORS = [
   ["white", "#FFFFFF"],
 ];
 
-function buildIdxColors(ids) {
-  const colorFactor = Math.floor(COLORS.length / ids.length); // 11 sectors exist (10,15,20...,60)
-  return _.map(ids, (_, idx) => COLORS[colorFactor * idx][1]);
+const SCORES = [0, 20, 25, 40, 50, 60, 75, 80, 100];
+function buildScoreColors(scores) {
+  const colorFactor = Math.floor(COLORS.length / SCORES.length); // 11 sectors exist (10,15,20...,60)
+  return _.map(scores, score => COLORS[colorFactor * _.indexOf(SCORES, _.parseInt(score))][1]);
 }
 
 function buildSectorColors(sectorIds) {
@@ -152,4 +153,4 @@ function buildSectorColors(sectorIds) {
   return _.map(sectorIds, s => COLORS[colorFactor * ((s - 5) / 5)][1]);
 }
 
-export { COLORS, buildIdxColors, buildSectorColors };
+export { COLORS, buildScoreColors, buildSectorColors };

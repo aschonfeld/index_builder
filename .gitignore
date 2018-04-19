@@ -10,7 +10,7 @@ results.tap
 
 build/
 dist/
-index_builder/data/users/
+index_builder/data/users*/
 index_builder/data/app_settings.yaml
 node_modules/
 npm-debug.log

@@ -10478,12 +10478,9 @@ pre {
   margin-top: 0.5em;
 }
 
-.index-builder-alert.alert span.message {
-  padding-left: 5px;
-}
-
 .index-builder-alert.alert span {
   padding-left: 5px;
+  padding-right: 5px;
 }
 
 .index-builder-alert.alert div.traceback {

@@ -23,19 +23,6 @@ class ReactFactorViewer extends React.Component {
   renderFactorOptions() {
     const { factors, selectedFactor, factorSettings } = this.props;
     const remainingWeight = 100 - _.sum(_.map(_.get(factorSettings, "factors", {}), "weight"));
-    let remainingWeightMarkup = null;
-    if (remainingWeight) {
-      remainingWeightMarkup = (
-        <div className="row">
-          <div className="col-md-12">
-            <div className="alert alert-primary">
-              {"% Remaining to Allocate:"}
-              <strong className="pl-3">{remainingWeight}</strong>
-            </div>
-          </div>
-        </div>
-      );
-    }
     const indexOptions = _.map(factors, (index, idx) => {
       const selected = selectedFactor === index.id;
       const props = {
@@ -59,7 +46,14 @@ class ReactFactorViewer extends React.Component {
     if (indexOptions.length) {
       return (
         <div>
-          {remainingWeightMarkup}
+          <div className="row">
+            <div className="col-md-12">
+              <div className={`alert ${remainingWeight ? "alert-primary" : "alert-success"} remaining-weight`}>
+                {"% Remaining to Allocate:"}
+                <strong className="pl-3">{remainingWeight}</strong>
+              </div>
+            </div>
+          </div>
           <div className="row">
             <div className="col-md-12">
               <ul className="list-group Sections">{indexOptions}</ul>

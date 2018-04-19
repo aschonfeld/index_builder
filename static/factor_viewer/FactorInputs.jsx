@@ -1,3 +1,4 @@
+import $ from "jquery";
 import _ from "lodash";
 import PropTypes from "prop-types";
 import React from "react";
@@ -8,7 +9,7 @@ import { STRENGTH_LABELS } from "../constants";
 import { ReasonsSelect } from "./ReasonsSelect";
 
 const BASE_STATE = {
-  weight: null,
+  weight: "0",
   strength: "HI",
   reasons: [],
 };
@@ -56,6 +57,11 @@ class ReactFactorInputs extends React.Component {
       return;
     }
     this.props.saveFactorSettings(updatedFactorSettings);
+    $(".save-inputs").html("<i class='ico-done' />");
+    $(".ico-done").fadeOut({
+      duration: 2500,
+      complete: () => $(".save-inputs").html("Save"),
+    });
   }
 
   render() {
@@ -92,7 +98,7 @@ class ReactFactorInputs extends React.Component {
             <input
               type="text"
               className="form-control"
-              value={weight || ""}
+              value={weight}
               onChange={event => this.setState({ weight: event.target.value })}
               disabled={this.props.factorSettings.locked}
             />
