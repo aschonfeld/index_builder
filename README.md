@@ -1,13 +1,13 @@
-# Index Builder
+# Index Builder [![Build Status](https://travis-ci.org/aschonfeld/index_builder.svg?branch=master)](https://travis-ci.org/aschonfeld/index_builder)
 
 This is a nice little interactive survey using completely randomized data in which users can:
-* create unique usernames
-* select factors by giving them a weight, pro/anti direction & supporting reasons
-* lock-in selections in order to see what kind of index your combination of factors have built
-* compare performance of your index against some default indexes as well as other users
-* an admin user can:
-** view interesting breakdowns of all factor selections made by users as well as make these breakdowns available for users to see
-** archive off user selections for further future analysis and to reset the app for another round of users
+- create unique usernames
+- select factors by giving them a weight, pro/anti direction & supporting reasons
+- lock-in selections in order to see what kind of index your combination of factors have built
+- compare performance of your index against some default indexes as well as other users
+- an admin user can:
+  - view interesting breakdowns of all factor selections made by users as well as make these breakdowns available for users to see
+  - archive off user selections for further future analysis and to reset the app for another round of users
 
 ## Getting Started
 
