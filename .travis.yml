@@ -25,7 +25,8 @@ before_install:
   # Useful for debugging any issues with conda
   - conda info -a
 install:
-  - conda install --yes python=$TRAVIS_PYTHON_VERSION --file requirements.txt
+  - conda install --yes python=$TRAVIS_PYTHON_VERSION --file requirements-conda.txt
+  - pip install -r requirements-pip.txt
   - yarn install
 script:
   - python setup.py test
