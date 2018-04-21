@@ -34,3 +34,6 @@ script:
   - npm run format
   - git diff --name-status
   - git diff-files --quiet || (echo 'The files above have not been formatted!' && (exit 1))
+after_success:
+  - pip install python-coveralls
+  - coveralls
