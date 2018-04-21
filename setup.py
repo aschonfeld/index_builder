@@ -1,5 +1,6 @@
 import logging
 import sys
+import re
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
@@ -22,19 +23,14 @@ class PyTest(TestCommand):
             level='DEBUG')
 
         import shlex
-
         # import here because outside the eggs aren't loaded
         import pytest
 
         args = [
             '--cov', 'index_builder',
             '--cov-report', 'xml:index_builder_cov.xml',
-            '--cov-report', 'htmlindex_builder_cov',
+            '--cov-report', 'html:index_builder_cov',
             '--junitxml', 'TEST-index_builder-tests.xml',
-            '-v',
-            # uncomment this in order to capture all logging
-            #'-s',
-            'tests/index_builder',
         ]
 
         pt_args = self.pytest_args

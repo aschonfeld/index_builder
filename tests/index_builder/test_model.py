@@ -9,7 +9,7 @@ def test_load_factors(unittest):
 
     path = os.path.join(__file__, '..', 'index_builder/data')
     factors = load_factors(path)
-    assert len(factors) == 12
+    assert len(factors) == 13
 
 
 @pytest.mark.unit
