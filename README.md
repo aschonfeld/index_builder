@@ -1,4 +1,4 @@
-# Index Builder [![Build Status](https://travis-ci.org/aschonfeld/index_builder.svg?branch=master)](https://travis-ci.org/aschonfeld/index_builder)
+# Index Builder [![Build Status](https://travis-ci.org/aschonfeld/index_builder.svg?branch=master)](https://travis-ci.org/aschonfeld/index_builder) [![Coverage Status](https://coveralls.io/repos/github/aschonfeld/index_builder/badge.svg?branch=master)](https://coveralls.io/github/aschonfeld/index_builder?branch=master)
 
 This is a nice little interactive survey using completely randomized data in which users can:
 - create unique usernames
