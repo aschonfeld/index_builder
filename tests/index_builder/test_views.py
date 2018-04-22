@@ -18,18 +18,18 @@ def test_load_results_stats(unittest):
             response_data = json.loads(response.data)
             assert 'error' not in response_data
 
+TEST_FACTOR_SETTINGS = dict(
+    factors=dict(
+        factor_1=dict(reasons=['futureRet','riskReduce'], strength='HI', weight=10),
+        factor_2=dict(reasons=['ethics'], strength='HI', weight=20),
+        factor_3=dict(reasons=['ethics'], strength='HI', weight=30)
+    ),
+    locked=False
+)
 
 @pytest.mark.unit
 def test_load_cumulative_returns(unittest):
-    factor_settings = dict(
-        factors=dict(
-            factor_1=dict(reasons=['futureRet','riskReduce'], strength='HI', weight=10),
-            factor_2=dict(reasons=['ethics'], strength='HI', weight=20),
-            factor_3=dict(reasons=['ethics'], strength='HI', weight=30)
-        ),
-        locked=False
-    )
-    with mock.patch('index_builder.views.utils.get_factor_settings', mock.Mock(return_value=factor_settings)):
+    with mock.patch('index_builder.views.utils.get_factor_settings', mock.Mock(return_value=TEST_FACTOR_SETTINGS)):
         with app.test_client() as c:
             response = c.get(
                 '/index-builder/cumulative-returns',
@@ -42,31 +42,52 @@ def test_load_cumulative_returns(unittest):
 
 
 @pytest.mark.unit
-def test_load_user_results(unittest):
-    with app.test_client() as c:
-        response = c.get('/index-builder/user-results', query_string=dict(user='ethan'))
-        assert response.status_code == 200
-        assert response.content_type == 'application/json'
-        response_data = json.loads(response.data)
-        assert 'error' not in response_data
+def test_load_results_stats(unittest):
+    with mock.patch(
+            'index_builder.views.utils.get_all_user_factors',
+            mock.Mock(return_value=[('Test User', TEST_FACTOR_SETTINGS['factors'])])
+    ):
+        with app.test_client() as c:
+            response = c.get('/index-builder/results-stats')
+            assert response.status_code == 200
+            assert response.content_type == 'application/json'
+            response_data = json.loads(response.data)
+            assert 'error' not in response_data
 
 
 @pytest.mark.unit
-def test_200():
-    def noauth(f):
-        """Pass through decorator"""
-        @wraps(f)
-        def decorated(*args, **kwargs):
-            return f(*args, **kwargs)
-        return decorated
+def test_load_user_results(unittest):
+    with mock.patch('index_builder.views.utils.get_factor_settings', mock.Mock(return_value=TEST_FACTOR_SETTINGS)):
+        with app.test_client() as c:
+            response = c.get('/index-builder/user-results', query_string=dict(user='Test User'))
+            assert response.status_code == 200
+            assert response.content_type == 'application/json'
+            response_data = json.loads(response.data)
+            assert 'error' not in response_data
 
+
+@pytest.mark.unit
+def test_find_summary_data(unittest):
+    with mock.patch(
+            'index_builder.views.utils.get_all_user_factors',
+            mock.Mock(return_value=[('TestUser', TEST_FACTOR_SETTINGS['factors'])])
+    ):
+        with app.test_client() as c:
+            response = c.get('/index-builder/summary-data')
+            assert response.status_code == 200
+            assert response.content_type == 'application/json'
+            response_data = json.loads(response.data)
+            assert 'error' not in response_data
+
+
+@pytest.mark.unit
+def test_200(unittest):
     paths = ['/index-builder/factors', '/index-builder/results', '/index-builder/summary',
              '/index-builder/debug', '/login', '/index']
-    with nested(mock.patch('index_builder.views.auth.requires_auth', noauth), mock.patch('flask.session', {})):
-        with app.test_client() as c:
-            for path in paths:
-                response = c.get(path)
-                assert response.status_code == 200, '{} should return 200 response'.format(path)
+    with app.test_client() as c:
+        for path in paths:
+            response = c.get(path)
+            assert response.status_code == 200, '{} should return 200 response'.format(path)
 
 
 @pytest.mark.unit
