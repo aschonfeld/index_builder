@@ -1,4 +1,4 @@
-from flask import (Blueprint, render_template, request, jsonify, session, redirect, url_for, current_app as app, flash)
+from flask import (Blueprint, render_template, request, jsonify, session, redirect, current_app as app, flash)
 import json
 import os
 import re
@@ -7,35 +7,18 @@ import subprocess
 from pympler.asizeof import asizeof
 from pympler.util import stringutils
 from operator import itemgetter
-from functools import wraps
 import yaml
 from collections import defaultdict
-import numpy as np
 import traceback
 
 import cache
 import utils as utils
 import model as model
+import auth as auth
 
 logger = utils.get_logger()
 
 index_builder = Blueprint('index_builder', __name__, url_prefix='/index-builder')
-
-MONGOOSE_CONNECTIONS = {}
-
-
-def requires_auth(f):
-
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        if not session.get('logged_in'):
-            session['next'] = request.url
-            return redirect(url_for('login'))
-        elif not session.get('username'):
-            session['next'] = request.url
-            return redirect(url_for('login'))
-        return f(*args, **kwargs)
-    return decorated
 
 
 def startup(path):
@@ -131,7 +114,7 @@ def cache_info():
 
 
 @index_builder.route('/debug')
-@requires_auth
+@auth.requires_auth
 def display_debug():
     commit_message = subprocess.check_output('git log -1', shell=True)
 
@@ -414,18 +397,18 @@ def load_page(page_name):
 
 
 @index_builder.route('/factors')
-@requires_auth
+@auth.requires_auth
 def display_factors():
     return load_page('factors')
 
 
 @index_builder.route('/results')
-@requires_auth
+@auth.requires_auth
 def display_results():
     return load_page('results')
 
 
 @index_builder.route('/summary')
-@requires_auth
+@auth.requires_auth
 def display_summary():
     return load_page('summary')

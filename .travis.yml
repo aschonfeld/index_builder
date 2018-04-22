@@ -40,3 +40,4 @@ script:
 after_success:
   - pip install python-coveralls
   - coveralls
+  - npm run report-coverage

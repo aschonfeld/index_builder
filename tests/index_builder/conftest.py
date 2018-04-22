@@ -14,10 +14,10 @@ def noauth(f):
 
 
 # These must be patched before flask is imported by otehr means
-patch('index_builder.views.requires_auth', noauth).start()
+patch('index_builder.auth.requires_auth', noauth).start()
 
 # This sets the flask global session object usually configured in
-# app.NPMDFlask.authenticate. It is patched to allow access outside
+# app.IndexBuilderFlask.authenticate. It is patched to allow access outside
 # of the request context
 patch('flask.session', {}).start()
 
