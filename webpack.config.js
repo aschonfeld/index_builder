@@ -6,6 +6,7 @@ const postcssNested = require("postcss-nested");
 
 module.exports = {
   // devtool: "source-map",
+  mode: "development",
   entry: {
     factor_viewer: __dirname + "/static/factor_viewer_main.jsx",
     results_viewer: __dirname + "/static/results_viewer_main.jsx",

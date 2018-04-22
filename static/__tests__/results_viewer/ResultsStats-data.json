@@ -1,0 +1,70 @@
+{
+  "alissa": {
+    "stats": {
+      "annualized": 0.5860000000000001,
+      "compounded return": 15.418600000000001,
+      "excess over index (annualized)": 0.027700000000000002,
+      "ir": 1.0236263998462134,
+      "rating": 15.738,
+      "tracking error": 0.027060654164606898,
+      "unlockable": true,
+      "volatility": 0.014765941226366569
+    }
+  },
+  "aschonfeld": {
+    "stats": {
+      "annualized": 0.649,
+      "compounded return": 14.8489,
+      "excess over index (annualized)": 0.04705,
+      "ir": 1.7460669863575555,
+      "rating": 9.312,
+      "tracking error": 0.026946274322585017,
+      "unlockable": true,
+      "volatility": 0.014783162390203188
+    }
+  },
+  "samples": {
+    "stats": {
+      "index": {
+        "annualized": 0.36,
+        "compounded return": 9.445,
+        "excess over index (annualized)": 0.1004,
+        "ir": -1.42,
+        "tracking error": 1.507,
+        "volatility": 0.195
+      },
+      "sample_index_1": {
+        "annualized": 0.18,
+        "compounded return": 1.871,
+        "excess over index (annualized)": 0.0768,
+        "ir": 1.23,
+        "tracking error": 1.651,
+        "volatility": 0.166
+      },
+      "sample_index_2": {
+        "annualized": 0.7,
+        "compounded return": 5.385,
+        "excess over index (annualized)": 0.0538,
+        "ir": -0.17,
+        "tracking error": 1.866,
+        "volatility": 1.272
+      },
+      "sample_index_3": {
+        "annualized": 0.25,
+        "compounded return": 18.675,
+        "excess over index (annualized)": 0.0367,
+        "ir": 0.06,
+        "tracking error": 1.605,
+        "volatility": 0.045
+      },
+      "sample_index_4": {
+        "annualized": 0.59,
+        "compounded return": 4.083,
+        "excess over index (annualized)": 0.0034,
+        "ir": -0.07,
+        "tracking error": 1.148,
+        "volatility": 0.242
+      }
+    }
+  }
+}

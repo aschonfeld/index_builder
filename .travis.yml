@@ -34,6 +34,8 @@ script:
   - npm run format
   - git diff --name-status
   - git diff-files --quiet || (echo 'The files above have not been formatted!' && (exit 1))
+  - npm run test-with-coverage | coveralls
+  - npm run report-duplicate-code
 after_success:
   - pip install python-coveralls
   - coveralls

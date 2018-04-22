@@ -1,0 +1,5034 @@
+{
+  "barra": {
+    "index": {
+      "Barra Factor 1": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.09
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.25
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.22
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.27
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.42
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.15
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.7
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.38
+        }
+      ],
+      "Barra Factor 10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.42
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.71
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.21
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.24
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.9
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.54
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.12
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.39
+        }
+      ],
+      "Barra Factor 11": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.11
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.71
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.9
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.57
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.31
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.58
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.22
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.33
+        }
+      ],
+      "Barra Factor 2": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.61
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.63
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.18
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.14
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.11
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.86
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.58
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.29
+        }
+      ],
+      "Barra Factor 3": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.86
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.59
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.08
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.02
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.07
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.86
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.86
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.99
+        }
+      ],
+      "Barra Factor 4": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.56
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.13
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.91
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.6
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.68
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.45
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.82
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 1.0
+        }
+      ],
+      "Barra Factor 5": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.5
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.3
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.95
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.95
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.81
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.33
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.61
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.73
+        }
+      ],
+      "Barra Factor 6": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.08
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.32
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.73
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.67
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.32
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.18
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.59
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.76
+        }
+      ],
+      "Barra Factor 7": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.41
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.78
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.15
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.7
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.84
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.0
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.26
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.03
+        }
+      ],
+      "Barra Factor 8": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.77
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.57
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.1
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.62
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.87
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.97
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.45
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.54
+        }
+      ],
+      "Barra Factor 9": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.46
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.21
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.94
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.96
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.21
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.28
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.65
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.5
+        }
+      ]
+    },
+    "sample_index_1": {
+      "Barra Factor 1": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.64
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.95
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.95
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.7
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.43
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.89
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.75
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.77
+        }
+      ],
+      "Barra Factor 10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.93
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.7
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.69
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.2
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.14
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.94
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.2
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.74
+        }
+      ],
+      "Barra Factor 11": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.89
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.53
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.22
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.99
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.36
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.52
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.82
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.79
+        }
+      ],
+      "Barra Factor 2": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.96
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.92
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.0
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.06
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.88
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.87
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.02
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.44
+        }
+      ],
+      "Barra Factor 3": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.52
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.56
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.68
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.74
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.46
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.55
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.04
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.41
+        }
+      ],
+      "Barra Factor 4": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.61
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.24
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.51
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.78
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.66
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.33
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.25
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.47
+        }
+      ],
+      "Barra Factor 5": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.85
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.88
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.58
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.26
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.47
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.25
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.98
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.66
+        }
+      ],
+      "Barra Factor 6": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.7
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.41
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.69
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.21
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.09
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.79
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.81
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.59
+        }
+      ],
+      "Barra Factor 7": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.32
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.95
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.39
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.43
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.51
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.54
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.77
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.12
+        }
+      ],
+      "Barra Factor 8": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.01
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.79
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.15
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.23
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.68
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.81
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.32
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.32
+        }
+      ],
+      "Barra Factor 9": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.61
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.3
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.85
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.58
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.32
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.79
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.51
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.34
+        }
+      ]
+    },
+    "sample_index_2": {
+      "Barra Factor 1": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.8
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.48
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.11
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.59
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.26
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.6
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.68
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.47
+        }
+      ],
+      "Barra Factor 10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.52
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.4
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.49
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.23
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.59
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.66
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.8
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.76
+        }
+      ],
+      "Barra Factor 11": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.54
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.64
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.22
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.06
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.24
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.49
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.74
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.22
+        }
+      ],
+      "Barra Factor 2": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -1.0
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.92
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.28
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.64
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.76
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.91
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.56
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.44
+        }
+      ],
+      "Barra Factor 3": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.0
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.61
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.86
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.4
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.28
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.7
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.69
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.91
+        }
+      ],
+      "Barra Factor 4": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.85
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.3
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.89
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.33
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.49
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.22
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.93
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.66
+        }
+      ],
+      "Barra Factor 5": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.63
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.6
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.58
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.46
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.19
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.74
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.22
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.69
+        }
+      ],
+      "Barra Factor 6": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.11
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.96
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.29
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.15
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.63
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.35
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.13
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.87
+        }
+      ],
+      "Barra Factor 7": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.9
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.51
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.05
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.15
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.5
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.07
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.58
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.32
+        }
+      ],
+      "Barra Factor 8": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.72
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.13
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.9
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.79
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.91
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.17
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.66
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.94
+        }
+      ],
+      "Barra Factor 9": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.21
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.98
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.85
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.5
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.54
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.36
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.58
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.9
+        }
+      ]
+    },
+    "sample_index_3": {
+      "Barra Factor 1": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.45
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.23
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.51
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.57
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.58
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.95
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.73
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.97
+        }
+      ],
+      "Barra Factor 10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.1
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.4
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.88
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.25
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 1.0
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.73
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.76
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.28
+        }
+      ],
+      "Barra Factor 11": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.65
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.19
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.29
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.07
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.38
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.55
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.7
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.88
+        }
+      ],
+      "Barra Factor 2": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.48
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.36
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.19
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.3
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.68
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.4
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.99
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.87
+        }
+      ],
+      "Barra Factor 3": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.05
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.68
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.75
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.66
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.64
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.9
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.94
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.07
+        }
+      ],
+      "Barra Factor 4": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.75
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.4
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.18
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.44
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.61
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.33
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.53
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.95
+        }
+      ],
+      "Barra Factor 5": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.35
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.44
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.25
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.91
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.44
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.49
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.85
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.4
+        }
+      ],
+      "Barra Factor 6": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.01
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.66
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.86
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.78
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.07
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.59
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.91
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.33
+        }
+      ],
+      "Barra Factor 7": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.34
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.04
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.83
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.85
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.94
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.22
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.63
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.74
+        }
+      ],
+      "Barra Factor 8": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.54
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.96
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.82
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.39
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.36
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.36
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.69
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.82
+        }
+      ],
+      "Barra Factor 9": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.56
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.62
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.14
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.49
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.85
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.19
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.32
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.19
+        }
+      ]
+    },
+    "sample_index_4": {
+      "Barra Factor 1": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.63
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.91
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.54
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.63
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.7
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.48
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": -0.04
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 1",
+          "val": 0.53
+        }
+      ],
+      "Barra Factor 10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.7
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.57
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.1
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.81
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.02
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": -0.27
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.3
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 10",
+          "val": 0.11
+        }
+      ],
+      "Barra Factor 11": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.5
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.15
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.77
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.34
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.37
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.74
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": 0.82
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 11",
+          "val": -0.55
+        }
+      ],
+      "Barra Factor 2": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -1.0
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.39
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.03
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.76
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.38
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": -0.74
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 1.0
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 2",
+          "val": 0.29
+        }
+      ],
+      "Barra Factor 3": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.52
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.04
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.75
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.32
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.9
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.92
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": 0.39
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 3",
+          "val": -0.72
+        }
+      ],
+      "Barra Factor 4": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.99
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.67
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.43
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.53
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.97
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.54
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": 0.25
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 4",
+          "val": -0.02
+        }
+      ],
+      "Barra Factor 5": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.14
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.73
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.35
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.97
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.31
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": 0.09
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.76
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 5",
+          "val": -0.71
+        }
+      ],
+      "Barra Factor 6": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.87
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.25
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.47
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": 0.4
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.36
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.7
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.82
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 6",
+          "val": -0.15
+        }
+      ],
+      "Barra Factor 7": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.03
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.96
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.45
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.97
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.06
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": -0.65
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.2
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 7",
+          "val": 0.18
+        }
+      ],
+      "Barra Factor 8": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.51
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.91
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.05
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.76
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.87
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": 0.77
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.54
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 8",
+          "val": -0.83
+        }
+      ],
+      "Barra Factor 9": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.54
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.19
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.88
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.25
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.7
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.35
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": 0.5
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "Barra Factor 9",
+          "val": -0.31
+        }
+      ]
+    }
+  },
+  "returns": {
+    "annualized": {
+      "index": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0.272
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": 0.393
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": -0.209
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": 0.028
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": -0.185
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": 0.784
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": -0.979
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": 0.726
+        }
+      ],
+      "sample_index_1": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0.967
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": 0.32
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": -0.38
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": 0.379
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": -0.95
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": 0.772
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": 0.488
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": -0.678
+        }
+      ],
+      "sample_index_2": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0.08
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": 0.694
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": 0.984
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": 0.408
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": -0.438
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": -0.263
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": 0.623
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": -0.826
+        }
+      ],
+      "sample_index_3": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0.434
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": 0.117
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": -0.684
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": -0.514
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": -0.098
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": 0.153
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": -0.128
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": -0.198
+        }
+      ],
+      "sample_index_4": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0.771
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": 0.784
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": 0.786
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": 0.971
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": -0.73
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": -0.694
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": 0.849
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": -0.33
+        }
+      ]
+    },
+    "excess": {
+      "index": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": 0
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": 0
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": 0
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": 0
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": 0
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": 0
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": 0
+        }
+      ],
+      "sample_index_1": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0.1629
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": 0.2198
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": -0.2488
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": 0.0959
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": -0.0992
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": 0.0049
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": -0.0835
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": -0.1876
+        }
+      ],
+      "sample_index_2": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": -0.0832
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": -0.2371
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": -0.042
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": -0.0608
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": -0.1052
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": -0.118
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": -0.0826
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": 0.0885
+        }
+      ],
+      "sample_index_3": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0.0923
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": -0.0732
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": 0.0253
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": 0.1867
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": 0.1481
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": -0.2392
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": 0.1522
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": -0.2426
+        }
+      ],
+      "sample_index_4": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "val": 0.2432
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "val": -0.2121
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "val": -0.0441
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "val": -0.2472
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "val": -0.2403
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "val": 0.2287
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "val": -0.2419
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "val": 0.1599
+        }
+      ]
+    }
+  },
+  "sectors": {
+    "index": {
+      "10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "10",
+          "val": -0.95
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "10",
+          "val": -0.57
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "10",
+          "val": 0.93
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "10",
+          "val": -0.75
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "10",
+          "val": 0.1
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "10",
+          "val": 0.94
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "10",
+          "val": -0.06
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "10",
+          "val": -0.55
+        }
+      ],
+      "15": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "15",
+          "val": -0.44
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "15",
+          "val": -0.2
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "15",
+          "val": 0.34
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "15",
+          "val": -0.18
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "15",
+          "val": -0.64
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "15",
+          "val": 0.06
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "15",
+          "val": -0.62
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "15",
+          "val": 0.44
+        }
+      ],
+      "20": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "20",
+          "val": 0.68
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "20",
+          "val": 0.07
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "20",
+          "val": -0.38
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "20",
+          "val": -0.62
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "20",
+          "val": -0.23
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "20",
+          "val": -0.96
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "20",
+          "val": -0.67
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "20",
+          "val": 0.48
+        }
+      ],
+      "25": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "25",
+          "val": -0.07
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "25",
+          "val": -0.37
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "25",
+          "val": 0.13
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "25",
+          "val": 0.8
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "25",
+          "val": -0.6
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "25",
+          "val": 0.22
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "25",
+          "val": 0.43
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "25",
+          "val": 0.93
+        }
+      ],
+      "30": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "30",
+          "val": -0.58
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "30",
+          "val": -0.39
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "30",
+          "val": -0.07
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "30",
+          "val": 0.05
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "30",
+          "val": -0.06
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "30",
+          "val": -1.0
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "30",
+          "val": -0.86
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "30",
+          "val": -0.45
+        }
+      ],
+      "35": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "35",
+          "val": -0.04
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "35",
+          "val": -0.91
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "35",
+          "val": -0.68
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "35",
+          "val": -0.8
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "35",
+          "val": -0.94
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "35",
+          "val": -0.49
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "35",
+          "val": 0.5
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "35",
+          "val": -0.78
+        }
+      ],
+      "40": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "40",
+          "val": 0.38
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "40",
+          "val": -0.62
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "40",
+          "val": -0.73
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "40",
+          "val": -0.71
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "40",
+          "val": -0.13
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "40",
+          "val": 0.47
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "40",
+          "val": -0.62
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "40",
+          "val": 0.87
+        }
+      ],
+      "45": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "45",
+          "val": -0.26
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "45",
+          "val": 0.93
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "45",
+          "val": -0.35
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "45",
+          "val": 0.48
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "45",
+          "val": 0.44
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "45",
+          "val": -0.58
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "45",
+          "val": 0.38
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "45",
+          "val": -0.89
+        }
+      ],
+      "50": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "50",
+          "val": -0.09
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "50",
+          "val": 0.74
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "50",
+          "val": -0.59
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "50",
+          "val": 0.15
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "50",
+          "val": 0.51
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "50",
+          "val": -0.58
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "50",
+          "val": 0.68
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "50",
+          "val": -0.57
+        }
+      ],
+      "55": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "55",
+          "val": -0.85
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "55",
+          "val": -0.26
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "55",
+          "val": 0.85
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "55",
+          "val": 0.88
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "55",
+          "val": -0.84
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "55",
+          "val": 0.22
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "55",
+          "val": -0.42
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "55",
+          "val": 0.53
+        }
+      ],
+      "60": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "60",
+          "val": -0.59
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "60",
+          "val": -0.8
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "60",
+          "val": 0.86
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "60",
+          "val": -0.36
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "60",
+          "val": 0.97
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "60",
+          "val": -0.44
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "60",
+          "val": -0.1
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "60",
+          "val": -0.27
+        }
+      ]
+    },
+    "sample_index_1": {
+      "10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "10",
+          "val": -0.88
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "10",
+          "val": 0.62
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "10",
+          "val": 0.14
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "10",
+          "val": -0.47
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "10",
+          "val": 0.36
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "10",
+          "val": 0.39
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "10",
+          "val": 0.2
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "10",
+          "val": 0.36
+        }
+      ],
+      "15": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "15",
+          "val": 0.48
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "15",
+          "val": 0.98
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "15",
+          "val": -0.66
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "15",
+          "val": 0.03
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "15",
+          "val": -0.58
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "15",
+          "val": -0.99
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "15",
+          "val": -0.79
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "15",
+          "val": 0.48
+        }
+      ],
+      "20": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "20",
+          "val": -0.99
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "20",
+          "val": -0.5
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "20",
+          "val": 0.31
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "20",
+          "val": -0.1
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "20",
+          "val": 0.28
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "20",
+          "val": 0.92
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "20",
+          "val": -0.63
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "20",
+          "val": -0.4
+        }
+      ],
+      "25": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "25",
+          "val": 0.87
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "25",
+          "val": 0.79
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "25",
+          "val": -0.97
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "25",
+          "val": 0.76
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "25",
+          "val": -0.86
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "25",
+          "val": 0.21
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "25",
+          "val": -0.38
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "25",
+          "val": -0.34
+        }
+      ],
+      "30": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "30",
+          "val": 0.76
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "30",
+          "val": -0.29
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "30",
+          "val": 0.62
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "30",
+          "val": -0.92
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "30",
+          "val": 0.68
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "30",
+          "val": -0.7
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "30",
+          "val": -0.02
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "30",
+          "val": -0.43
+        }
+      ],
+      "35": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "35",
+          "val": 0.09
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "35",
+          "val": 0.93
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "35",
+          "val": -0.98
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "35",
+          "val": 0.32
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "35",
+          "val": 0.91
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "35",
+          "val": -0.11
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "35",
+          "val": 0.01
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "35",
+          "val": 0.34
+        }
+      ],
+      "40": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "40",
+          "val": 0.66
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "40",
+          "val": -0.69
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "40",
+          "val": 0.05
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "40",
+          "val": -0.8
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "40",
+          "val": -0.54
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "40",
+          "val": -0.13
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "40",
+          "val": -0.06
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "40",
+          "val": -0.22
+        }
+      ],
+      "45": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "45",
+          "val": 0.73
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "45",
+          "val": 0.77
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "45",
+          "val": 0.3
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "45",
+          "val": -0.58
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "45",
+          "val": -0.64
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "45",
+          "val": 0.15
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "45",
+          "val": -0.35
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "45",
+          "val": -0.14
+        }
+      ],
+      "50": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "50",
+          "val": -0.26
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "50",
+          "val": -0.41
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "50",
+          "val": 0.12
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "50",
+          "val": -0.93
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "50",
+          "val": -0.75
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "50",
+          "val": -0.93
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "50",
+          "val": 0.5
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "50",
+          "val": 0.66
+        }
+      ],
+      "55": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "55",
+          "val": -0.68
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "55",
+          "val": -0.63
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "55",
+          "val": -0.07
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "55",
+          "val": -0.05
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "55",
+          "val": -0.32
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "55",
+          "val": 0.45
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "55",
+          "val": -0.52
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "55",
+          "val": 0.23
+        }
+      ],
+      "60": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "60",
+          "val": 0.19
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "60",
+          "val": -0.12
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "60",
+          "val": -0.77
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "60",
+          "val": -0.85
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "60",
+          "val": -0.89
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "60",
+          "val": 0.4
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "60",
+          "val": 0.44
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "60",
+          "val": -0.24
+        }
+      ]
+    },
+    "sample_index_2": {
+      "10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "10",
+          "val": -0.26
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "10",
+          "val": 0.64
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "10",
+          "val": 0.07
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "10",
+          "val": -0.38
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "10",
+          "val": -0.47
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "10",
+          "val": 0.95
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "10",
+          "val": -0.54
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "10",
+          "val": -0.91
+        }
+      ],
+      "15": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "15",
+          "val": 0.65
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "15",
+          "val": 0.6
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "15",
+          "val": -0.68
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "15",
+          "val": 0.39
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "15",
+          "val": -0.9
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "15",
+          "val": -0.7
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "15",
+          "val": -0.97
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "15",
+          "val": 0.31
+        }
+      ],
+      "20": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "20",
+          "val": 0.06
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "20",
+          "val": 0.45
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "20",
+          "val": -0.15
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "20",
+          "val": -0.15
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "20",
+          "val": 0.36
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "20",
+          "val": 0.94
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "20",
+          "val": 0.4
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "20",
+          "val": 0.31
+        }
+      ],
+      "25": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "25",
+          "val": -0.8
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "25",
+          "val": -0.8
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "25",
+          "val": 0.82
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "25",
+          "val": 0.0
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "25",
+          "val": -0.66
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "25",
+          "val": 0.41
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "25",
+          "val": -0.25
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "25",
+          "val": -0.27
+        }
+      ],
+      "30": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "30",
+          "val": -0.76
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "30",
+          "val": -0.26
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "30",
+          "val": 0.71
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "30",
+          "val": -0.35
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "30",
+          "val": 0.53
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "30",
+          "val": -0.46
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "30",
+          "val": 0.19
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "30",
+          "val": -0.79
+        }
+      ],
+      "35": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "35",
+          "val": -0.37
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "35",
+          "val": -0.2
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "35",
+          "val": -0.6
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "35",
+          "val": -0.47
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "35",
+          "val": -0.96
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "35",
+          "val": -0.44
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "35",
+          "val": -0.52
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "35",
+          "val": -0.69
+        }
+      ],
+      "40": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "40",
+          "val": 0.02
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "40",
+          "val": 0.91
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "40",
+          "val": -0.91
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "40",
+          "val": -0.59
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "40",
+          "val": -0.67
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "40",
+          "val": 0.12
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "40",
+          "val": -0.73
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "40",
+          "val": 0.73
+        }
+      ],
+      "45": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "45",
+          "val": -0.63
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "45",
+          "val": -0.9
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "45",
+          "val": -0.83
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "45",
+          "val": 0.9
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "45",
+          "val": -0.02
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "45",
+          "val": 0.91
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "45",
+          "val": -0.78
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "45",
+          "val": -0.91
+        }
+      ],
+      "50": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "50",
+          "val": 0.4
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "50",
+          "val": -0.59
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "50",
+          "val": -0.41
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "50",
+          "val": 0.16
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "50",
+          "val": -0.33
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "50",
+          "val": -0.38
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "50",
+          "val": 0.3
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "50",
+          "val": -1.0
+        }
+      ],
+      "55": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "55",
+          "val": -0.95
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "55",
+          "val": 0.22
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "55",
+          "val": -0.87
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "55",
+          "val": 0.32
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "55",
+          "val": -0.72
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "55",
+          "val": -0.67
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "55",
+          "val": -0.53
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "55",
+          "val": 0.43
+        }
+      ],
+      "60": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "60",
+          "val": 0.76
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "60",
+          "val": -0.08
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "60",
+          "val": 0.17
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "60",
+          "val": -0.99
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "60",
+          "val": 0.67
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "60",
+          "val": 0.58
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "60",
+          "val": -0.2
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "60",
+          "val": -0.47
+        }
+      ]
+    },
+    "sample_index_3": {
+      "10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "10",
+          "val": 0.85
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "10",
+          "val": -0.6
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "10",
+          "val": -0.15
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "10",
+          "val": -0.76
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "10",
+          "val": 0.51
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "10",
+          "val": -0.62
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "10",
+          "val": -0.31
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "10",
+          "val": 0.29
+        }
+      ],
+      "15": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "15",
+          "val": -0.84
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "15",
+          "val": 0.22
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "15",
+          "val": -0.34
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "15",
+          "val": -0.18
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "15",
+          "val": -0.66
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "15",
+          "val": 0.04
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "15",
+          "val": -0.01
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "15",
+          "val": -0.15
+        }
+      ],
+      "20": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "20",
+          "val": -0.37
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "20",
+          "val": 0.86
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "20",
+          "val": 0.91
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "20",
+          "val": -0.93
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "20",
+          "val": 0.14
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "20",
+          "val": -0.04
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "20",
+          "val": 0.9
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "20",
+          "val": 0.4
+        }
+      ],
+      "25": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "25",
+          "val": 0.15
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "25",
+          "val": -0.69
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "25",
+          "val": -0.83
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "25",
+          "val": -0.33
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "25",
+          "val": 0.78
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "25",
+          "val": 0.75
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "25",
+          "val": -0.33
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "25",
+          "val": -0.63
+        }
+      ],
+      "30": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "30",
+          "val": 0.95
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "30",
+          "val": 0.94
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "30",
+          "val": -0.8
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "30",
+          "val": -0.1
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "30",
+          "val": -0.92
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "30",
+          "val": 0.03
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "30",
+          "val": 0.49
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "30",
+          "val": 0.39
+        }
+      ],
+      "35": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "35",
+          "val": 0.13
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "35",
+          "val": 0.23
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "35",
+          "val": -0.49
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "35",
+          "val": -0.33
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "35",
+          "val": 0.16
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "35",
+          "val": 0.18
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "35",
+          "val": 0.11
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "35",
+          "val": -0.12
+        }
+      ],
+      "40": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "40",
+          "val": 0.76
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "40",
+          "val": -0.18
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "40",
+          "val": 0.74
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "40",
+          "val": 0.68
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "40",
+          "val": -0.88
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "40",
+          "val": -0.94
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "40",
+          "val": 0.0
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "40",
+          "val": 0.79
+        }
+      ],
+      "45": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "45",
+          "val": 0.92
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "45",
+          "val": 0.32
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "45",
+          "val": 0.34
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "45",
+          "val": 0.52
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "45",
+          "val": -0.67
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "45",
+          "val": -0.37
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "45",
+          "val": 0.99
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "45",
+          "val": -0.32
+        }
+      ],
+      "50": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "50",
+          "val": -0.24
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "50",
+          "val": -0.5
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "50",
+          "val": 0.75
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "50",
+          "val": -0.77
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "50",
+          "val": 0.34
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "50",
+          "val": -0.68
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "50",
+          "val": 0.46
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "50",
+          "val": 0.66
+        }
+      ],
+      "55": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "55",
+          "val": -0.66
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "55",
+          "val": 0.33
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "55",
+          "val": 0.09
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "55",
+          "val": -0.17
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "55",
+          "val": -0.73
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "55",
+          "val": -0.43
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "55",
+          "val": -0.95
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "55",
+          "val": 0.95
+        }
+      ],
+      "60": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "60",
+          "val": 0.7
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "60",
+          "val": 0.37
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "60",
+          "val": -0.23
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "60",
+          "val": -0.71
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "60",
+          "val": 0.37
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "60",
+          "val": 0.68
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "60",
+          "val": -0.2
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "60",
+          "val": 0.72
+        }
+      ]
+    },
+    "sample_index_4": {
+      "10": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "10",
+          "val": 0.99
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "10",
+          "val": 0.16
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "10",
+          "val": -0.16
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "10",
+          "val": -0.74
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "10",
+          "val": 0.63
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "10",
+          "val": 0.14
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "10",
+          "val": 0.05
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "10",
+          "val": -0.89
+        }
+      ],
+      "15": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "15",
+          "val": 0.07
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "15",
+          "val": 0.75
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "15",
+          "val": -0.37
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "15",
+          "val": 0.94
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "15",
+          "val": 0.6
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "15",
+          "val": -0.3
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "15",
+          "val": -0.23
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "15",
+          "val": 0.09
+        }
+      ],
+      "20": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "20",
+          "val": 0.89
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "20",
+          "val": 0.72
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "20",
+          "val": -0.13
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "20",
+          "val": -0.4
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "20",
+          "val": -0.85
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "20",
+          "val": 0.64
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "20",
+          "val": 0.82
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "20",
+          "val": -0.66
+        }
+      ],
+      "25": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "25",
+          "val": 0.05
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "25",
+          "val": 0.26
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "25",
+          "val": -0.34
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "25",
+          "val": 0.97
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "25",
+          "val": 0.28
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "25",
+          "val": 0.58
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "25",
+          "val": -0.34
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "25",
+          "val": 0.63
+        }
+      ],
+      "30": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "30",
+          "val": 0.06
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "30",
+          "val": 0.33
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "30",
+          "val": -0.99
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "30",
+          "val": 0.0
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "30",
+          "val": 0.09
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "30",
+          "val": 0.24
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "30",
+          "val": -0.63
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "30",
+          "val": -0.66
+        }
+      ],
+      "35": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "35",
+          "val": 0.4
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "35",
+          "val": -0.19
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "35",
+          "val": 0.93
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "35",
+          "val": 0.21
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "35",
+          "val": 0.89
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "35",
+          "val": 0.69
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "35",
+          "val": -0.61
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "35",
+          "val": -0.92
+        }
+      ],
+      "40": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "40",
+          "val": 0.51
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "40",
+          "val": 0.48
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "40",
+          "val": 0.05
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "40",
+          "val": -0.44
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "40",
+          "val": -0.13
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "40",
+          "val": 0.85
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "40",
+          "val": 0.67
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "40",
+          "val": 0.32
+        }
+      ],
+      "45": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "45",
+          "val": -0.71
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "45",
+          "val": -0.75
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "45",
+          "val": 0.97
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "45",
+          "val": -0.55
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "45",
+          "val": -0.5
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "45",
+          "val": 0.54
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "45",
+          "val": 0.35
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "45",
+          "val": -0.02
+        }
+      ],
+      "50": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "50",
+          "val": 0.3
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "50",
+          "val": 0.93
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "50",
+          "val": 0.45
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "50",
+          "val": -0.85
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "50",
+          "val": -0.36
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "50",
+          "val": 0.03
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "50",
+          "val": -0.2
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "50",
+          "val": -0.32
+        }
+      ],
+      "55": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "55",
+          "val": -0.14
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "55",
+          "val": 0.41
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "55",
+          "val": 0.8
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "55",
+          "val": -0.4
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "55",
+          "val": -0.12
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "55",
+          "val": -0.65
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "55",
+          "val": -0.67
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "55",
+          "val": -0.86
+        }
+      ],
+      "60": [
+        {
+          "date": "Fri, 31 Dec 2010 00:00:00 GMT",
+          "name": "60",
+          "val": 0.32
+        },
+        {
+          "date": "Sat, 31 Dec 2011 00:00:00 GMT",
+          "name": "60",
+          "val": 0.89
+        },
+        {
+          "date": "Mon, 31 Dec 2012 00:00:00 GMT",
+          "name": "60",
+          "val": 0.93
+        },
+        {
+          "date": "Tue, 31 Dec 2013 00:00:00 GMT",
+          "name": "60",
+          "val": 0.43
+        },
+        {
+          "date": "Wed, 31 Dec 2014 00:00:00 GMT",
+          "name": "60",
+          "val": -0.78
+        },
+        {
+          "date": "Thu, 31 Dec 2015 00:00:00 GMT",
+          "name": "60",
+          "val": -0.02
+        },
+        {
+          "date": "Sat, 31 Dec 2016 00:00:00 GMT",
+          "name": "60",
+          "val": -0.77
+        },
+        {
+          "date": "Sun, 31 Dec 2017 00:00:00 GMT",
+          "name": "60",
+          "val": 0.88
+        }
+      ]
+    }
+  },
+  "stats": {
+    "index": {
+      "annualized": 0.36,
+      "compounded return": 9.445,
+      "excess over index (annualized)": 0.1004,
+      "ir": -1.42,
+      "tracking error": 1.507,
+      "volatility": 0.195
+    },
+    "sample_index_1": {
+      "annualized": 0.18,
+      "compounded return": 1.871,
+      "excess over index (annualized)": 0.0768,
+      "ir": 1.23,
+      "tracking error": 1.651,
+      "volatility": 0.166
+    },
+    "sample_index_2": {
+      "annualized": 0.7,
+      "compounded return": 5.385,
+      "excess over index (annualized)": 0.0538,
+      "ir": -0.17,
+      "tracking error": 1.866,
+      "volatility": 1.272
+    },
+    "sample_index_3": {
+      "annualized": 0.25,
+      "compounded return": 18.675,
+      "excess over index (annualized)": 0.0367,
+      "ir": 0.06,
+      "tracking error": 1.605,
+      "volatility": 0.045
+    },
+    "sample_index_4": {
+      "annualized": 0.59,
+      "compounded return": 4.083,
+      "excess over index (annualized)": 0.0034,
+      "ir": -0.07,
+      "tracking error": 1.148,
+      "volatility": 0.242
+    }
+  }
+}
