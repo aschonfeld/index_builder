@@ -28,13 +28,14 @@ install:
   - conda install --yes python=$TRAVIS_PYTHON_VERSION --file requirements-conda.txt
   - pip install -r requirements-pip.txt
   - yarn install
+  - yarn list --depth=0
 script:
   - python setup.py test
   - npm run lint
   - npm run format
   - git diff --name-status
   - git diff-files --quiet || (echo 'The files above have not been formatted!' && (exit 1))
-  - npm run test-with-coverage | coveralls
+  - npm run test-with-coverage
   - npm run report-duplicate-code
 after_success:
   - pip install python-coveralls
