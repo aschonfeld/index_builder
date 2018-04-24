@@ -1,11 +1,38 @@
 import pytest
 import json
 import mock
-from contextlib import nested
-from functools import wraps
 
 from index_builder.server import app
-import index_builder.views as index_builder_views
+
+
+@pytest.mark.unit
+def test_find_factor_options(unittest):
+    with app.test_client() as c:
+        response = c.get('/index-builder/factor-options')
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' not in response_data
+
+
+@pytest.mark.unit
+def test_find_factor_data(unittest):
+    with app.test_client() as c:
+        response = c.get('/index-builder/factor-data', query_string=dict(factor='Factor 1'))
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' not in response_data
+
+
+@pytest.mark.unit
+def test_find_sample_indexes(unittest):
+    with app.test_client() as c:
+        response = c.get('/index-builder/sample-indexes')
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' not in response_data
 
 
 @pytest.mark.unit
