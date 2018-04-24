@@ -23,8 +23,7 @@
     "lint": "npm run lint-js",
     "lint-js": "eslint static *.js --ext .js --ext .jsx -f node_modules/eslint-clang-formatter",
     "lint-js-file": "eslint -f node_modules/eslint-clang-formatter",
-    "eslint-check": "eslint --print-config .eslintrc.json | eslint-config-prettier-check",
-    "report-coverage": "cat ./JS_coverage/lcov.info | coveralls"
+    "eslint-check": "eslint --print-config .eslintrc.json | eslint-config-prettier-check"
   },
   "nyc": {
     "include": [

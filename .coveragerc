@@ -1,0 +1,10 @@
+[report]
+omit =
+    setup.py
+    index_builder/data/**
+    index_builder/static/**
+    index_builder/templates/**
+    index_builder/gunicorn_config.py
+    index_builder/entrypoint.sh
+    index_builder/log_app.cfg
+    index_builder/supervisor.conf

@@ -39,5 +39,6 @@ script:
   - npm run report-duplicate-code
 after_success:
   - pip install python-coveralls
-  - coveralls
-  - npm run report-coverage
+  - gem install coveralls-lcov
+  - coveralls-lcov -v -n ./JS_coverage/lcov.info > coverage.js.json
+  - COVERALLS_SERVICE_NAME=travis-ci coveralls --merge_file coverage.js.json --config_file .coveragerc
