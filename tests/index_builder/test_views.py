@@ -1,8 +1,66 @@
 import pytest
 import json
 import mock
+from contextlib import nested
 
 from index_builder.server import app
+import index_builder.views as views
+
+
+@pytest.mark.unit
+def test_startup(unittest):
+    with nested(
+        mock.patch('index_builder.views.utils.running_with_pytest', mock.Mock(return_value=False)),
+        mock.patch('index_builder.views.utils.running_with_flask', mock.Mock(return_value=True)),
+        mock.patch('index_builder.views.utils.running_with_gunicorn', mock.Mock(return_value=False)),
+        mock.patch('index_builder.views.load_gics_mappings'),
+        mock.patch('index_builder.views.load_factors'),
+        mock.patch('index_builder.views.load_indexes')
+    ) as (_, _, _, load_gics, load_factors, load_indexes):
+        views.startup('path')
+        assert all((load_gics.called, load_factors.called, load_indexes.called)), 'should load data when running flask'
+
+    with nested(
+        mock.patch('index_builder.views.utils.running_with_pytest', mock.Mock(return_value=True)),
+        mock.patch('index_builder.views.utils.running_with_flask', mock.Mock(return_value=True)),
+        mock.patch('index_builder.views.utils.running_with_gunicorn', mock.Mock(return_value=False)),
+        mock.patch('index_builder.views.load_gics_mappings'),
+        mock.patch('index_builder.views.load_factors'),
+        mock.patch('index_builder.views.load_indexes')
+    ) as (_, _, _, load_gics, load_factors, load_indexes):
+        views.startup('path')
+        unittest.assertTrue(
+            all((not load_gics.called, not load_factors.called, not load_indexes.called)),
+            'should not load data when running pytest'
+        )
+
+
+@pytest.mark.unit
+def test_refresh_cached_data(unittest):
+    with nested(
+        mock.patch('index_builder.views.cache.clear_all_caches', mock.Mock(return_value=True)),
+        mock.patch('index_builder.views.load_gics_mappings'),
+        mock.patch('index_builder.views.load_factors'),
+        mock.patch('index_builder.views.load_indexes')
+    ) as (clear_caches, load_gics, load_factors, load_indexes):
+        app.test_client().get('/index-builder/force-refresh')
+        unittest.assertTrue(
+            all((clear_caches.called, load_gics.called, load_factors.called, load_indexes.called)),
+            'should reload data and clear cache'
+        )
+
+
+@pytest.mark.unit
+def test_clear_cache():
+    with mock.patch('index_builder.views.cache.clear_cache') as clear_cache:
+        app.test_client().get('/index-builder/clear-cache', query_string=dict(cache='test'))
+        args, _ = clear_cache.call_args
+        name = args[0]
+        assert name == 'test', 'should clear cache'
+
+    with mock.patch('index_builder.views.cache.clear_cache') as clear_cache:
+        app.test_client().get('/index-builder/clear-cache')
+        assert not clear_cache.called, 'should not clear cache'
 
 
 @pytest.mark.unit
