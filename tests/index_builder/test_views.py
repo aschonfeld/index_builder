@@ -64,6 +64,92 @@ def test_clear_cache():
 
 
 @pytest.mark.unit
+def test_get_gics_mappings():
+    with app.test_client() as c:
+        response = c.get('/index-builder/gics-mappings')
+        assert response.status_code == 200
+        response_data = json.loads(response.data)
+        assert isinstance(response_data, dict)
+
+        with mock.patch('__builtin__.open') as mock_open:
+            c.get('/index-builder/gics-mappings')
+            assert not mock_open.called, "should not reload cached data"
+
+        with nested(
+            mock.patch('index_builder.cache.ExpiryCache.__getitem__', mock.Mock(side_effect=KeyError)),
+            mock.patch('__builtin__.open'),
+            mock.patch('yaml.load', mock.Mock(return_value={}))
+        ) as (_, mock_open, yaml_load):
+            c.get('/index-builder/gics-mappings')
+            assert all((mock_open.called, yaml_load.called)), "should load uncached data"
+
+
+@pytest.mark.unit
+def test_load_factor_settings(unittest):
+    with app.test_client() as c:
+        response = c.get('/index-builder/load-factor-settings')
+        assert response.status_code == 200
+        assert json.loads(response.data) == {}
+
+        test_settings = {'factor': False}
+        with mock.patch('index_builder.views.session', {'factor_settings': test_settings}):
+            response = c.get('/index-builder/load-factor-settings')
+            unittest.assertEquals(json.loads(response.data), test_settings, 'should load factor settings')
+
+
+@pytest.mark.unit
+def test_save_factor_settings(unittest):
+    with app.test_client() as c:
+        with nested(
+                mock.patch('index_builder.views.session', {'username': 'test', 'factor_settings': {}}),
+                mock.patch('__builtin__.open'),
+                mock.patch('yaml.safe_dump')
+        ) as (_, mock_open, yaml_dump):
+            response = c.get(
+                '/index-builder/save-factor-settings',
+                query_string=dict(factor_settings=json.dumps({'factor': False}))
+            )
+            assert response.status_code == 200
+            args, _ = mock_open.call_args
+            assert args[0].endswith('index_builder/data/users/test.yaml')
+            args, _ = yaml_dump.call_args
+            unittest.assertEquals(args[0], {'locked': False, 'factors': {u'factor': False}}, 'should dump updated settings')
+
+
+@pytest.mark.unit
+def test_lock_factor_settings(unittest):
+    with app.test_client() as c:
+        factor_settings = {'factor 1': dict(weight=50), 'factor 2': dict(weight=50)}
+        session = {'username': 'test', 'factor_settings': dict(factors=factor_settings)}
+        with nested(
+                mock.patch('index_builder.views.session', session),
+                mock.patch('__builtin__.open'),
+                mock.patch('yaml.safe_dump'),
+                mock.patch('index_builder.views.redirect', mock.Mock(return_value=json.dumps(dict(success=True)))),
+        ) as (_, mock_open, yaml_dump, mock_redirect):
+            response = c.get('/index-builder/lock-factor-settings')
+            assert response.status_code == 200
+            args, _ = mock_open.call_args
+            assert args[0].endswith('index_builder/data/users/test.yaml')
+            args, _ = yaml_dump.call_args
+            unittest.assertEquals(args[0], {'locked': True, 'factors': factor_settings}, 'should dump updated settings')
+            assert mock_redirect.called
+
+        factor_settings['factor 2']['weight'] = 40
+        session = {'username': 'test', 'factor_settings': dict(factors=factor_settings)}
+        with nested(
+                mock.patch('index_builder.views.session', session),
+                mock.patch('__builtin__.open'),
+                mock.patch('yaml.safe_dump'),
+                mock.patch('index_builder.views.redirect', mock.Mock(return_value=json.dumps(dict(success=True)))),
+        ) as (_, mock_open, yaml_dump, mock_redirect):
+            response = c.get('/index-builder/lock-factor-settings')
+            assert response.status_code == 200
+            assert all((not mock_open.called, not yaml_dump.called))
+            assert mock_redirect.called
+
+
+@pytest.mark.unit
 def test_find_factor_options(unittest):
     with app.test_client() as c:
         response = c.get('/index-builder/factor-options')

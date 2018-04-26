@@ -71,7 +71,7 @@ def custom_memoize(cache):
     return inner
 
 
-class GrailExpiryCache(object):
+class ExpiryCache(object):
     """
     A dictionary based cache where entries expire based on an a user specified
     rrule (recurrence rule). See the python-dateutil module for more details
@@ -140,9 +140,9 @@ class GrailExpiryCache(object):
 logger = get_logger()
 
 PROD_SCHEDULE = rrule.rrule(rrule.DAILY, byhour=(13, 22), byminute=(0,))
-FACTOR_CACHE = GrailExpiryCache(PROD_SCHEDULE)
-INDEXES_CACHE = GrailExpiryCache(PROD_SCHEDULE)
-GICS_CACHE = GrailExpiryCache(PROD_SCHEDULE)
+FACTOR_CACHE = ExpiryCache(PROD_SCHEDULE)
+INDEXES_CACHE = ExpiryCache(PROD_SCHEDULE)
+GICS_CACHE = ExpiryCache(PROD_SCHEDULE)
 
 
 def clear_cache(cache):
