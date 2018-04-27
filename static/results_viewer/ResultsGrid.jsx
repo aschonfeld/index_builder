@@ -140,9 +140,7 @@ class ResultsGrid extends React.Component {
             {_.map(this.sortData(records), (record, i) => (
               <tr key={`row-${i}`} className={record.rowClass}>
                 <td>{this.buildAction(record.name, record)}</td>
-                <td className={`col${i}`} onClick={record.onClick}>
-                  {record.name}
-                </td>
+                <td onClick={record.onClick}>{record.name}</td>
                 {_.map(STATS_LABELS, ([col, _label, fmt]) => (
                   <td key={`stat-${i}-${col}`} onClick={record.onClick}>
                     {fmt(_.get(record, col, 0))}

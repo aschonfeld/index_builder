@@ -67,7 +67,7 @@
 }
 
 .ResultsViewer .results-grid .col0 {
-  width: 17%;
+  width: 27%;
 }
 .ResultsViewer .results-grid .col3 {
   width: 13%;
@@ -77,8 +77,7 @@
 .ResultsViewer .results-grid .col4,
 .ResultsViewer .results-grid .col5,
 .ResultsViewer .results-grid .col6,
-.ResultsViewer .results-grid .col7,
-.ResultsViewer .results-grid .col8 {
+.ResultsViewer .results-grid .col7 {
   width: 10%;
 }
 
