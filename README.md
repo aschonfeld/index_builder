@@ -9,6 +9,10 @@ This is a nice little interactive survey using completely randomized data in whi
   - view interesting breakdowns of all factor selections made by users as well as make these breakdowns available for users to see
   - archive off user selections for further future analysis and to reset the app for another round of users
 
+## Demo
+
+Live demo (choose any username you'd like): [index-builder](http://aschonfeld.pythonanywhere.com/index-builder/)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
