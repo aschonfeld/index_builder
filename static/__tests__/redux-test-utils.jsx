@@ -18,6 +18,7 @@ import CumulativeReturnsData from "./results_viewer/CumulativeReturns-data";
 import ResultsStatsData from "./results_viewer/ResultsStats-data";
 import SampleIndexesData from "./results_viewer/SampleIndexes-data";
 import UserResultsData from "./results_viewer/UserResults-data";
+import SummaryData from "./summary_viewer/Summary-data";
 
 function urlFetcher(url) {
   const params = qs.parse(url.split("?")[1]);
@@ -46,6 +47,9 @@ function urlFetcher(url) {
   }
   if (url.startsWith("/index-builder/cumulative-returns")) {
     return CumulativeReturnsData;
+  }
+  if (url.startsWith("/index-builder/summary-data")) {
+    return SummaryData;
   }
   return {};
 }

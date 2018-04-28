@@ -1,0 +1,309 @@
+{
+  "factor_1": {
+    "avg": {
+      "HI": 25.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 1",
+    "reason_avg": {
+      "HI": {
+        "affectChange": 50.0,
+        "riskReduce": 50.0
+      },
+      "LO": {}
+    },
+    "selections": {
+      "HI": [
+        {
+          "reasons": [
+            "riskReduce"
+          ],
+          "strength": "HI",
+          "user": "aschonfeld",
+          "weight": 10
+        },
+        {
+          "reasons": [
+            "affectChange"
+          ],
+          "strength": "HI",
+          "user": "alissa",
+          "weight": 40
+        }
+      ],
+      "LO": []
+    }
+  },
+  "factor_10": {
+    "avg": {
+      "HI": 50.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 10",
+    "reason_avg": {
+      "HI": {
+        "affectChange": 50.0,
+        "ethics": 50.0
+      },
+      "LO": {}
+    },
+    "selections": {
+      "HI": [
+        {
+          "reasons": [
+            "ethics"
+          ],
+          "strength": "HI",
+          "user": "aschonfeld",
+          "weight": 50
+        },
+        {
+          "reasons": [
+            "affectChange"
+          ],
+          "strength": "HI",
+          "user": "alissa",
+          "weight": 50
+        }
+      ],
+      "LO": []
+    }
+  },
+  "factor_11": {
+    "avg": {
+      "HI": 25.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 11",
+    "reason_avg": {
+      "HI": {
+        "futureRet": 50.0,
+        "riskReduce": 50.0
+      },
+      "LO": {}
+    },
+    "selections": {
+      "HI": [
+        {
+          "reasons": [
+            "riskReduce"
+          ],
+          "strength": "HI",
+          "user": "aschonfeld",
+          "weight": 40
+        },
+        {
+          "reasons": [
+            "futureRet"
+          ],
+          "strength": "HI",
+          "user": "alissa",
+          "weight": 10
+        }
+      ],
+      "LO": []
+    }
+  },
+  "factor_12": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 12",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_13": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 13",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_2": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 2",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_3": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 3",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_4": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 4",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_5": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 5",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_6": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 6",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_7": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 7",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_8": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 8",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  },
+  "factor_9": {
+    "avg": {
+      "HI": 0.0,
+      "LO": 0.0
+    },
+    "ethical_wt": {
+      "HI": 0,
+      "LO": 0
+    },
+    "label": "Factor 9",
+    "reason_avg": {
+      "HI": {},
+      "LO": {}
+    },
+    "selections": {
+      "HI": [],
+      "LO": []
+    }
+  }
+}
