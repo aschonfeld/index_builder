@@ -84,13 +84,15 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 
 body {
   margin: 0;
-  font-family: "Istok", "Helvetica", Arial, sans-serif;
+  /*font-family: "Istok", "Helvetica", Arial, sans-serif;*/
+  font-family:  "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
   font-size: 0.8125rem;
   font-weight: normal;
   line-height: 1.5;
-  color: #404040;
+  /*color: #404040;*/
   text-align: left;
-  background-color: white;
+  /*background-color: white;*/
+  background-color: #4d4d50;
 }
 
 [tabindex="-1"]:focus {
@@ -8065,9 +8067,10 @@ a.text-dark:focus, a.text-dark:hover {
       flex-wrap: wrap;
   z-index: 10;
   margin-bottom: 3px;
-  -webkit-box-shadow: 0 3px 0 0 #2a91d1;
+  /*-webkit-box-shadow: 0 3px 0 0 #2a91d1;*/
           box-shadow: 0 3px 0 0 #2a91d1;
-  background: linear-gradient(85deg, #004c93, #2a91d1 70%, #52bbef);
+  /*background: linear-gradient(85deg, #004c93, #2a91d1 70%, #52bbef);*/
+  background: black;
   height: 3rem;
   color: white;
   width: 100%;
@@ -8886,8 +8889,9 @@ select.form-control:focus,
 }
 
 .input-group-addon {
-  border: solid 1px #2174a7;
-  background: #2a91d1;
+  /*border: solid 1px #2174a7;*/
+  /*background: #2a91d1;*/
+  background: black;
   color: white;
 }
 
