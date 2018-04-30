@@ -72,6 +72,5 @@ setup(
         'gunicorn',
         'gevent',
         'pympler',
-        'XlsxWriter',
     ],
 )
