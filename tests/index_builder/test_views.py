@@ -286,19 +286,22 @@ def test_500():
 
 
 @pytest.mark.unit
-def test_login():
+def test_auth():
     with app.test_client() as c:
-        app.config['AUTH'] = True
-        rv = c.post('/login', data=dict(username='auth_test', password='BukuBucks'), follow_redirects=True)
-        assert flask.session['username'] == 'auth_test'
-        rv = c.get('/index-builder/factors')
-        assert rv.status_code == 200
-        rv = c.get('/logout', follow_redirects=True)
-        assert 'login-label">Password</span>' in rv.data
-        rv = c.post('/login', data=dict(username='test', password='badpass'), follow_redirects=True)
-        assert 'Invalid credentials!' in rv.data
-        rv = c.post('/login', data=dict(username='', password='BukuBucks'), follow_redirects=True)
-        assert 'Team is required!' in rv.data
-        rv = c.post('/login', data=dict(username='>GreaterThan', password='BukuBucks'), follow_redirects=True)
-        assert 'Your Team contains one of the following invalid characters: &lt;&gt;/{}[\]~`' in rv.data
-        app.config['AUTH'] = None
+        with mock.patch('index_builder.auth.session', flask.session):
+            app.config['AUTH'] = True
+            rv = c.post('/login', data=dict(username='auth_test', password='BukuBucks'), follow_redirects=True)
+            assert flask.session['username'] == 'auth_test'
+            rv = c.get('/index-builder/factors')
+            assert rv.status_code == 200
+            rv = c.get('/logout', follow_redirects=True)
+            assert 'login-label">Password</span>' in rv.data
+            rv = c.get('/index-builder/factors', follow_redirects=True)
+            assert 'login-label">Password</span>' in rv.data
+            rv = c.post('/login', data=dict(username='test', password='badpass'), follow_redirects=True)
+            assert 'Invalid credentials!' in rv.data
+            rv = c.post('/login', data=dict(username='', password='BukuBucks'), follow_redirects=True)
+            assert 'Team is required!' in rv.data
+            rv = c.post('/login', data=dict(username='>GreaterThan', password='BukuBucks'), follow_redirects=True)
+            assert 'Your Team contains one of the following invalid characters: &lt;&gt;/{}[\]~`' in rv.data
+            app.config['AUTH'] = None

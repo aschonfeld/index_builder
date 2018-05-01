@@ -1,4 +1,3 @@
-import requests
 import numpy as np
 import pandas as pd
 import json
@@ -107,31 +106,11 @@ class JSONFormatter(object):
     def add_date(self, idx, name=None):
         self.fmts.append([idx, name, json_date])
 
-    def format_dict(self, lst, encoded=True):
+    def format_dict(self, lst):
         return {name: f(lst[idx]) for idx, name, f in self.fmts}
 
-    def format_dicts(self, lsts, encoded=True):
+    def format_dicts(self, lsts):
         return [self.format_dict(l) for l in lsts]
-
-
-MAX_RETRIES = 3
-
-
-def read_url(url):
-    from requests.exceptions import ConnectionError, Timeout
-    retry_count = 0
-    while retry_count < MAX_RETRIES:
-        try:
-            return requests.get(url, timeout=1).json()
-        except Timeout as ex:
-            retry_count += 1
-            if retry_count == MAX_RETRIES:
-                raise Exception('there was an issue reading {}, {}'.format(url, ex))
-        except ConnectionError as ex:
-            raise Exception('there was an issue reading {}, {}'.format(url, ex))
-        except Exception as ex:
-            retry_count = MAX_RETRIES
-            logger.info(ex)
 
 
 # DATAFRAME FORMATTING FOR REPORTS
@@ -276,18 +255,6 @@ def retrieve_base_params(req, props=None):
     return params
 
 
-def retrieve_tewsys_params(req, props=None):
-    params = retrieve_base_params(req)
-    params['report'] = get_str_arg(req, 'report')
-    params['tags'] = get_str_arg(req, 'tags')
-    if params['tags']:
-        params['tags'] = params['tags'].split(',')
-    params['universe'] = get_str_arg(req, 'universe')
-    if props:
-        return filter_params(params, props)
-    return params
-
-
 def retrieve_grid_params(req, props=None, base=retrieve_base_params):
     params = base(req)
     filters = get_str_arg(req, 'filters')
@@ -303,17 +270,6 @@ def retrieve_grid_params(req, props=None, base=retrieve_base_params):
     params['page_size'] = get_int_arg(req, 'page_size')
     params['sort_column'] = get_str_arg(req, 'sortColumn')
     params['sort_direction'] = get_str_arg(req, 'sortDirection')
-    if props:
-        return filter_params(params, props)
-    return params
-
-
-def retrieve_atlas_params(req, props=None):
-    params = retrieve_base_params(req)
-    params['start_date'] = get_str_arg(req, 'start_date')
-    params['end_date'] = get_str_arg(req, 'end_date')
-    securities = get_str_arg(req, 'securities', '')
-    params['securities'] = [int(s) for s in securities.split(',') if len(s)]
     if props:
         return filter_params(params, props)
     return params
@@ -402,45 +358,6 @@ def format_grid(df):
         'results': f.format_dicts(df.itertuples(), encoded=False),
         'columns': col_types
     }
-
-
-def get_chunk_range(start_date, end_date):
-    if start_date or end_date:
-        if start_date and not end_date:
-            end_date = start_date
-        elif end_date and not start_date:
-            start_date = end_date
-        return pd.date_range(start_date, end_date)
-    return None
-
-
-def make_periods(start_date, end_date, freq):
-    """
-    Returns a list of DatetimeIndex that is the business days
-    between the start_date and end_date with the frequency
-    being the frequency between DatetimeIndex, e.g. Y - year,
-    M - month, D - day
-
-    Parameters:
-    ----------
-    start_date : date
-        date to start sequence
-    end_date: date
-        date to end sequence
-    freq: str
-        frequency of DatetimeIndex
-
-    Returns
-    -------
-        list of DatetimeIndex
-    """
-    min_time = pd.to_datetime(start_date)
-    max_time = pd.to_datetime(end_date)
-    periods = pd.period_range(start_date, end_date, freq=freq)
-    ranges = [pd.date_range(max(p.start_time, min_time),
-                             min(p.end_time, max_time), name='date')
-              for p in periods]
-    return [r for r in ranges if len(r) > 0]
 
 
 def dict_merge(d1, d2):
