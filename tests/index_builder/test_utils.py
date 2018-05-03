@@ -1,6 +1,7 @@
 import pytest
 import mock
 from collections import namedtuple
+from contextlib import nested
 import pandas as pd
 import numpy as np
 
@@ -56,3 +57,24 @@ def test_formatters(unittest):
         formatters.format_dicts(bad_data),
         [{'int': 'nan', 'date': '', 'float': 'nan', 'str': None}]
     )
+    bad_data = [['hello', 'hello', 'hello', 'hello']]
+    unittest.assertEquals(
+        formatters.format_dicts(bad_data),
+        [{'int': None, 'date': '', 'float': None, 'str': 'hello'}]
+    )
+
+
+@pytest.mark.unit
+def test_get_logger():
+    with mock.patch('index_builder.utils.log.getLogger') as mock_log:
+        utils.get_logger()
+        args, _ = mock_log.call_args
+        assert not len(args)
+
+    with nested(
+        mock.patch('index_builder.utils.log.getLogger'),
+        mock.patch('index_builder.utils.running_with_gunicorn', mock.Mock(return_value=True))
+    ) as (mock_log, _):
+        utils.get_logger()
+        args, _ = mock_log.call_args
+        assert args[0] == 'gunicorn.error'

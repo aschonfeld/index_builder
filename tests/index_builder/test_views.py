@@ -290,10 +290,13 @@ def test_auth():
     with app.test_client() as c:
         with mock.patch('index_builder.auth.session', flask.session):
             app.config['AUTH'] = True
-            rv = c.post('/login', data=dict(username='auth_test', password='BukuBucks'), follow_redirects=True)
+            c.post('/login', data=dict(username='auth_test', password='BukuBucks'), follow_redirects=True)
             assert flask.session['username'] == 'auth_test'
             rv = c.get('/index-builder/factors')
             assert rv.status_code == 200
+            del flask.session['username']
+            rv = c.get('/index-builder/factors', follow_redirects=True)
+            assert 'login-label">Password</span>' in rv.data
             rv = c.get('/logout', follow_redirects=True)
             assert 'login-label">Password</span>' in rv.data
             rv = c.get('/index-builder/factors', follow_redirects=True)
