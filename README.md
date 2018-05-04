@@ -11,7 +11,7 @@ This is a nice little interactive survey using completely randomized data in whi
 
 ## Demo
 
-Live demo (choose any username you'd like): [index-builder](http://aschonfeld.pythonanywhere.com/index-builder/)
+Live demo (choose any username you'd like): [index-builder](http://aschonfeld.pythonanywhere.com/index-builder)
 
 ## Getting Started
 

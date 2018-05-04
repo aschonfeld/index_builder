@@ -173,14 +173,6 @@ def get_all_user_factors(locked=True):
         yield user, factor_settings.get('factors', {})
 
 
-def get_all_user_factor_settings(locked=True):
-    for fname in os.listdir(USERS_PATH):
-        user, _ = os.path.splitext(fname)
-        factor_settings = get_factor_settings(user)
-        if not locked or factor_settings['locked']:
-            yield user, factor_settings
-
-
 def get_all_user_factor_settings(locked=True, include_last_update=False):
     for fname in os.listdir(USERS_PATH):
         user, _ = os.path.splitext(fname)

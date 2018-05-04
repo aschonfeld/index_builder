@@ -6,6 +6,18 @@ import flask
 
 from index_builder.server import app
 import index_builder.views as views
+from index_builder.model import SAMPLE_INDEXES
+from index_builder.utils import dict_merge
+
+
+TEST_FACTOR_SETTINGS = dict(
+    factors=dict(
+        factor_1=dict(reasons=['futureRet','riskReduce'], strength='HI', weight=10),
+        factor_2=dict(reasons=['ethics'], strength='HI', weight=20),
+        factor_3=dict(reasons=['ethics'], strength='HI', weight=30)
+    ),
+    locked=False
+)
 
 
 @pytest.mark.unit
@@ -182,22 +194,26 @@ def test_find_sample_indexes(unittest):
 
 @pytest.mark.unit
 def test_load_results_stats(unittest):
-    with mock.patch('flask.session', mock.Mock(return_value=dict(username='test'))):
+    with nested(
+        mock.patch('flask.session', mock.Mock(return_value=dict(username='test'))),
+        mock.patch('os.listdir', mock.Mock(return_value=['test.yaml'])),
+        mock.patch('os.path.isfile', mock.Mock(return_value=True)),
+        mock.patch('__builtin__.open'),
+        mock.patch('yaml.load', mock.Mock(return_value=dict_merge(TEST_FACTOR_SETTINGS, dict(locked=True))))
+    ):
         with app.test_client() as c:
             response = c.get('/index-builder/results-stats')
             assert response.status_code == 200
             assert response.content_type == 'application/json'
             response_data = json.loads(response.data)
             assert 'error' not in response_data
+            assert 'test' in response_data
+            unittest.assertEquals(
+                sorted(response_data['samples']['stats'].keys()),
+                sorted(SAMPLE_INDEXES),
+                'should load indexes'
+            )
 
-TEST_FACTOR_SETTINGS = dict(
-    factors=dict(
-        factor_1=dict(reasons=['futureRet','riskReduce'], strength='HI', weight=10),
-        factor_2=dict(reasons=['ethics'], strength='HI', weight=20),
-        factor_3=dict(reasons=['ethics'], strength='HI', weight=30)
-    ),
-    locked=False
-)
 
 @pytest.mark.unit
 def test_load_cumulative_returns(unittest):
@@ -207,20 +223,6 @@ def test_load_cumulative_returns(unittest):
                 '/index-builder/cumulative-returns',
                 query_string=dict(user='Test User', samples='sample_index_1')
             )
-            assert response.status_code == 200
-            assert response.content_type == 'application/json'
-            response_data = json.loads(response.data)
-            assert 'error' not in response_data
-
-
-@pytest.mark.unit
-def test_load_results_stats(unittest):
-    with mock.patch(
-            'index_builder.views.utils.get_all_user_factors',
-            mock.Mock(return_value=[('Test User', TEST_FACTOR_SETTINGS['factors'])])
-    ):
-        with app.test_client() as c:
-            response = c.get('/index-builder/results-stats')
             assert response.status_code == 200
             assert response.content_type == 'application/json'
             response_data = json.loads(response.data)
@@ -257,9 +259,13 @@ def test_200(unittest):
     paths = ['/index-builder/factors', '/index-builder/results', '/index-builder/summary',
              '/index-builder/debug', '/login', '/index']
     with app.test_client() as c:
-        for path in paths:
-            response = c.get(path)
-            assert response.status_code == 200, '{} should return 200 response'.format(path)
+        with nested(
+            mock.patch('index_builder.utils.get_user_counts', mock.Mock(return_value={'locked': 1, 'unlocked': 1})),
+            mock.patch('index_builder.utils.get_app_settings', mock.Mock(return_value=dict(summary_viewable=False))),
+        ):
+            for path in paths:
+                response = c.get(path)
+                assert response.status_code == 200, '{} should return 200 response'.format(path)
 
 
 @pytest.mark.unit
