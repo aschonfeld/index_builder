@@ -84,6 +84,7 @@ class ReactResultsViewer extends React.Component {
         results={this.props.results}
         toggleUser={this.toggleUser}
         toggleSampleIndex={this.toggleSampleIndex}
+        refresh={this.props.refreshResults}
       />,
       <div key={3} className="data-table">
         <table className="table table-bordered">
@@ -132,6 +133,7 @@ ReactResultsViewer.propTypes = {
   results: PropTypes.object,
   selectedUser: PropTypes.string,
   selectedUserChange: PropTypes.func,
+  refreshResults: PropTypes.func,
   loadingUserResults: PropTypes.bool,
   userResults: PropTypes.object,
 };
@@ -149,6 +151,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     selectedUserChange: user => dispatch(actions.toggleUserResults(user)),
+    refreshResults: () => dispatch(actions.refreshResults()),
   };
 }
 

@@ -1,5 +1,6 @@
 import $ from "jquery";
 import _ from "lodash";
+import moment from "moment";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -34,10 +35,11 @@ const COLUMNS_AND_LABELS = _.concat([["name", "User"]], STATS_LABELS, [["rating"
 class ResultsGrid extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sortColumn: "compounded return", sortDirection: "desc" };
+    this.state = { sortColumn: "compounded return", sortDirection: "desc", lastCached: moment() };
     this.buildAction = this.buildAction.bind(this);
     this.sortData = this.sortData.bind(this);
     this.handleGridSort = this.handleGridSort.bind(this);
+    this.refresh = this.refresh.bind(this);
   }
 
   sortData(data) {
@@ -78,6 +80,11 @@ class ResultsGrid extends React.Component {
       return <i className={className} onClick={() => this.props.toggleSampleIndex(name)} />;
     }
     return null;
+  }
+
+  refresh() {
+    this.setState({ lastCached: moment() });
+    this.props.refresh();
   }
 
   render() {
@@ -125,10 +132,11 @@ class ResultsGrid extends React.Component {
       })
     );
 
+    const lastCached = this.state.lastCached.format("M/D/YYYY h:mm:ss a");
     return (
       <div className="data-table results-grid">
         <table className="table table-bordered table-hover">
-          <ReportTitleRow title="Team Performance" />
+          <ReportTitleRow title="Team Performance" refresh={this.refresh} lastCached={lastCached} />
           <colgroup>
             <col />
             {_.map(COLUMNS_AND_LABELS, (_c, i) => <col key={`col${i}`} className={`col${i}`} />)}
@@ -166,6 +174,8 @@ ResultsGrid.propTypes = {
   selectedSamples: PropTypes.array,
   toggleSampleIndex: PropTypes.func,
   toggleUser: PropTypes.func,
+  refresh: PropTypes.func,
 };
+ResultsGrid.defaultProps = { refresh: _.noop };
 
 export { ResultsGrid };

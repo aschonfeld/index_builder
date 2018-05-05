@@ -30,6 +30,10 @@ function loadResults(dispatch) {
   });
 }
 
+function refreshResults() {
+  return dispatch => loadResults(dispatch);
+}
+
 function loadSampleIndexes(dispatch) {
   fetchJson(SAMPLE_INDEXES_URL, samples => {
     dispatch({ type: "loaded-sample-indexes", samples });
@@ -44,4 +48,4 @@ function init() {
   };
 }
 
-export default { init, toggleUserResults };
+export default { init, toggleUserResults, refreshResults };

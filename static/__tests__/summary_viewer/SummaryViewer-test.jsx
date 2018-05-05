@@ -37,8 +37,7 @@ test("SummaryViewer: rendering with redux", t => {
   setTimeout(() => {
     const body = document.getElementsByTagName("body")[0];
     body.innerHTML += '<input type="hidden" id="username" value="admin" />';
-    body.innerHTML += '<input type="hidden" id="summary_viewable" value="True" />';
-    body.innerHTML += '<div id="content"></div>';
+    body.innerHTML += '<input type="hidden" id="summary_viewable" value="True" /><div id="content"></div>';
     const result = mount(
       <Provider store={store}>
         <SummaryViewer />
@@ -93,6 +92,46 @@ test("SummaryViewer: rendering with redux", t => {
         .first()
         .text(),
       "should toggle factor type"
+    );
+
+    result
+      .find(FactorSelectionsGrid)
+      .find("label.mb-1")
+      .first()
+      .simulate("click");
+    t.ok(
+      result
+        .find(FactorSelectionsGrid)
+        .find("label.mb-1")
+        .first()
+        .find("i.ico-arrow-drop-down").length,
+      "should sort desc"
+    );
+    result
+      .find(FactorSelectionsGrid)
+      .find("label.mb-1")
+      .first()
+      .simulate("click");
+    t.ok(
+      result
+        .find(FactorSelectionsGrid)
+        .find("label.mb-1")
+        .first()
+        .find("i.ico-arrow-drop-up").length,
+      "should sort asc"
+    );
+    result
+      .find(FactorSelectionsGrid)
+      .find("label.mb-1")
+      .at(1)
+      .simulate("click");
+    t.false(
+      result
+        .find(FactorSelectionsGrid)
+        .find("label.mb-1")
+        .first()
+        .find("i").length,
+      "should change sort column"
     );
 
     t.end();
