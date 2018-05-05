@@ -5,10 +5,11 @@ import React from "react";
 import { Provider } from "react-redux";
 
 import { JSAnchor } from "../../JSAnchor";
+import { RemovableError } from "../../RemovableError";
 import reduxUtils from "../redux-test-utils";
 import { test, withGlobalJquery } from "../test-utils";
 
-const { actions, FactorViewer, Factor, ReturnsChart } = withGlobalJquery(() => {
+const { actions, FactorViewer, Factor, FactorInputs, ReturnsChart } = withGlobalJquery(() => {
   const { factorActions } = reduxUtils.buildLibs();
   const Chart = (ctx, cfg) => {
     const chartCfg = {
@@ -37,7 +38,7 @@ const { actions, FactorViewer, Factor, ReturnsChart } = withGlobalJquery(() => {
     "../actions/factor-viewer": factorActions,
     "./Factor": Factor,
   });
-  return { actions: factorActions, FactorViewer, Factor, ReturnsChart };
+  return { actions: factorActions, FactorViewer, Factor, FactorInputs, ReturnsChart };
 });
 
 test("FactorViewer: rendering with redux", t => {
@@ -107,6 +108,13 @@ test("FactorViewer: rendering with redux", t => {
           .text(),
         "should toggle factor"
       );
+
+      result
+        .find(FactorInputs.ReactFactorInputs)
+        .instance()
+        .saveFactorSettings();
+      result.update();
+      t.ok(result.find(RemovableError).length, "should render error");
       t.end();
     }, 10);
   }, 400);

@@ -23,26 +23,8 @@ class ReactReturnsChart extends React.Component {
     this.toggleReturns = this.toggleReturns.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!_.isEqual(this.props, nextProps)) {
-      const { chart } = this.state;
-      if (chart) {
-        chart.destroy();
-      }
-      this.setState(BASE_STATE);
-    }
-  }
-
-  shouldComponentUpdate(newProps, newState) {
-    if (!_.isEqual(this.props, newProps)) {
-      return true;
-    }
-
-    if (this.state.selectedReturns !== newState.selectedReturns) {
-      return true;
-    }
-
-    return false; // Otherwise, use the default react behaviour.
+  shouldComponentUpdate(_newProps, newState) {
+    return this.state.selectedReturns !== newState.selectedReturns;
   }
 
   componentDidUpdate() {

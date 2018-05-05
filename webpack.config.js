@@ -5,7 +5,7 @@ const autoprefixer = require("autoprefixer");
 const postcssNested = require("postcss-nested");
 
 module.exports = {
-  // devtool: "source-map",
+  devtool: "source-map",
   mode: "development",
   entry: {
     factor_viewer: __dirname + "/static/factor_viewer_main.jsx",
