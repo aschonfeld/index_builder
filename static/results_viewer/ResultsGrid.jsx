@@ -35,7 +35,7 @@ const COLUMNS_AND_LABELS = _.concat([["name", "User"]], STATS_LABELS, [["rating"
 class ResultsGrid extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sortColumn: "compounded return", sortDirection: "desc", lastCached: moment() };
+    this.state = { sortColumn: "compounded return", sortDirection: "desc", lastCached: moment(), showUnlocked: false };
     this.buildAction = this.buildAction.bind(this);
     this.sortData = this.sortData.bind(this);
     this.handleGridSort = this.handleGridSort.bind(this);
@@ -91,28 +91,56 @@ class ResultsGrid extends React.Component {
   renderTitleWithArchives() {
     const title = "Team Performance";
     const archives = _.get(this.props, "results.archives", []);
+    let archivesMarkup = null;
     if (_.size(archives)) {
-      return (
-        <div className="d-flex">
-          <span>{title}</span>
-          <div className="input-group pl-4 archives">
-            <span className="input-group-addon">Snapshot</span>
-            <select
-              value={this.props.selectedArchive || ""}
-              className="form-control custom-select"
-              onChange={event => this.props.toggleArchive(event.target.value)}>
-              <option value={""}>Active Users</option>
-              {_.map(archives, a => (
-                <option key={a} value={a}>
-                  {moment(a, "YYYYMMDDHHmmss").format("M/D/YYYY h:mm:ss")}
-                </option>
-              ))}
-            </select>
+      archivesMarkup = (
+        <div className="input-group pl-4 archives">
+          <span className="input-group-addon">Snapshot</span>
+          <select
+            value={this.props.selectedArchive || ""}
+            className="form-control custom-select"
+            onChange={event => this.props.toggleArchive(event.target.value)}>
+            <option value={""}>Active Users</option>
+            {_.map(archives, a => (
+              <option key={a} value={a}>
+                {moment(a, "YYYYMMDDHHmmss").format("M/D/YYYY h:mm:ss")}
+              </option>
+            ))}
+          </select>
+        </div>
+      );
+    }
+    const unlocked = _.get(this.props, "results.unlocked", []);
+    let unlockedMarkup = null;
+    if (_.size(unlocked)) {
+      const { showUnlocked } = this.state;
+      unlockedMarkup = (
+        <div className="pl-5 unlocked-toggle">
+          <span className="pr-4 float-left mt-3">In-Progress Teams</span>
+          <div className="factor-types">
+            <div className="btn-group">
+              <button
+                className={`btn ${showUnlocked ? "inactive" : "btn-primary active"}`}
+                onClick={showUnlocked ? () => this.setState({ showUnlocked: false }) : _.noop}>
+                Hidden
+              </button>
+              <button
+                className={`btn ${showUnlocked ? "btn-primary active" : "inactive"}`}
+                onClick={showUnlocked ? _.noop : () => this.setState({ showUnlocked: true })}>
+                Visible
+              </button>
+            </div>
           </div>
         </div>
       );
     }
-    return title;
+    return (
+      <div className="d-flex">
+        <span>{title}</span>
+        {archivesMarkup}
+        {unlockedMarkup}
+      </div>
+    );
   }
 
   render() {
@@ -160,6 +188,16 @@ class ResultsGrid extends React.Component {
       })
     );
 
+    if (this.state.showUnlocked) {
+      const baseRow = _.mapValues(records[0], () => "N/A");
+      records = _.concat(
+        records,
+        _.map(results.unlocked, team =>
+          _.assignIn({}, baseRow, { name: team, onClick: _.noop, unlocked: true, rowClass: "unlocked-row" })
+        )
+      );
+    }
+
     const lastCached = this.state.lastCached.format("M/D/YYYY h:mm:ss a");
     return (
       <div className="data-table results-grid">
@@ -173,22 +211,35 @@ class ResultsGrid extends React.Component {
             <tr>{headers}</tr>
           </thead>
           <tbody>
-            {_.map(this.sortData(records), (record, i) => (
-              <tr key={`row-${i}`} className={record.rowClass}>
-                <td>{this.buildAction(record.name, record)}</td>
-                <td onClick={record.onClick}>{record.name}</td>
-                {_.map(STATS_LABELS, ([col, _label, fmt]) => (
-                  <td key={`stat-${i}-${col}`} onClick={record.onClick}>
-                    {fmt(_.get(record, col, 0))}
-                    {showBest(col, record, bests)}
+            {_.map(this.sortData(records), (record, i) => {
+              if (record.unlocked) {
+                return (
+                  <tr key={`row-${i}`} className={record.rowClass}>
+                    <td />
+                    <td>{record.name}</td>
+                    <td colSpan={_.size(COLUMNS_AND_LABELS)} className="text-center">
+                      Currently In-Progress
+                    </td>
+                  </tr>
+                );
+              }
+              return (
+                <tr key={`row-${i}`} className={record.rowClass}>
+                  <td>{this.buildAction(record.name, record)}</td>
+                  <td onClick={record.onClick}>{record.name}</td>
+                  {_.map(STATS_LABELS, ([col, _label, fmt]) => (
+                    <td key={`stat-${i}-${col}`} onClick={record.onClick}>
+                      {fmt(_.get(record, col, 0))}
+                      {showBest(col, record, bests)}
+                    </td>
+                  ))}
+                  <td onClick={record.onClick}>
+                    {formatters.formatFloat(_.get(record, "rating", 0))}
+                    {showBest("rating", record, bests)}
                   </td>
-                ))}
-                <td onClick={record.onClick}>
-                  {formatters.formatFloat(_.get(record, "rating", 0))}
-                  {showBest("rating", record, bests)}
-                </td>
-              </tr>
-            ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

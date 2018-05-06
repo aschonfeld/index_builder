@@ -62,6 +62,29 @@
   background-color: rgba(128, 255, 128, 0.2);
 }
 
+.ResultsViewer .unlocked-row,
+.ResultsViewer .table-hover tbody tr.unlocked-row:hover {
+  background-color: rgba(192, 192, 192, 0.2);
+}
+
+.ResultsViewer .unlocked-toggle {
+  font-size: 12px;
+}
+
+.ResultsViewer .archive {
+  margin-top: -0.25em;
+}
+
+.ResultsViewer .archives select.form-control {
+  height: 25px !important;
+}
+
+.ResultsViewer .archives .input-group-addon {
+  line-height: 15px !important;
+  padding: 0 0.6rem;
+  margin-bottom: 0.35em;
+}
+
 .ResultsViewer .ico-star {
   margin-top: -0.25em;
 }
@@ -85,8 +108,20 @@
   margin-top: 0;
 }
 
-.ResultsViewer .archives {
-  margin-top: -0.5em;
+.ResultsViewer div.btn-group .active {
+  cursor: default;
+}
+
+.ResultsViewer div.btn-group .inactive {
+  color: #337ab7;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.ResultsViewer .factor-types button {
+  font-size: 12px;
+  padding: 4px 5px;
+  border: 1px solid lightgrey;
 }
 
 @media (max-width: 767px) {

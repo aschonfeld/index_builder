@@ -285,15 +285,21 @@ def find_results_stats():
     try:
         archive = utils.get_str_arg(request, 'archive')
         current_user = session.get('username')
+        is_admin = current_user == 'admin'
         indices = get_indexes()
         factors = get_factors()
-        user_settings = {user: factor_settings for user, factor_settings in utils.get_all_user_factors(archive=archive)}
+        user_settings = {
+            user: factor_settings
+            for user, factor_settings in utils.get_all_user_factor_settings(locked=False if is_admin else True, archive=archive)
+        }
+        unlocked = [user for user, settings in user_settings.items() if not settings['locked']]
+        user_settings = {user: settings.get('factors', {}) for user, settings in user_settings.items() if settings['locked']}
         user_results = {
             user: dict(stats=model.load_results_stats(factors, indices, factor_settings))
             for user, factor_settings in user_settings.items()
         }
         for user, result in user_results.items():
-            if current_user == 'admin':
+            if is_admin:
                 result['stats']['unlockable'] = True
 
         results = dict(
@@ -301,7 +307,8 @@ def find_results_stats():
             samples=dict(
                 stats={k: v for k, v in indices['stats'].items() if k in model.SAMPLE_INDEXES},
             ),
-            archives=utils.find_available_archives()
+            unlocked=unlocked,
+            archives=utils.find_available_archives() if is_admin else []
         )
         return jsonify(results)
     except Exception as ex:
