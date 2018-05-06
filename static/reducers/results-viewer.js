@@ -31,6 +31,15 @@ function selectedUser(state = null, action) {
   }
 }
 
+function selectedArchive(state = null, action) {
+  switch (action.type) {
+    case "changed-selected-archive":
+      return action.archive;
+    default:
+      return state;
+  }
+}
+
 function loadingUserResults(state = false, action) {
   switch (action.type) {
     case "changed-selected-user":
@@ -65,6 +74,7 @@ const resultsViewer = combineReducers({
   loadingResults,
   results,
   selectedUser,
+  selectedArchive,
   loadingUserResults,
   userResults,
   sampleIndexes,

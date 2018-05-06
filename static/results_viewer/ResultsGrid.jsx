@@ -40,6 +40,7 @@ class ResultsGrid extends React.Component {
     this.sortData = this.sortData.bind(this);
     this.handleGridSort = this.handleGridSort.bind(this);
     this.refresh = this.refresh.bind(this);
+    this.renderTitleWithArchives = this.renderTitleWithArchives.bind(this);
   }
 
   sortData(data) {
@@ -87,6 +88,33 @@ class ResultsGrid extends React.Component {
     this.props.refresh();
   }
 
+  renderTitleWithArchives() {
+    const title = "Team Performance";
+    const archives = _.get(this.props, "results.archives", []);
+    if (_.size(archives)) {
+      return (
+        <div className="d-flex">
+          <span>{title}</span>
+          <div className="input-group pl-4 archives">
+            <span className="input-group-addon">Snapshot</span>
+            <select
+              value={this.props.selectedArchive || ""}
+              className="form-control custom-select"
+              onChange={event => this.props.toggleArchive(event.target.value)}>
+              <option value={""}>Active Users</option>
+              {_.map(archives, a => (
+                <option key={a} value={a}>
+                  {moment(a, "YYYYMMDDHHmmss").format("M/D/YYYY h:mm:ss")}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      );
+    }
+    return title;
+  }
+
   render() {
     const { results, selectedUser, toggleUser } = this.props;
     const { sortColumn, sortDirection } = this.state;
@@ -109,7 +137,7 @@ class ResultsGrid extends React.Component {
       );
     });
 
-    let records = _.map(_.omit(results, "samples"), (userResults, user) => {
+    let records = _.map(_.get(results, "users", {}), (userResults, user) => {
       const rowClass = `${selectedUser === user ? "selected-row" : "unselected-row"}`;
       const { stats } = userResults;
       const data = _.assignIn({}, stats, { name: user, rowClass, onClick: () => toggleUser(user) });
@@ -136,7 +164,7 @@ class ResultsGrid extends React.Component {
     return (
       <div className="data-table results-grid">
         <table className="table table-bordered table-hover">
-          <ReportTitleRow title="Team Performance" refresh={this.refresh} lastCached={lastCached} />
+          <ReportTitleRow title={this.renderTitleWithArchives()} refresh={this.refresh} lastCached={lastCached} />
           <colgroup>
             <col />
             {_.map(COLUMNS_AND_LABELS, (_c, i) => <col key={`col${i}`} className={`col${i}`} />)}
@@ -171,10 +199,12 @@ ResultsGrid.displayName = "ResultsGrid";
 ResultsGrid.propTypes = {
   results: PropTypes.object,
   selectedUser: PropTypes.string,
+  selectedArchive: PropTypes.string,
   selectedSamples: PropTypes.array,
   toggleSampleIndex: PropTypes.func,
   toggleUser: PropTypes.func,
   refresh: PropTypes.func,
+  toggleArchive: PropTypes.func,
 };
 ResultsGrid.defaultProps = { refresh: _.noop };
 

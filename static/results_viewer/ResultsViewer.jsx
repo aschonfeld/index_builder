@@ -80,10 +80,12 @@ class ReactResultsViewer extends React.Component {
       <ResultsGrid
         key={1}
         selectedUser={selectedUser}
+        selectedArchive={this.props.selectedArchive}
         selectedSamples={selectedSamples}
         results={this.props.results}
         toggleUser={this.toggleUser}
         toggleSampleIndex={this.toggleSampleIndex}
+        toggleArchive={this.props.toggleSelectedArchive}
         refresh={this.props.refreshResults}
       />,
       <div key={3} className="data-table">
@@ -132,10 +134,12 @@ ReactResultsViewer.propTypes = {
   loadingResults: PropTypes.bool,
   results: PropTypes.object,
   selectedUser: PropTypes.string,
+  selectedArchive: PropTypes.string,
   selectedUserChange: PropTypes.func,
   refreshResults: PropTypes.func,
   loadingUserResults: PropTypes.bool,
   userResults: PropTypes.object,
+  toggleSelectedArchive: PropTypes.func,
 };
 
 function mapStateToProps(state) {
@@ -144,6 +148,7 @@ function mapStateToProps(state) {
     results: state.results,
     sampleIndexes: state.sampleIndexes,
     selectedUser: state.selectedUser,
+    selectedArchive: state.selectedArchive,
     userResults: state.userResults,
   };
 }
@@ -152,6 +157,7 @@ function mapDispatchToProps(dispatch) {
   return {
     selectedUserChange: user => dispatch(actions.toggleUserResults(user)),
     refreshResults: () => dispatch(actions.refreshResults()),
+    toggleSelectedArchive: archive => dispatch(actions.toggleSelectedArchive(archive)),
   };
 }
 

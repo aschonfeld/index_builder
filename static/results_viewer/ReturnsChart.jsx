@@ -189,16 +189,16 @@ class ReactReturnsChart extends React.Component {
   }
 
   toggleReturns(returnType) {
-    const { selectedUser, selectedSamples, userResults } = this.props;
+    const { selectedUser, selectedArchive, selectedSamples, userResults } = this.props;
     const { chart } = this.state;
     if (chart) {
       chart.destroy();
     }
     switch (returnType) {
       case "cumulative": {
-        const params = qs.stringify({ user: selectedUser, samples: _.join(selectedSamples, ",") });
+        const params = { user: selectedUser, samples: _.join(selectedSamples, ","), archive: selectedArchive };
         toggleBouncer();
-        fetchJsonPromise(`/index-builder/cumulative-returns?${params}`)
+        fetchJsonPromise(`/index-builder/cumulative-returns?${qs.stringify(params)}`)
           .then(data => {
             toggleBouncer();
             const colors = _.map(_.keys(data), k => (k === selectedUser ? chartUtils.TS_COLORS[0] : SAMPLE_COLORS[k]));
@@ -269,12 +269,14 @@ ReactReturnsChart.propTypes = {
   userResults: PropTypes.object,
   sampleIndexes: PropTypes.object,
   selectedUser: PropTypes.string,
+  selectedArchive: PropTypes.string,
   selectedSamples: PropTypes.array,
 };
 
 function mapStateToProps(state) {
   return {
     selectedUser: state.selectedUser,
+    selectedArchive: state.selectedArchive,
     loadingUserResults: state.loadingUserResults,
     userResults: state.userResults,
     sampleIndexes: state.sampleIndexes,

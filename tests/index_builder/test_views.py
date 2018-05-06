@@ -207,7 +207,7 @@ def test_load_results_stats(unittest):
             assert response.content_type == 'application/json'
             response_data = json.loads(response.data)
             assert 'error' not in response_data
-            assert 'test' in response_data
+            assert 'test' in response_data['users']
             unittest.assertEquals(
                 sorted(response_data['samples']['stats'].keys()),
                 sorted(SAMPLE_INDEXES),

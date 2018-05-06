@@ -1,26 +1,28 @@
 {
-  "alissa": {
-    "stats": {
-      "annualized": 0.5860000000000001,
-      "compounded return": 15.418600000000001,
-      "excess over index (annualized)": 0.027700000000000002,
-      "ir": 1.0236263998462134,
-      "rating": 15.738,
-      "tracking error": 0.027060654164606898,
-      "unlockable": true,
-      "volatility": 0.014765941226366569
-    }
-  },
-  "aschonfeld": {
-    "stats": {
-      "annualized": 0.649,
-      "compounded return": 14.8489,
-      "excess over index (annualized)": 0.04705,
-      "ir": 1.7460669863575555,
-      "rating": 9.312,
-      "tracking error": 0.026946274322585017,
-      "unlockable": true,
-      "volatility": 0.014783162390203188
+  "users": {
+    "alissa": {
+      "stats": {
+        "annualized": 0.5860000000000001,
+        "compounded return": 15.418600000000001,
+        "excess over index (annualized)": 0.027700000000000002,
+        "ir": 1.0236263998462134,
+        "rating": 15.738,
+        "tracking error": 0.027060654164606898,
+        "unlockable": true,
+        "volatility": 0.014765941226366569
+      }
+    },
+    "aschonfeld": {
+      "stats": {
+        "annualized": 0.649,
+        "compounded return": 14.8489,
+        "excess over index (annualized)": 0.04705,
+        "ir": 1.7460669863575555,
+        "rating": 9.312,
+        "tracking error": 0.026946274322585017,
+        "unlockable": true,
+        "volatility": 0.014783162390203188
+      }
     }
   },
   "samples": {
@@ -66,5 +68,6 @@
         "volatility": 0.242
       }
     }
-  }
+  },
+  "archives": []
 }

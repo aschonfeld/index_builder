@@ -283,20 +283,25 @@ def find_sample_indexes():
 @index_builder.route('/results-stats')
 def find_results_stats():
     try:
+        archive = utils.get_str_arg(request, 'archive')
         current_user = session.get('username')
         indices = get_indexes()
         factors = get_factors()
-        user_settings = {user: factor_settings for user, factor_settings in utils.get_all_user_factors()}
-        results = {
+        user_settings = {user: factor_settings for user, factor_settings in utils.get_all_user_factors(archive=archive)}
+        user_results = {
             user: dict(stats=model.load_results_stats(factors, indices, factor_settings))
             for user, factor_settings in user_settings.items()
         }
-        for user, result in results.items():
+        for user, result in user_results.items():
             if current_user == 'admin':
                 result['stats']['unlockable'] = True
 
-        results['samples'] = dict(
-            stats={k: v for k, v in indices['stats'].items() if k in model.SAMPLE_INDEXES},
+        results = dict(
+            users=user_results,
+            samples=dict(
+                stats={k: v for k, v in indices['stats'].items() if k in model.SAMPLE_INDEXES},
+            ),
+            archives=utils.find_available_archives()
         )
         return jsonify(results)
     except Exception as ex:
@@ -307,10 +312,11 @@ def find_results_stats():
 @index_builder.route('/user-results')
 def find_user_results():
     try:
+        archive = utils.get_str_arg(request, 'archive')
         user = utils.get_str_arg(request, 'user')
         indices = get_indexes()
         factors = get_factors()
-        factor_settings = utils.get_factor_settings(user)
+        factor_settings = utils.get_factor_settings(user, archive=archive)
         results = model.load_user_results(factors, indices, factor_settings.get('factors', {}))
         return jsonify(results)
     except Exception as ex:
@@ -323,9 +329,10 @@ def find_cumulative_returns():
     try:
         factors = get_factors()
         indices = get_indexes()
+        archive = utils.get_str_arg(request, 'archive')
         user = utils.get_str_arg(request, 'user')
         sample_indexes = utils.get_str_arg(request, 'samples')
-        factor_settings = utils.get_factor_settings(user)
+        factor_settings = utils.get_factor_settings(user, archive=archive)
         cum_returns = {user: model.load_cumulative_returns(factors, indices, factor_settings['factors'])}
         if sample_indexes is not None:
             for sample in sample_indexes.split(','):

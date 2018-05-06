@@ -148,8 +148,22 @@ mkdir_p(USERS_PATH)
 APP_SETTINGS_FNAME = os.path.join(DATA_PATH, 'app_settings.yaml')
 
 
-def build_factor_settings_file_path(user):
-    return os.path.join(USERS_PATH, '{}.yaml'.format(user))
+def find_available_archives():
+    archives = []
+    for fname in os.listdir(DATA_PATH):
+        if fname.startswith('users_'):
+            archives.append(fname.split('_')[-1])
+    return archives
+
+
+def build_users_path(archive=None):
+    if archive:
+        return '{}_{}'.format(USERS_PATH, archive)
+    return USERS_PATH
+
+
+def build_factor_settings_file_path(user, archive=None):
+    return os.path.join(build_users_path(archive), '{}.yaml'.format(user))
 
 
 def dump_yaml(data, fname):
@@ -168,18 +182,19 @@ def dump_factor_settings(user, factor_settings):
     dump_yaml(factor_settings, build_factor_settings_file_path(user))
 
 
-def get_all_user_factors(locked=True):
-    for user, factor_settings in get_all_user_factor_settings(locked):
+def get_all_user_factors(locked=True, archive=None):
+    for user, factor_settings in get_all_user_factor_settings(locked, archive=archive):
         yield user, factor_settings.get('factors', {})
 
 
-def get_all_user_factor_settings(locked=True, include_last_update=False):
-    for fname in os.listdir(USERS_PATH):
+def get_all_user_factor_settings(locked=True, include_last_update=False, archive=None):
+    users_path = build_users_path(archive)
+    for fname in os.listdir(users_path):
         user, _ = os.path.splitext(fname)
         factor_settings = get_factor_settings(user)
         if not locked or factor_settings['locked']:
             if include_last_update:
-                last_update = time.ctime(os.path.getmtime(os.path.join(USERS_PATH, fname)))
+                last_update = time.ctime(os.path.getmtime(os.path.join(users_path, fname)))
                 yield user, factor_settings, last_update
             else:
                 yield user, factor_settings
@@ -202,8 +217,8 @@ def get_user_counts():
     return user_counts
 
 
-def get_factor_settings(user):
-    fname = build_factor_settings_file_path(user)
+def get_factor_settings(user, archive=None):
+    fname = build_factor_settings_file_path(user, archive=archive)
     return load_yaml(fname) or dict(factors={}, locked=False)
 
 

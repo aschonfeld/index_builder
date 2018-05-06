@@ -85,6 +85,10 @@
   margin-top: 0;
 }
 
+.ResultsViewer .archives {
+  margin-top: -0.5em;
+}
+
 @media (max-width: 767px) {
   .SectorExposures .chart-wrapper {
     height: 40em;
