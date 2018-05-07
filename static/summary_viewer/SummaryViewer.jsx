@@ -124,10 +124,10 @@ class ReactSummaryViewer extends React.Component {
         <div className="row">
           <div className="col-md-8">
             <div className="row factors-header">
-              <div className="col-md-9 float-left align-middle">
-                <strong>Factors</strong>
-              </div>
-              <div className="col-md-3">
+              <div className="col-md-12">
+                <div className="float-left mt-3">
+                  <strong>Factors</strong>
+                </div>
                 <div className="factor-types float-right">
                   <div className="btn-group">
                     {_.map(FACTOR_BREAKDOWNS, ([c, label]) => (

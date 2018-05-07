@@ -10568,7 +10568,7 @@ div.alert-warning.flash-msg span {
   }
 
   .app-header__nav--secondary button.lock-inputs {
-    white-space: pre-wrap;
+    white-space: normal;
     width: 7em;
     padding: 0;
   }
@@ -10577,6 +10577,7 @@ div.alert-warning.flash-msg span {
     margin-top: -3.5em;
     z-index: 10;
     padding: .2rem .4rem;
+    height: auto;
   }
 
   div.alert-warning.flash-msg span.text-center {

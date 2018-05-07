@@ -3,11 +3,12 @@ import json
 import mock
 from contextlib import nested
 import flask
+import pandas as pd
 
 from index_builder.server import app
 import index_builder.views as views
 from index_builder.model import SAMPLE_INDEXES
-from index_builder.utils import dict_merge
+from index_builder.utils import dict_merge, USERS_PATH
 
 
 TEST_FACTOR_SETTINGS = dict(
@@ -135,10 +136,10 @@ def test_lock_factor_settings(unittest):
         factor_settings = {'factor 1': dict(weight=50), 'factor 2': dict(weight=50)}
         session = {'username': 'test', 'factor_settings': dict(factors=factor_settings)}
         with nested(
-                mock.patch('index_builder.views.session', session),
-                mock.patch('__builtin__.open'),
-                mock.patch('yaml.safe_dump'),
-                mock.patch('index_builder.views.redirect', mock.Mock(return_value=json.dumps(dict(success=True)))),
+            mock.patch('index_builder.views.session', session),
+            mock.patch('__builtin__.open'),
+            mock.patch('yaml.safe_dump'),
+            mock.patch('index_builder.views.redirect', mock.Mock(return_value=json.dumps(dict(success=True)))),
         ) as (_, mock_open, yaml_dump, mock_redirect):
             response = c.get('/index-builder/lock-factor-settings')
             assert response.status_code == 200
@@ -151,15 +152,19 @@ def test_lock_factor_settings(unittest):
         factor_settings['factor 2']['weight'] = 40
         session = {'username': 'test', 'factor_settings': dict(factors=factor_settings)}
         with nested(
-                mock.patch('index_builder.views.session', session),
-                mock.patch('__builtin__.open'),
-                mock.patch('yaml.safe_dump'),
-                mock.patch('index_builder.views.redirect', mock.Mock(return_value=json.dumps(dict(success=True)))),
-        ) as (_, mock_open, yaml_dump, mock_redirect):
+            mock.patch('index_builder.views.session', session),
+            mock.patch('index_builder.views.flash'),
+            mock.patch('__builtin__.open'),
+            mock.patch('yaml.safe_dump'),
+            mock.patch('index_builder.views.redirect', mock.Mock(return_value=json.dumps(dict(success=True)))),
+        ) as (_, mock_flash, mock_open, yaml_dump, mock_redirect):
             response = c.get('/index-builder/lock-factor-settings')
             assert response.status_code == 200
             assert all((not mock_open.called, not yaml_dump.called))
             assert mock_redirect.called
+
+            args, _ = mock_flash.call_args
+            assert args[0] == "Your total weights are less than 100!"
 
 
 @pytest.mark.unit
@@ -252,6 +257,85 @@ def test_find_summary_data(unittest):
             assert response.content_type == 'application/json'
             response_data = json.loads(response.data)
             assert 'error' not in response_data
+
+
+@pytest.mark.unit
+def test_unlock_factor_settings(unittest):
+    factor_settings = dict(
+        factors={
+            'factor_1': dict(weight=20, strength='HI', reasons=['blah']),
+            'factor_2': dict(weight=80, strength='HI', reasons=['blah'])
+        }
+    )
+    with nested(
+        mock.patch('index_builder.utils.dump_yaml'),
+        mock.patch('os.listdir', mock.Mock(return_value=['test.yaml'])),
+        mock.patch('index_builder.utils.load_yaml', mock.Mock(
+            return_value=dict(username='test', factor_settings=factor_settings, locked=False))
+        ),
+    ) as (mock_dump, _, _):
+        with app.test_client() as c:
+            response = c.get('/index-builder/unlock-factor-settings', query_string=dict(user='test'))
+            assert response.status_code == 200
+
+            args, _ = mock_dump.call_args
+            settings, name = args
+            assert name.endswith('test.yaml')
+            assert not settings['locked']
+
+            response_data = json.loads(response.data)
+            assert response_data['locked'] == 0
+            assert response_data['unlocked'] == 1
+
+
+@pytest.mark.unit
+def test_lock_summary(unittest):
+
+    with nested(
+        mock.patch('index_builder.utils.load_yaml', mock.Mock(return_value=dict(summary_viewable=True))),
+        mock.patch('index_builder.utils.dump_yaml'),
+    ) as (_, mock_dump):
+        with app.test_client() as c:
+            response = c.get('/index-builder/lock-summary')
+            assert response.status_code == 302
+            args, _ = mock_dump.call_args
+            settings, name = args
+            assert name.endswith('app_settings.yaml')
+            assert not settings['summary_viewable']
+
+
+@pytest.mark.unit
+def test_unlock_summary(unittest):
+
+    with nested(
+        mock.patch('index_builder.utils.load_yaml', mock.Mock(return_value=dict(summary_viewable=False))),
+        mock.patch('index_builder.utils.dump_yaml'),
+    ) as (_, mock_dump):
+        with app.test_client() as c:
+            response = c.get('/index-builder/unlock-summary')
+            assert response.status_code == 302
+            args, _ = mock_dump.call_args
+            settings, name = args
+            assert name.endswith('app_settings.yaml')
+            assert settings['summary_viewable']
+
+
+@pytest.mark.unit
+def test_archive_user_settings(unittest):
+    with nested(
+        mock.patch('os.rename'),
+        mock.patch('os.path.isdir', mock.Mock(return_value=False)),
+        mock.patch('os.makedirs')
+    ) as (mock_rename, _, mock_makedirs):
+        with app.test_client() as c:
+            response = c.get('/index-builder/archive-user-settings')
+            assert response.status_code == 200
+            args, _ = mock_rename.call_args
+            path1, path2 = args
+            assert path1 == USERS_PATH
+            assert path2.startswith('{}_{}'.format(USERS_PATH, pd.Timestamp('now').strftime('%Y%m%d')))
+            args, _ = mock_makedirs.call_args
+            assert args[0] == USERS_PATH
 
 
 @pytest.mark.unit

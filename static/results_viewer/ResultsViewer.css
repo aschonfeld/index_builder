@@ -67,22 +67,28 @@
   background-color: rgba(192, 192, 192, 0.2);
 }
 
+.ResultsViewer .title-section {
+  display: flex;
+}
+
+.ResultsViewer .actions {
+  padding-left: 0.375rem !important;
+}
+
 .ResultsViewer .unlocked-toggle {
   font-size: 12px;
 }
 
-.ResultsViewer .archive {
-  margin-top: -0.25em;
-}
-
 .ResultsViewer .archives select.form-control {
   height: 25px !important;
+  line-height: 1;
 }
 
 .ResultsViewer .archives .input-group-addon {
   line-height: 15px !important;
   padding: 0 0.6rem;
   margin-bottom: 0.35em;
+  font-size: 0.725rem;
 }
 
 .ResultsViewer .ico-star {

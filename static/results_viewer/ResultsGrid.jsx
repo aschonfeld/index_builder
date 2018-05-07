@@ -94,7 +94,7 @@ class ResultsGrid extends React.Component {
     let archivesMarkup = null;
     if (_.size(archives)) {
       archivesMarkup = (
-        <div className="input-group pl-4 archives">
+        <div className="input-group archives">
           <span className="input-group-addon">Snapshot</span>
           <select
             value={this.props.selectedArchive || ""}
@@ -135,10 +135,12 @@ class ResultsGrid extends React.Component {
       );
     }
     return (
-      <div className="d-flex">
+      <div className="title-section">
         <span>{title}</span>
-        {archivesMarkup}
-        {unlockedMarkup}
+        <div className="actions d-flex">
+          {archivesMarkup}
+          {unlockedMarkup}
+        </div>
       </div>
     );
   }
