@@ -1,4 +1,4 @@
-# Index Builder [![Build Status](https://travis-ci.org/aschonfeld/index_builder.svg?branch=master)](https://travis-ci.org/aschonfeld/index_builder) [![Coverage Status](https://coveralls.io/repos/github/aschonfeld/index_builder/badge.svg?branch=master)](https://coveralls.io/github/aschonfeld/index_builder?branch=master)
+# Index Builder [![Build Status](https://travis-ci.org/aschonfeld/index_builder.svg?branch=master)](https://travis-ci.org/aschonfeld/index_builder) [![Coverage Status](https://coveralls.io/repos/github/aschonfeld/index_builder/badge.svg?branch=master)](https://coveralls.io/github/aschonfeld/index_builder?branch=master) [![BCH compliance](https://bettercodehub.com/edge/badge/aschonfeld/index_builder?branch=master)](https://bettercodehub.com/)
 
 This is a nice little interactive survey using completely randomized data in which users can:
 - create unique usernames

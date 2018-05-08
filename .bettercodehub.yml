@@ -1,0 +1,8 @@
+languages:
+- python
+- javascript
+exclude:
+- webpack.config.js
+- webpack.production.config.js
+- /tests/.*
+- /static/__tests__/.*
