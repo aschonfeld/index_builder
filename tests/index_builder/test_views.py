@@ -4,6 +4,7 @@ import mock
 from contextlib import nested
 import flask
 import pandas as pd
+from collections import namedtuple
 
 from index_builder.server import app
 import index_builder.views as views
@@ -19,6 +20,20 @@ TEST_FACTOR_SETTINGS = dict(
     ),
     locked=False
 )
+
+
+class MockDict(object):
+    def __init__(self, data):
+        self.data = data
+
+    def get(self, key, default=None):
+        return self.data.get(key, default)
+
+    def __getitem__(self, key):
+        return self.data.get(key)
+
+    def set(self, key, val):
+        self.data[key] = val
 
 
 @pytest.mark.unit
@@ -129,6 +144,15 @@ def test_save_factor_settings(unittest):
             args, _ = yaml_dump.call_args
             unittest.assertEquals(args[0], {'locked': False, 'factors': {u'factor': False}}, 'should dump updated settings')
 
+        with mock.patch('index_builder.views.session', mock.Mock(side_effect=Exception())):
+            response = c.get(
+                '/index-builder/save-factor-settings',
+                query_string=dict(factor_settings=json.dumps({'factor': False}))
+            )
+            assert response.status_code == 200
+            response_data = json.loads(response.data)
+            assert 'error' in response_data
+
 
 @pytest.mark.unit
 def test_lock_factor_settings(unittest):
@@ -149,8 +173,13 @@ def test_lock_factor_settings(unittest):
             unittest.assertEquals(args[0], {'locked': True, 'factors': factor_settings}, 'should dump updated settings')
             assert mock_redirect.called
 
-        factor_settings['factor 2']['weight'] = 40
-        session = {'username': 'test', 'factor_settings': dict(factors=factor_settings)}
+        with mock.patch('index_builder.views.session', mock.Mock(side_effect=Exception())):
+            response = c.get('/index-builder/lock-factor-settings')
+            assert response.status_code == 200
+            response_data = json.loads(response.data)
+            assert 'error' in response_data
+
+        session['factor_settings']['factors']['factor 2']['weight'] = 40
         with nested(
             mock.patch('index_builder.views.session', session),
             mock.patch('index_builder.views.flash'),
@@ -196,6 +225,13 @@ def test_find_sample_indexes(unittest):
         response_data = json.loads(response.data)
         assert 'error' not in response_data
 
+    with mock.patch('index_builder.views.get_indexes', mock.Mock(side_effect=Exception())):
+        response = app.test_client().get('/index-builder/sample-indexes')
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' in response_data
+
 
 @pytest.mark.unit
 def test_load_results_stats(unittest):
@@ -206,43 +242,77 @@ def test_load_results_stats(unittest):
         mock.patch('__builtin__.open'),
         mock.patch('yaml.load', mock.Mock(return_value=dict_merge(TEST_FACTOR_SETTINGS, dict(locked=True))))
     ):
-        with app.test_client() as c:
-            response = c.get('/index-builder/results-stats')
-            assert response.status_code == 200
-            assert response.content_type == 'application/json'
-            response_data = json.loads(response.data)
-            assert 'error' not in response_data
-            assert 'test' in response_data['users']
-            unittest.assertEquals(
-                sorted(response_data['samples']['stats'].keys()),
-                sorted(SAMPLE_INDEXES),
-                'should load indexes'
-            )
+        response = app.test_client().get('/index-builder/results-stats')
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' not in response_data
+        assert 'test' in response_data['users']
+        unittest.assertEquals(
+            sorted(response_data['samples']['stats'].keys()),
+            sorted(SAMPLE_INDEXES),
+            'should load indexes'
+        )
+
+    with nested(
+        mock.patch('index_builder.views.session', MockDict(dict(username='admin'))),
+        mock.patch('os.listdir', mock.Mock(return_value=['test.yaml'])),
+        mock.patch('os.path.isfile', mock.Mock(return_value=True)),
+        mock.patch('__builtin__.open'),
+        mock.patch('yaml.load', mock.Mock(return_value=dict_merge(TEST_FACTOR_SETTINGS, dict(locked=True))))
+    ):
+        response = app.test_client().get('/index-builder/results-stats')
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert response_data['users']['test']['stats']['unlockable']
+
+    with mock.patch('index_builder.views.get_indexes', mock.Mock(side_effect=Exception())):
+        response = app.test_client().get('/index-builder/results-stats')
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' in response_data
 
 
 @pytest.mark.unit
 def test_load_cumulative_returns(unittest):
     with mock.patch('index_builder.views.utils.get_factor_settings', mock.Mock(return_value=TEST_FACTOR_SETTINGS)):
-        with app.test_client() as c:
-            response = c.get(
-                '/index-builder/cumulative-returns',
-                query_string=dict(user='Test User', samples='sample_index_1')
-            )
-            assert response.status_code == 200
-            assert response.content_type == 'application/json'
-            response_data = json.loads(response.data)
-            assert 'error' not in response_data
+        response = app.test_client().get(
+            '/index-builder/cumulative-returns',
+            query_string=dict(user='Test User', samples='sample_index_1')
+        )
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' not in response_data
+
+    with mock.patch('index_builder.views.get_indexes', mock.Mock(side_effect=Exception())):
+        response = app.test_client().get(
+            '/index-builder/cumulative-returns',
+            query_string=dict(user='Test User', samples='sample_index_1')
+        )
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' in response_data
 
 
 @pytest.mark.unit
 def test_load_user_results(unittest):
     with mock.patch('index_builder.views.utils.get_factor_settings', mock.Mock(return_value=TEST_FACTOR_SETTINGS)):
-        with app.test_client() as c:
-            response = c.get('/index-builder/user-results', query_string=dict(user='Test User'))
-            assert response.status_code == 200
-            assert response.content_type == 'application/json'
-            response_data = json.loads(response.data)
-            assert 'error' not in response_data
+        response = app.test_client().get('/index-builder/user-results', query_string=dict(user='Test User'))
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' not in response_data
+
+    with mock.patch('index_builder.views.get_indexes', mock.Mock(side_effect=Exception())):
+        response = app.test_client().get('/index-builder/user-results', query_string=dict(user='Test User'))
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' in response_data
 
 
 @pytest.mark.unit
@@ -251,12 +321,18 @@ def test_find_summary_data(unittest):
             'index_builder.views.utils.get_all_user_factors',
             mock.Mock(return_value=[('TestUser', TEST_FACTOR_SETTINGS['factors'])])
     ):
-        with app.test_client() as c:
-            response = c.get('/index-builder/summary-data')
-            assert response.status_code == 200
-            assert response.content_type == 'application/json'
-            response_data = json.loads(response.data)
-            assert 'error' not in response_data
+        response = app.test_client().get('/index-builder/summary-data')
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' not in response_data
+
+    with mock.patch('index_builder.views.get_factors', mock.Mock(side_effect=Exception())):
+        response = app.test_client().get('/index-builder/summary-data')
+        assert response.status_code == 200
+        assert response.content_type == 'application/json'
+        response_data = json.loads(response.data)
+        assert 'error' in response_data
 
 
 @pytest.mark.unit
@@ -287,6 +363,12 @@ def test_unlock_factor_settings(unittest):
             assert response_data['locked'] == 0
             assert response_data['unlocked'] == 1
 
+    with mock.patch('index_builder.utils.get_factor_settings', mock.Mock(side_effect=Exception())):
+            response = c.get('/index-builder/unlock-factor-settings', query_string=dict(user='test'))
+            assert response.status_code == 200
+            response_data = json.loads(response.data)
+            assert 'error' in response_data
+
 
 @pytest.mark.unit
 def test_lock_summary(unittest):
@@ -303,6 +385,12 @@ def test_lock_summary(unittest):
             assert name.endswith('app_settings.yaml')
             assert not settings['summary_viewable']
 
+    with mock.patch('index_builder.utils.dump_app_settings', mock.Mock(side_effect=Exception())):
+        response = c.get('/index-builder/lock-summary')
+        assert response.status_code == 200
+        response_data = json.loads(response.data)
+        assert 'error' in response_data
+
 
 @pytest.mark.unit
 def test_unlock_summary(unittest):
@@ -318,6 +406,12 @@ def test_unlock_summary(unittest):
             settings, name = args
             assert name.endswith('app_settings.yaml')
             assert settings['summary_viewable']
+
+    with mock.patch('index_builder.utils.dump_app_settings', mock.Mock(side_effect=Exception())):
+        response = c.get('/index-builder/unlock-summary')
+        assert response.status_code == 200
+        response_data = json.loads(response.data)
+        assert 'error' in response_data
 
 
 @pytest.mark.unit
@@ -336,6 +430,12 @@ def test_archive_user_settings(unittest):
             assert path2.startswith('{}_{}'.format(USERS_PATH, pd.Timestamp('now').strftime('%Y%m%d')))
             args, _ = mock_makedirs.call_args
             assert args[0] == USERS_PATH
+
+    with mock.patch('index_builder.utils.archive_all_user_factor_settings', mock.Mock(side_effect=Exception())):
+        response = c.get('/index-builder/archive-user-settings')
+        assert response.status_code == 200
+        response_data = json.loads(response.data)
+        assert 'error' in response_data
 
 
 @pytest.mark.unit
@@ -398,3 +498,24 @@ def test_auth():
             rv = c.post('/login', data=dict(username='>GreaterThan', password='BukuBucks'), follow_redirects=True)
             assert 'Your Team contains one of the following invalid characters: &lt;&gt;/{}[\]~`' in rv.data
             app.config['AUTH'] = None
+
+
+@pytest.mark.unit
+def test_load_page():
+    with app.test_request_context():
+        req = namedtuple('req', 'referrer')
+        with nested(
+            mock.patch('index_builder.views.request', mock.Mock(return_value=req('login'))),
+            mock.patch('index_builder.views.session', MockDict(dict(username='test'))),
+            mock.patch('os.path.isfile', mock.Mock(return_value=True)),
+            mock.patch('index_builder.utils.get_user_counts', mock.Mock(return_value=dict(locked=0, unlocked=0))),
+            mock.patch('index_builder.utils.get_app_settings', mock.Mock(return_value=dict(summary_viewable=False))),
+            mock.patch('index_builder.views.render_template'),
+        ) as (_, _, _, _, _, mock_render):
+            views.load_page('factors')
+            args, kwargs = mock_render.call_args
+            assert args[0] == 'index_builder/factors.html'
+            assert kwargs['page'] == 'factors'
+            assert 'user_counts' in kwargs
+            assert 'app_settings' in kwargs
+            assert kwargs['warning'] == views.PREEXISTING_USER.format('test')
