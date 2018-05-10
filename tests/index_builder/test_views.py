@@ -10,6 +10,7 @@ from index_builder.server import app
 import index_builder.views as views
 from index_builder.model import SAMPLE_INDEXES
 from index_builder.utils import dict_merge, USERS_PATH
+from tests.testing_tools import MockDict
 
 
 TEST_FACTOR_SETTINGS = dict(
@@ -20,20 +21,6 @@ TEST_FACTOR_SETTINGS = dict(
     ),
     locked=False
 )
-
-
-class MockDict(object):
-    def __init__(self, data):
-        self.data = data
-
-    def get(self, key, default=None):
-        return self.data.get(key, default)
-
-    def __getitem__(self, key):
-        return self.data.get(key)
-
-    def set(self, key, val):
-        self.data[key] = val
 
 
 @pytest.mark.unit
@@ -455,7 +442,7 @@ def test_200(unittest):
 @pytest.mark.unit
 def test_302():
     with app.test_client() as c:
-        for path in ['/', '/index-builder', '/index-builder/main', '/logout']:
+        for path in ['/', '/index-builder', '/index-builder/main', '/logout', '/favicon.ico']:
             response = c.get(path)
             assert response.status_code == 302, '{} should return 302 response'.format(path)
 

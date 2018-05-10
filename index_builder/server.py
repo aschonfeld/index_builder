@@ -51,9 +51,9 @@ app.config['AUTH'] = os.environ.get('AUTH')
 DEFAULT_DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'factors')
 app.config['DATA_PATH'] = os.environ.get('DATA_PATH', DEFAULT_DATA_PATH)
 
+
 # configuration from command-line
-rargs = sys.argv[1:]
-if rargs:
+def update_app_from_command_line(app, rargs):
     for i, arg in enumerate(rargs):
         if arg.startswith('-'):
             logger.info('parsing arg: {}...'.format(arg))
@@ -61,6 +61,11 @@ if rargs:
             val = rargs[i + 1] if (i + 1) < len(rargs) else ''
             val = val if not val.startswith('-') else ''
             app.config[prop] = val
+
+
+rargs = sys.argv[1:]
+if rargs:
+    update_app_from_command_line(app, rargs)
 
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
@@ -121,8 +126,13 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
+
 startup(app.config['DATA_PATH'])
 
-if __name__ == '__main__':
-    debug = getuser() not in ['root', 'ni', 'devadm']
+
+def main():
+    debug = getuser() != 'root'
     app.run(host=app.config.get('HOST'), port=int(app.config.get('PORT', 9200)), debug=debug)
+
+if __name__ == '__main__':
+    main()

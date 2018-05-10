@@ -8,3 +8,6 @@ omit =
     index_builder/entrypoint.sh
     index_builder/log_app.cfg
     index_builder/supervisor.conf
+
+exclude_lines =
+    if __name__ == .__main__.:
