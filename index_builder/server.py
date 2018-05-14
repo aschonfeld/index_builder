@@ -132,6 +132,9 @@ startup(app.config['DATA_PATH'])
 
 def main():
     debug = getuser() != 'root'
+    if debug:
+        app.jinja_env.auto_reload = True
+        app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run(host=app.config.get('HOST'), port=int(app.config.get('PORT', 9200)), debug=debug)
 
 if __name__ == '__main__':

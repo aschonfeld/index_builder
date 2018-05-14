@@ -1,4 +1,11 @@
-from collections import namedtuple
+TEST_FACTOR_SETTINGS = dict(
+    factors=dict(
+        factor_1=dict(reasons=['futureRet','riskReduce'], strength='HI', weight=10),
+        factor_2=dict(reasons=['ethics'], strength='HI', weight=20),
+        factor_3=dict(reasons=['ethics'], strength='HI', weight=30)
+    ),
+    locked=False
+)
 
 
 class MockDict(object):
@@ -15,12 +22,19 @@ class MockDict(object):
         self.data[key] = val
 
 
+class MockJinjaEnv(object):
+
+    def __init__(self):
+        self.trim_blocks = False
+        self.lstrip_blocks = False
+        self.auto_reload = False
+
+
 class MockApp(object):
 
     def __init__(self, *args, **kwargs):
         self.config = {}
-        jinja_obj = namedtuple('jinja_env', 'trim_blocks lstrip_blocks')
-        self.jinja_env = jinja_obj(trim_blocks=False, lstrip_blocks=False)
+        self.jinja_env = MockJinjaEnv()
 
     def register_blueprint(self, view):
         pass

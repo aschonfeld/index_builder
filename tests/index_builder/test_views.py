@@ -9,18 +9,8 @@ from collections import namedtuple
 from index_builder.server import app
 import index_builder.views as views
 from index_builder.model import SAMPLE_INDEXES
-from index_builder.utils import dict_merge, USERS_PATH
-from tests.testing_tools import MockDict
-
-
-TEST_FACTOR_SETTINGS = dict(
-    factors=dict(
-        factor_1=dict(reasons=['futureRet','riskReduce'], strength='HI', weight=10),
-        factor_2=dict(reasons=['ethics'], strength='HI', weight=20),
-        factor_3=dict(reasons=['ethics'], strength='HI', weight=30)
-    ),
-    locked=False
-)
+from index_builder.utils import dict_merge, USERS_PATH, DATA_PATH
+from tests.testing_tools import MockDict, TEST_FACTOR_SETTINGS
 
 
 @pytest.mark.unit
@@ -241,9 +231,15 @@ def test_load_results_stats(unittest):
             'should load indexes'
         )
 
+
+    def mock_listdir(path):
+        if path == DATA_PATH:
+            return ['users_test', 'noise']
+        return ['test.yaml']
+
     with nested(
         mock.patch('index_builder.views.session', MockDict(dict(username='admin'))),
-        mock.patch('os.listdir', mock.Mock(return_value=['test.yaml'])),
+        mock.patch('os.listdir', mock_listdir),
         mock.patch('os.path.isfile', mock.Mock(return_value=True)),
         mock.patch('__builtin__.open'),
         mock.patch('yaml.load', mock.Mock(return_value=dict_merge(TEST_FACTOR_SETTINGS, dict(locked=True))))
@@ -253,6 +249,7 @@ def test_load_results_stats(unittest):
         assert response.content_type == 'application/json'
         response_data = json.loads(response.data)
         assert response_data['users']['test']['stats']['unlockable']
+        assert response_data['archives'] == [u'test']
 
     with mock.patch('index_builder.views.get_indexes', mock.Mock(side_effect=Exception())):
         response = app.test_client().get('/index-builder/results-stats')
