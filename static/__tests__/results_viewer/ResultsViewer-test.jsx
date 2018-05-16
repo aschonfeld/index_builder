@@ -1,4 +1,5 @@
 import { mount } from "enzyme";
+import _ from "lodash";
 import proxyquire from "proxyquire";
 import React from "react";
 import { Provider } from "react-redux";
@@ -138,6 +139,54 @@ test("ResultsViewer: rendering with redux", t => {
           .simulate("click");
         t.ok(result.find(ReactResultsViewer).instance().state.selectedSamples.length, "should select index");
 
+        result
+          .find(ResultsGrid)
+          .find("th label.pointer")
+          .first()
+          .simulate("click");
+        t.ok(
+          _.isMatch(result.find(ResultsGrid).instance().state, { sortColumn: "name", sortDirection: "ASC" }),
+          "should update sort"
+        );
+
+        result
+          .find(ResultsGrid)
+          .find("th label.pointer")
+          .first()
+          .simulate("click");
+        t.ok(
+          _.isMatch(result.find(ResultsGrid).instance().state, { sortColumn: "name", sortDirection: "DESC" }),
+          "should update sort"
+        );
+
+        result
+          .find(ResultsGrid)
+          .find("th label.pointer")
+          .at(1)
+          .simulate("click");
+        t.ok(
+          _.isMatch(result.find(ResultsGrid).instance().state, {
+            sortColumn: "compounded return",
+            sortDirection: "ASC",
+          }),
+          "should update sort"
+        );
+
+        result
+          .find(ResultsGrid)
+          .instance()
+          .handleGridSort("compounded return", "ASC");
+        t.ok(
+          _.isMatch(result.find(ResultsGrid).instance().state, {
+            sortColumn: "compounded return",
+            sortDirection: "DESC",
+          }),
+          "should update sort"
+        );
+        result
+          .find(ReactResultsViewer)
+          .instance()
+          .toggleUser("exception");
         t.end();
       }, 400);
     }, 400);

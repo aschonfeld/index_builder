@@ -185,15 +185,15 @@ def build_index_id(factors, args):
     return '{}_{}'.format(factors[factor_id].get('index_name'), settings['strength']).lower()
 
 
-def load_returns(factors, returns, factor_settings):
+def load_weighted_values(factors, data, factor_settings):
     for factor_id, settings in factor_settings.items():
         index = build_index_id(factors, (factor_id, settings))
         if index is None:
             continue
         weight = settings.get('weight', 0) / 100.0
-        if index not in returns.columns:
+        if index not in data.columns:
             continue
-        yield returns[index] * weight
+        yield data[index] * weight
 
 
 def load_results_stats(factors, indices, factor_settings):
@@ -211,7 +211,8 @@ def load_results_stats(factors, indices, factor_settings):
 
     stats = pd.DataFrame(map(load_stats, factor_settings.items())).sum().to_dict()
     if len(stats):
-        daily_returns = pd.concat(load_returns(factors, indices['returns']['daily'], factor_settings), axis=1).sum(axis=1)
+        daily_returns = pd.concat(load_weighted_values(factors, indices['returns']['daily'], factor_settings), axis=1)
+        daily_returns = daily_returns.sum(axis=1)
         annualization_factor = np.sqrt(252) / 100
         stats['volatility'] = daily_returns.std() * annualization_factor
         stats['tracking error'] = (daily_returns - indices['returns']['daily']['index']).std() * annualization_factor
@@ -221,25 +222,14 @@ def load_results_stats(factors, indices, factor_settings):
 
 def load_user_results(factors, indices, factor_settings):
     results = dict(settings={k: dict_merge(dict(label=factors[k]['label']), v) for k, v in factor_settings.items()})
-
-    def load_exposures(exposures):
-        for factor_id, settings in factor_settings.items():
-            index = build_index_id(factors, (factor_id, settings))
-            if index is None:
-                continue
-            weight = settings.get('weight', 0) / 100.0
-            if index not in exposures.columns:
-                continue
-            yield exposures.set_index(['date', 'name'])[index] * weight
-
-    sectors = list(load_exposures(indices['sectors']))
+    sectors = list(load_weighted_values(factors, indices['sectors'].set_index(['date', 'name']), factor_settings))
     if len(sectors):
         sectors = pd.concat(sectors, axis=1).sum(axis=1)
         sectors.name = 'val'
         sectors = sectors.reset_index(level='date')
         results['sectors'] = {k: g.to_dict(orient='records') for k, g in sectors.groupby(level='name')}
 
-    barra = list(load_exposures(indices['barra']))
+    barra = list(load_weighted_values(factors, indices['barra'].set_index(['date', 'name']), factor_settings))
     if len(barra):
         barra = pd.concat(barra, axis=1).sum(axis=1)
         barra.name = 'val'
@@ -247,14 +237,14 @@ def load_user_results(factors, indices, factor_settings):
         results['barra'] = {k: g.to_dict(orient='records') for k, g in barra.groupby(level='name')}
 
     returns = {}
-    excess_returns = list(load_returns(factors, indices['returns']['excess'], factor_settings))
+    excess_returns = list(load_weighted_values(factors, indices['returns']['excess'], factor_settings))
     if len(excess_returns):
         excess_returns = pd.concat(excess_returns, axis=1).sum(axis=1)
         excess_returns.name = 'val'
         excess_returns.index.name = 'date'
         returns['excess'] = excess_returns.reset_index().to_dict(orient='records')
 
-    annualized_returns = list(load_returns(factors, indices['returns']['annualized'], factor_settings))
+    annualized_returns = list(load_weighted_values(factors, indices['returns']['annualized'], factor_settings))
     if len(annualized_returns):
         annualized_returns = pd.concat(annualized_returns, axis=1).sum(axis=1)
         annualized_returns.name = 'val'
@@ -266,7 +256,7 @@ def load_user_results(factors, indices, factor_settings):
 
 
 def load_cumulative_returns(factors, indices, factor_settings):
-    cumulative_returns = list(load_returns(factors, indices['returns']['cumulative'], factor_settings))
+    cumulative_returns = list(load_weighted_values(factors, indices['returns']['cumulative'], factor_settings))
     if len(cumulative_returns):
         cumulative_returns = pd.concat(cumulative_returns, axis=1).sum(axis=1)
         cumulative_returns.name = 'val'

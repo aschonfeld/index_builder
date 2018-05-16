@@ -1,4 +1,5 @@
 import { mount } from "enzyme";
+import $ from "jquery";
 import _ from "lodash";
 import proxyquire from "proxyquire";
 import React from "react";
@@ -38,6 +39,12 @@ test("FactorInputs: valid inputs", t => {
 
   result
     .find(ReasonsSelect)
+    .find("button.form-control")
+    .simulate("click");
+  t.ok(_.includes(result.html(), "Invest to affect change"), "should render Pro reasons");
+
+  result
+    .find(ReasonsSelect)
     .instance()
     .onChange("riskReduce");
   result
@@ -45,6 +52,7 @@ test("FactorInputs: valid inputs", t => {
     .instance()
     .onChange("futureRet");
   t.deepEquals(["riskReduce"], result.state().reasons, "should update reasons");
+
   t.end();
 });
 
@@ -64,8 +72,19 @@ test("FactorInputs: reason error", t => {
     saveFactorSettings: _.noop,
     propagateState: propagatedState.propagateState,
   };
-  const result = mount(<ReactFactorInputs {...props} />);
+  const body = document.getElementsByTagName("body")[0];
+  body.innerHTML += '<div id="content"></div>';
+  const result = mount(<ReactFactorInputs {...props} />, { attachTo: document.getElementById("content") });
   result.instance().toggleStrength("LO");
+
+  result
+    .find(ReasonsSelect)
+    .find("button.form-control")
+    .simulate("click");
+  t.ok(_.includes(result.html(), "Factor is irrelevant"), "should render Anti reasons");
+  $(".weight-input").click();
+  t.false($._data(document, "events"), "should clear menu bindings");
+
   result.instance().saveFactorSettings();
   result.update();
   t.equal(propagatedState.error, "You must select at least one reason", "should render reason error");
@@ -127,7 +146,7 @@ test("FactorInputs: invalid weights", t => {
     .simulate("change", { target: { value: "0" } });
   result.instance().saveFactorSettings();
   result.update();
-  t.false(result.state().reasons.length, "should renset state");
+  t.false(result.state().reasons.length, "should reset state");
   t.end();
 });
 

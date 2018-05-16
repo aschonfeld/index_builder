@@ -43,6 +43,9 @@ function urlFetcher(url) {
     return SampleIndexesData;
   }
   if (url.startsWith("/index-builder/user-results")) {
+    if (params.user === "exception") {
+      throw "Testing Exception!";
+    }
     return UserResultsData;
   }
   if (url.startsWith("/index-builder/cumulative-returns")) {
