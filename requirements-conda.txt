@@ -1,6 +1,5 @@
 decorator==3.4.2
 Flask==0.11.1
-gunicorn==19.1.0
 Jinja2==2.7.3
 mock==1.0.1
 numpy==1.9.2
