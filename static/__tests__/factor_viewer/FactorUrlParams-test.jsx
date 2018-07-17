@@ -1,33 +1,41 @@
 import { mount } from "enzyme";
 import _ from "lodash";
-import proxyquire from "proxyquire";
 import React from "react";
 import { Provider } from "react-redux";
 
+import mockPopsicle from "../MockPopsicle";
 import reduxUtils from "../redux-test-utils";
-import { test } from "../test-utils";
 
-const { factorActions } = reduxUtils.buildLibs();
-const FactorUrlParams = proxyquire("../../factor_viewer/FactorUrlParams", {
-  "../actions/factor-viewer": factorActions,
-}).default;
+describe("FactorUrlParams", () => {
+  beforeAll(() => {
+    const mockBuildLibs = mockPopsicle.mock(url => {
+      const { urlFetcher } = require("../redux-test-utils").default;
+      return urlFetcher(url);
+    });
 
-test("FactorUrlParams: rendering", t => {
-  const store = reduxUtils.createFactorStore();
-  history.replaceState({}, "", "?factor=2");
+    jest.mock("popsicle", () => mockBuildLibs);
+  });
 
-  mount(
-    <Provider store={store}>
-      <FactorUrlParams />
-    </Provider>
-  );
-  const state = _.pick(store.getState(), ["selectedFactor"]);
-  const expectedState = { selectedFactor: "2" };
-  t.deepEqual(state, expectedState, "should read state from url");
+  test("rendering", done => {
+    const FactorUrlParams = require("../../factor_viewer/FactorUrlParams").default;
+    const factorActions = require("../../actions/factor-viewer").default;
 
-  // need to clear up history modifications because of collisions with other tests
-  history.replaceState({}, "", "?");
-  store.dispatch(factorActions.init());
+    const store = reduxUtils.createFactorStore();
+    history.replaceState({}, "", "?factor=2");
 
-  t.end();
+    mount(
+      <Provider store={store}>
+        <FactorUrlParams />
+      </Provider>
+    );
+    const state = _.pick(store.getState(), ["selectedFactor"]);
+    const expectedState = { selectedFactor: "2" };
+    expect(state).toEqual(expectedState);
+
+    // need to clear up history modifications because of collisions with other tests
+    history.replaceState({}, "", "?");
+    store.dispatch(factorActions.init());
+
+    done();
+  });
 });

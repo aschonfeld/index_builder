@@ -1,28 +1,4 @@
-import { test as tapeCatchTest } from "tape-catch";
-import { configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
 import _ from "lodash";
-
-// Run a test with the same API as tap:
-//   https://github.com/substack/tape/#methods
-// but with the following extra features:
-//
-// * catch exceptions as test failures, rather than just terminating
-// * reset the HTML DOM, so each test has a clean state.
-function test(message, callback) {
-  return tapeCatchTest(message, t => {
-    configure({ adapter: new Adapter() });
-
-    const body = document.body;
-
-    // http://stackoverflow.com/a/683429/509706
-    while (body.hasChildNodes()) {
-      body.removeChild(body.lastChild);
-    }
-
-    return callback(t);
-  });
-}
 
 function withGlobalJquery(callback) {
   global.jQuery = require("jquery");
@@ -40,23 +16,23 @@ function logException(e) {
   console.error(e.stack);
 }
 
-function timeoutChain(tests, result, t) {
+function timeoutChain(tests, result, done) {
   try {
     if (tests.length) {
       const [pre, post] = _.head(tests);
       pre(result);
       setTimeout(() => {
         result.update();
-        post(result, t);
-        timeoutChain(_.tail(tests), result, t);
+        post(result);
+        timeoutChain(_.tail(tests), result, done);
       }, 400);
     } else {
-      t.end();
+      done();
     }
   } catch (err) {
     logException(err);
-    t.end();
+    done();
   }
 }
 
-export { test, withGlobalJquery, replaceNBSP, timeoutChain, logException };
+export { withGlobalJquery, replaceNBSP, timeoutChain, logException };

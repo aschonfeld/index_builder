@@ -26,7 +26,7 @@ function mock(getReturnValue) {
   // Return an object with all the same keys as `popsicle`, but a
   // different value for the `get` key.
   return _.assignIn({}, popsicle, {
-    get(url) {
+    get: url => {
       const p = new Promise(fullfill => {
         let body;
         if (_.isFunction(getReturnValue)) {

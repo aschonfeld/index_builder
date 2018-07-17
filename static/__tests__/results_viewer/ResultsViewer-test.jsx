@@ -1,47 +1,11 @@
 import { mount } from "enzyme";
 import _ from "lodash";
-import proxyquire from "proxyquire";
 import React from "react";
 import { Provider } from "react-redux";
 
-import { ResultsGrid } from "../../results_viewer/ResultsGrid";
+import mockPopsicle from "../MockPopsicle";
 import reduxUtils from "../redux-test-utils";
-import { test, withGlobalJquery } from "../test-utils";
-
-const { actions, ReactResultsViewer, ResultsViewer, ReturnsChart } = withGlobalJquery(() => {
-  const { fetcher, resultsActions } = reduxUtils.buildLibs();
-  const Chart = (ctx, cfg) => {
-    const chartCfg = {
-      ctx,
-      cfg,
-      data: cfg.data,
-      destroyed: false,
-      getElementAtEvent: () => [{ _chart: { config: cfg }, _index: 0 }],
-    };
-    chartCfg.destroy = function destroy() {
-      chartCfg.destroyed = true;
-    };
-    return chartCfg;
-  };
-  const chartUtils = proxyquire("../../chartUtils", { "chart.js": Chart });
-  const tsChartUtils = proxyquire("../../tsChartUtils", { "./chartUtils": chartUtils });
-  const BarraExposures = proxyquire("../../results_viewer/BarraExposures", {
-    "../chartUtils": chartUtils,
-    "../tsChartUtils": tsChartUtils,
-  });
-  const SectorExposures = proxyquire("../../results_viewer/SectorExposures", { "../tsChartUtils": tsChartUtils });
-  const ReturnsChart = proxyquire("../../results_viewer/ReturnsChart", {
-    "../fetcher": fetcher,
-    "../chartUtils": chartUtils,
-  });
-  const { ReactResultsViewer, ResultsViewer } = proxyquire("../../results_viewer/ResultsViewer", {
-    "../actions/results-viewer": resultsActions,
-    "./BarraExposures": BarraExposures,
-    "./ReturnsChart": ReturnsChart,
-    "./SectorExposures": SectorExposures,
-  });
-  return { actions: resultsActions, ReactResultsViewer, ResultsViewer, ReturnsChart };
-});
+import { withGlobalJquery } from "../test-utils";
 
 const EXPECTED_NAMES = [
   "sample_index_3",
@@ -53,142 +17,165 @@ const EXPECTED_NAMES = [
   "sample_index_1",
 ];
 
-test("ResultsViewer: rendering with redux", t => {
-  const store = reduxUtils.createResultsStore();
-  store.dispatch(actions.init());
-  setTimeout(() => {
-    const body = document.getElementsByTagName("body")[0];
-    body.innerHTML += '<div id="content"></div>';
-    const result = mount(
-      <Provider store={store}>
-        <ResultsViewer />
-      </Provider>,
-      {
-        attachTo: document.getElementById("content"),
-      }
-    );
+describe("ResultsViewer", () => {
+  beforeAll(() => {
+    const mockBuildLibs = mockPopsicle.mock(url => {
+      const { urlFetcher } = require("../redux-test-utils").default;
+      return urlFetcher(url);
+    });
 
-    const grid = result.find(ResultsGrid);
-    const names = grid.find("tbody tr").map(tr =>
-      tr
-        .find("td")
-        .at(1)
-        .text()
-    );
-    t.deepEqual(EXPECTED_NAMES, names, "should render correct names");
+    const mockChartUtils = withGlobalJquery(() => (ctx, cfg) => {
+      const chartCfg = {
+        ctx,
+        cfg,
+        data: cfg.data,
+        destroyed: false,
+        getElementAtEvent: () => [{ _chart: { config: cfg }, _index: 0 }],
+      };
+      chartCfg.destroy = function destroy() {
+        chartCfg.destroyed = true;
+      };
+      return chartCfg;
+    });
 
-    let returns = result.find(ReturnsChart.ReactReturnsChart);
-    let activeReturn = returns
-      .find("div.return-types")
-      .find("button.active")
-      .text();
-    returns
-      .find("div.return-types")
-      .find("button.inactive")
-      .first()
-      .simulate("click");
-    result.update();
-    returns = result.find(ReturnsChart.ReactReturnsChart);
-    t.equal(
-      activeReturn,
+    jest.mock("popsicle", () => mockBuildLibs);
+    jest.mock("chart.js", () => mockChartUtils);
+  });
+
+  test("rendering with redux", done => {
+    const { ReactResultsViewer, ResultsViewer } = require("../../results_viewer/ResultsViewer");
+    const { ReactReturnsChart } = require("../../results_viewer/ReturnsChart");
+    const { ResultsGrid } = require("../../results_viewer/ResultsGrid");
+    const actions = require("../../actions/results-viewer").default;
+
+    const store = reduxUtils.createResultsStore();
+    store.dispatch(actions.init());
+    setTimeout(() => {
+      const body = document.getElementsByTagName("body")[0];
+      body.innerHTML += '<div id="content"></div>';
+      const result = mount(
+        <Provider store={store}>
+          <ResultsViewer />
+        </Provider>,
+        {
+          attachTo: document.getElementById("content"),
+        }
+      );
+
+      const grid = result.find(ResultsGrid);
+      const names = grid.find("tbody tr").map(tr =>
+        tr
+          .find("td")
+          .at(1)
+          .text()
+      );
+      expect(EXPECTED_NAMES).toEqual(names);
+
+      let returns = result.find(ReactReturnsChart);
+      let activeReturn = returns
+        .find("div.return-types")
+        .find("button.active")
+        .text();
       returns
         .find("div.return-types")
         .find("button.inactive")
         .first()
-        .text(),
-      "should toggle return type"
-    );
-    activeReturn = returns
-      .find("div.return-types")
-      .find("button.active")
-      .text();
-    returns
-      .find("div.return-types")
-      .find("button.inactive")
-      .last()
-      .simulate("click");
-    setTimeout(() => {
+        .simulate("click");
       result.update();
-      returns = result.find(ReturnsChart.ReactReturnsChart);
-      t.equal(
-        activeReturn,
+      returns = result.find(ReactReturnsChart);
+      expect(activeReturn).toEqual(
         returns
           .find("div.return-types")
           .find("button.inactive")
-          .last()
-          .text(),
-        "should toggle return type"
+          .first()
+          .text()
       );
-
-      const { selectedUser } = store.getState();
-      result
-        .find(ResultsGrid)
-        .find("table tbody tr.unselected-row")
-        .first()
-        .find("td")
-        .at(1)
+      activeReturn = returns
+        .find("div.return-types")
+        .find("button.active")
+        .text();
+      returns
+        .find("div.return-types")
+        .find("button.inactive")
+        .last()
         .simulate("click");
       setTimeout(() => {
         result.update();
-        t.true(selectedUser !== store.getState().selectedUser, "should change which user they are viewing");
-
-        result
-          .find(ResultsGrid)
-          .find("i.ico-check-box-outline-blank")
-          .first()
-          .simulate("click");
-        t.ok(result.find(ReactResultsViewer).instance().state.selectedSamples.length, "should select index");
-
-        result
-          .find(ResultsGrid)
-          .find("th label.pointer")
-          .first()
-          .simulate("click");
-        t.ok(
-          _.isMatch(result.find(ResultsGrid).instance().state, { sortColumn: "name", sortDirection: "ASC" }),
-          "should update sort"
+        returns = result.find(ReactReturnsChart);
+        expect(activeReturn).toEqual(
+          returns
+            .find("div.return-types")
+            .find("button.inactive")
+            .last()
+            .text()
         );
 
+        const { selectedUser } = store.getState();
         result
           .find(ResultsGrid)
-          .find("th label.pointer")
+          .find("table tbody tr.unselected-row")
           .first()
-          .simulate("click");
-        t.ok(
-          _.isMatch(result.find(ResultsGrid).instance().state, { sortColumn: "name", sortDirection: "DESC" }),
-          "should update sort"
-        );
-
-        result
-          .find(ResultsGrid)
-          .find("th label.pointer")
+          .find("td")
           .at(1)
           .simulate("click");
-        t.ok(
-          _.isMatch(result.find(ResultsGrid).instance().state, {
-            sortColumn: "compounded return",
-            sortDirection: "ASC",
-          }),
-          "should update sort"
-        );
+        setTimeout(() => {
+          result.update();
+          expect(selectedUser).not.toBe(store.getState().selectedUser);
 
-        result
-          .find(ResultsGrid)
-          .instance()
-          .handleGridSort("compounded return", "ASC");
-        t.ok(
-          _.isMatch(result.find(ResultsGrid).instance().state, {
-            sortColumn: "compounded return",
-            sortDirection: "DESC",
-          }),
-          "should update sort"
-        );
-        result
-          .find(ReactResultsViewer)
-          .instance()
-          .toggleUser("exception");
-        t.end();
+          result
+            .find(ResultsGrid)
+            .find("i.ico-check-box-outline-blank")
+            .first()
+            .simulate("click");
+          expect(result.find(ReactResultsViewer).instance().state.selectedSamples.length).toBe(1);
+
+          result
+            .find(ResultsGrid)
+            .find("th label.pointer")
+            .first()
+            .simulate("click");
+          expect(
+            _.isMatch(result.find(ResultsGrid).instance().state, { sortColumn: "name", sortDirection: "ASC" })
+          ).toBe(true);
+
+          result
+            .find(ResultsGrid)
+            .find("th label.pointer")
+            .first()
+            .simulate("click");
+          expect(
+            _.isMatch(result.find(ResultsGrid).instance().state, { sortColumn: "name", sortDirection: "DESC" })
+          ).toBe(true);
+
+          result
+            .find(ResultsGrid)
+            .find("th label.pointer")
+            .at(1)
+            .simulate("click");
+          expect(
+            _.isMatch(result.find(ResultsGrid).instance().state, {
+              sortColumn: "compounded return",
+              sortDirection: "ASC",
+            })
+          ).toBe(true);
+
+          result
+            .find(ResultsGrid)
+            .instance()
+            .handleGridSort("compounded return", "ASC");
+          expect(
+            _.isMatch(result.find(ResultsGrid).instance().state, {
+              sortColumn: "compounded return",
+              sortDirection: "DESC",
+            })
+          ).toBe(true);
+          result
+            .find(ReactResultsViewer)
+            .instance()
+            .toggleUser("exception");
+          done();
+        }, 400);
       }, 400);
     }, 400);
-  }, 400);
+  });
 });

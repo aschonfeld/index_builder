@@ -1,12 +1,7 @@
-const hook = require("node-hook");
-require("jsdom-global")(undefined, { url: "http://www.example.com" });
+import { configure } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
 
-// Do nothing when we encounter require('foo.css'); calls.
-function skipFile() {
-  // Pretend the .css file is an empty JS file:
-  return "";
-}
-hook.hook(".css", skipFile);
+configure({ adapter: new Adapter() });
 
 // Provided that we're run *after* babel-register, we can load
 // filter_console, even though it's ES6.

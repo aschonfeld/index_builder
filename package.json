@@ -7,11 +7,11 @@
     "test": "tests"
   },
   "scripts": {
-    "test-file": "tape -r babel-register -r ./test_env \"$TEST\" | tap-diff",
-    "test-all": "tape -r babel-register -r ./test_env 'static/__tests__/{,**/}*-test.{js,jsx}'",
-    "test": "npm run test-all -s | tap-diff",
-    "test-with-coverage": "NODE_ENV=test node --max-old-space-size=8192 --optimize-for-size ./node_modules/nyc/bin/nyc.js --reporter html --reporter lcovonly --all npm run test-all -s | ntee results.tap | tap-diff && less results.tap | tap-xunit --package=grailjs > js_junit.xml && nyc report",
-    "test-with-junit": "npm run test-all -s | tap-xunit --package=grailjs > js_junit.xml",
+    "test-file": "jest \"$TEST\"",
+    "test-all": "jest \"/static/__tests__/.*test\\.jsx?$\" --verbose",
+    "test": "npm run test-all -s",
+    "test-with-coverage": "JEST_JUNIT_OUTPUT=./js_junit.xml jest \"/static/__tests__/.*test\\.jsx?$\" --coverage --reporters=jest-junit",
+    "test-with-junit": "JEST_JUNIT_OUTPUT=./js_junit.xml jest \"/static/__tests__/.*test\\.jsx?$\" --reporters=jest-junit",
     "report-duplicate-code": "jsinspect -t 20 static --reporter pmd > duplicates.xml; echo 'Wrote duplicates.xml'",
     "watch-js": "webpack --watch --progress",
     "watch": "npm run watch-js",
@@ -24,6 +24,29 @@
     "lint-js": "eslint static *.js --ext .js --ext .jsx -f node_modules/eslint-clang-formatter",
     "lint-js-file": "eslint -f node_modules/eslint-clang-formatter",
     "eslint-check": "eslint --print-config .eslintrc.json | eslint-config-prettier-check"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/test_env.js",
+    "moduleNameMapper": {
+      "\\.css$": "<rootDir>/static/__tests__/mocks/styleMock.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "transform": {
+      ".+\\.jsx?$": "<rootDir>/node_modules/babel-jest"
+    },
+    "testURL": "http://www.example.com",
+    "collectCoverageFrom": [
+      "**/index_builder/static/**/*.{js, jsx}"
+    ],
+    "coverageDirectory": "./JS_coverage",
+    "coverageReporters": [
+      "html",
+      "lcovonly"
+    ]
   },
   "nyc": {
     "include": [
@@ -53,6 +76,7 @@
   "devDependencies": {
     "autoprefixer": "8.3.0",
     "babel-core": "6.26.0",
+    "babel-jest": "23.0.1",
     "babel-loader": "7.1.4",
     "babel-plugin-istanbul": "4.1.6",
     "babel-preset-env": "1.6.1",
@@ -74,23 +98,15 @@
     "exports-loader": "0.7.0",
     "file-loader": "1.1.11",
     "imports-loader": "0.8.0",
+    "jest": "23.0.1",
+    "jest-junit": "5.1.0",
     "js-import-sort": "1.2.0",
-    "jsdom": "11.8.0",
-    "jsdom-global": "3.0.2",
     "jsinspect": "0.12.7",
-    "node-hook": "1.0.0",
-    "nyc": "11.7.1",
     "postcss-loader": "2.1.4",
     "postcss-nested": "3.0.0",
     "prettier": "1.12.1",
-    "proxyquire": "2.0.0",
     "react-test-renderer": "16.3.2",
-    "sinon": "4.5.0",
     "style-loader": "0.21.0",
-    "tap-diff": "0.1.1",
-    "tap-xunit": "2.3.0",
-    "tape": "4.9.0",
-    "tape-catch": "1.0.6",
     "uglifyjs-webpack-plugin": "1.2.5",
     "url-loader": "1.0.1",
     "webpack": "4.6.0",
@@ -120,7 +136,6 @@
     "redux": "4.0.0",
     "redux-thunk": "2.2.0",
     "string.prototype.startswith": "0.2.0",
-    "tap-nyc": "1.0.3",
     "uuid": "3.2.1"
   }
 }

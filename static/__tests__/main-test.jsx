@@ -1,63 +1,58 @@
 import _ from "lodash";
-import proxyquire from "proxyquire";
 
-import reduxUtils from "./redux-test-utils";
-import { test, withGlobalJquery } from "./test-utils";
+import mockPopsicle from "./MockPopsicle";
+import { withGlobalJquery } from "./test-utils";
 
-const { factorActions, resultsActions, summaryActions } = reduxUtils.buildLibs();
-
-function testMain(mainName, imports, t, isDev = false) {
+function testMain(mainName, done, isDev = false) {
   if (isDev) {
     process.env.NODE_ENV = "dev";
   }
   document.getElementsByTagName("body")[0].innerHTML += '<div id="content"></div>';
-  const ReactDOM = { renderStatus: false };
-  ReactDOM.render = () => {
-    ReactDOM.renderStatus = true;
+  const mockReactDOM = { renderStatus: false };
+  mockReactDOM.render = () => {
+    mockReactDOM.renderStatus = true;
   };
-  withGlobalJquery(() => proxyquire(`../${mainName}`, _.assign({ "react-dom": ReactDOM }, imports)));
-  t.ok(ReactDOM.renderStatus, `${mainName} compiled`);
-  t.end();
+  withGlobalJquery(() => jest.mock("react-dom", () => mockReactDOM));
+  require(`../${mainName}`);
+  expect(mockReactDOM.renderStatus).toBe(true);
   if (isDev) {
     process.env.NODE_ENV = "test";
   }
+  done();
 }
 
-test("factor_viewer_main rendering", t => {
-  testMain("factor_viewer_main", { "./actions/factor-viewer": factorActions }, t);
-});
+describe("main tests", () => {
+  beforeEach(() => {
+    jest.resetModules();
+    const mockBuildLibs = withGlobalJquery(() =>
+      mockPopsicle.mock(url => {
+        const { urlFetcher } = require("./redux-test-utils").default;
+        return urlFetcher(url);
+      })
+    );
 
-test("factor_viewer_main dev rendering", t => {
-  testMain("factor_viewer_main", { "./actions/factor-viewer": factorActions }, t, true);
-});
-
-test("results_viewer_main rendering", t => {
-  testMain("results_viewer_main", { "./actions/results-viewer": resultsActions }, t);
-});
-
-test("results_viewer_main dev rendering", t => {
-  testMain("results_viewer_main", { "./actions/results-viewer": resultsActions }, t, true);
-});
-
-test("summary_viewer_main rendering", t => {
-  testMain("summary_viewer_main", { "./actions/summary-viewer": summaryActions }, t);
-});
-
-test("summary_viewer_main dev rendering", t => {
-  testMain("summary_viewer_main", { "./actions/summary-viewer": summaryActions }, t, true);
-});
-
-test("base_styles.js loading", t => {
-  require("../base_styles");
-  t.pass("base_styles.js loaded");
-  t.end();
-});
-
-test("polyfills.js loading", t => {
-  proxyquire("../polyfills", {
-    "es6-promise": { polyfill: _.noop },
-    "string.prototype.startswith": {},
+    jest.mock("popsicle", () => mockBuildLibs);
   });
-  t.pass("polyfills.js loaded");
-  t.end();
+
+  _.forEach(["factor", "results", "summary"], page => {
+    test(`${page}_viewer_main rendering`, done => {
+      testMain(`${page}_viewer_main`, done);
+    });
+    test(`${page}_viewer_main dev rendering`, done => {
+      testMain(`${page}_viewer_main`, done, true);
+    });
+  });
+
+  test("base_styles.js loading", done => {
+    require("../base_styles");
+    done();
+  });
+
+  test("polyfills.js loading", done => {
+    const mockES6Promise = { polyfill: _.noop };
+    jest.mock("es6-promise", () => mockES6Promise);
+    jest.mock("string.prototype.startswith", () => ({}));
+    require("../polyfills");
+    done();
+  });
 });

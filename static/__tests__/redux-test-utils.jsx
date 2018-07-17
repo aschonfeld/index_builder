@@ -4,14 +4,12 @@
 import qs from "querystring";
 
 import _ from "lodash";
-import proxyquire from "proxyquire";
 
 import factorApp from "../reducers/factor-viewer";
 import resultsApp from "../reducers/results-viewer";
 import { createStore } from "../reducers/store";
 import summaryApp from "../reducers/summary-viewer";
 import GicsMappingsData from "./GicsMappings-data";
-import mockPopsicle from "./MockPopsicle";
 import FactorData from "./factor_viewer/Factor-data";
 import FactorOptionsData from "./factor_viewer/FactorOptions-data";
 import CumulativeReturnsData from "./results_viewer/CumulativeReturns-data";
@@ -69,36 +67,9 @@ function createSummaryStore() {
   return createStore(summaryApp);
 }
 
-function buildLibs(fetchStrategy = urlFetcher) {
-  const fetcher = proxyquire("../fetcher", {
-    popsicle: mockPopsicle.mock(fetchStrategy),
-  });
-  const gicsMappings = proxyquire("../actions/gics-mappings", {
-    "../fetcher": fetcher,
-  });
-  const factorSettingsActions = proxyquire("../actions/factor-settings", { "../fetcher": fetcher });
-  const factorActions = proxyquire("../actions/factor-viewer", {
-    "../fetcher": fetcher,
-    "./factor-settings": factorSettingsActions,
-    "./gics-mappings": gicsMappings,
-  }).default;
-  const resultsActions = proxyquire("../actions/results-viewer", {
-    "../fetcher": fetcher,
-    "./gics-mappings": gicsMappings,
-  }).default;
-  const summaryActions = proxyquire("../actions/summary-viewer", { "../fetcher": fetcher }).default;
-  return {
-    fetcher,
-    factorActions,
-    resultsActions,
-    summaryActions,
-  };
-}
-
 export default {
   urlFetcher,
   createFactorStore,
   createResultsStore,
   createSummaryStore,
-  buildLibs,
 };

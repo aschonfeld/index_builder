@@ -1,121 +1,119 @@
 import { mount } from "enzyme";
 import _ from "lodash";
-import proxyquire from "proxyquire";
 import React from "react";
 import { Provider } from "react-redux";
 
 import { JSAnchor } from "../../JSAnchor";
 import { RemovableError } from "../../RemovableError";
+import mockPopsicle from "../MockPopsicle";
 import reduxUtils from "../redux-test-utils";
-import { test, withGlobalJquery } from "../test-utils";
+import { withGlobalJquery } from "../test-utils";
 
-const { actions, FactorViewer, Factor, FactorInputs, ReturnsChart } = withGlobalJquery(() => {
-  const { factorActions } = reduxUtils.buildLibs();
-  const Chart = (ctx, cfg) => {
-    const chartCfg = {
-      ctx,
-      cfg,
-      data: cfg.data,
-      destroyed: false,
-      getElementAtEvent: () => [{ _chart: { config: cfg }, _index: 0 }],
-    };
-    chartCfg.destroy = function destroy() {
-      chartCfg.destroyed = true;
-    };
-    return chartCfg;
-  };
-  const chartUtils = proxyquire("../../chartUtils", { "chart.js": Chart });
-  const tsChartUtils = proxyquire("../../tsChartUtils", { "./chartUtils": chartUtils });
-  const ReturnsChart = proxyquire("../../factor_viewer/ReturnsChart", { "../tsChartUtils": tsChartUtils });
-  const FactorInputs = proxyquire("../../factor_viewer/FactorInputs", { "../actions/factor-viewer": factorActions });
-  const Factor = proxyquire("../../factor_viewer/Factor", {
-    "../actions/factor-viewer": factorActions,
-    "../chartUtils": chartUtils,
-    "./FactorInputs": FactorInputs,
-    "./ReturnsChart": ReturnsChart,
+describe("FactorViewer", () => {
+  beforeAll(() => {
+    const mockBuildLibs = mockPopsicle.mock(url => {
+      const { urlFetcher } = require("../redux-test-utils").default;
+      return urlFetcher(url);
+    });
+
+    const mockChartUtils = withGlobalJquery(() => (ctx, cfg) => {
+      const chartCfg = {
+        ctx,
+        cfg,
+        data: cfg.data,
+        destroyed: false,
+        getElementAtEvent: () => [{ _chart: { config: cfg }, _index: 0 }],
+      };
+      chartCfg.destroy = function destroy() {
+        chartCfg.destroyed = true;
+      };
+      return chartCfg;
+    });
+
+    jest.mock("chart.js", () => mockChartUtils);
+    jest.mock("popsicle", () => mockBuildLibs);
   });
-  const { FactorViewer } = proxyquire("../../factor_viewer/FactorViewer", {
-    "../actions/factor-viewer": factorActions,
-    "./Factor": Factor,
-  });
-  return { actions: factorActions, FactorViewer, Factor, FactorInputs, ReturnsChart };
-});
 
-test("FactorViewer: rendering with redux", t => {
-  const store = reduxUtils.createFactorStore();
-  store.dispatch(actions.init());
-  setTimeout(() => {
-    const body = document.getElementsByTagName("body")[0];
-    body.innerHTML += '<div id="content"></div>';
-    const result = mount(
-      <Provider store={store}>
-        <FactorViewer />
-      </Provider>,
-      {
-        attachTo: document.getElementById("content"),
-      }
-    );
+  test("rendering with redux", done => {
+    const { FactorViewer } = require("../../factor_viewer/FactorViewer");
+    const { ReactReturnsChart } = require("../../factor_viewer/ReturnsChart");
+    const { ReactFactor } = require("../../factor_viewer/Factor");
+    const { ReactFactorInputs } = require("../../factor_viewer/FactorInputs");
+    const actions = require("../../actions/factor-viewer").default;
 
-    const options = result.find("ul.list-group");
-    const factors = options.find(JSAnchor).map(a =>
-      a
-        .find("div span")
-        .first()
-        .text()
-    );
-    t.deepEqual(_.map(_.range(1, 14), id => `Factor ${id}`), factors, "should render correct factors");
+    const store = reduxUtils.createFactorStore();
+    store.dispatch(actions.init());
+    setTimeout(() => {
+      const body = document.getElementsByTagName("body")[0];
+      body.innerHTML += '<div id="content"></div>';
+      const result = mount(
+        <Provider store={store}>
+          <FactorViewer />
+        </Provider>,
+        {
+          attachTo: document.getElementById("content"),
+        }
+      );
 
-    const factor = result.find(Factor.ReactFactor);
-    t.equal(factor.instance().props.selectedFactor, "factor_1", "should select first factor");
+      const options = result.find("ul.list-group");
+      const factors = options.find(JSAnchor).map(a =>
+        a
+          .find("div span")
+          .first()
+          .text()
+      );
+      expect(_.map(_.range(1, 14), id => `Factor ${id}`)).toEqual(factors);
 
-    let returns = factor.find(ReturnsChart.ReactReturnsChart);
-    const activeReturn = returns
-      .find("div.return-types")
-      .find("button.active")
-      .text();
-    returns
-      .find("div.return-types")
-      .find("button.inactive")
-      .simulate("click");
-    result.update();
-    returns = result.find(Factor.ReactFactor).find(ReturnsChart.ReactReturnsChart);
-    t.equal(
-      activeReturn,
+      const factor = result.find(ReactFactor);
+      expect(factor.instance().props.selectedFactor).toBe("factor_1");
+
+      let returns = factor.find(ReactReturnsChart);
+      const activeReturn = returns
+        .find("div.return-types")
+        .find("button.active")
+        .text();
       returns
         .find("div.return-types")
         .find("button.inactive")
-        .text(),
-      "should toggle return type"
-    );
-
-    const inactiveFactor = result
-      .find("ul.list-group")
-      .find("a.inactive")
-      .first();
-    inactiveFactor.simulate("click");
-    result.update();
-    setTimeout(() => {
+        .simulate("click");
       result.update();
-      t.equal(
-        inactiveFactor
-          .find("div span")
-          .first()
-          .text(),
-        result
-          .find(Factor.ReactFactor)
-          .find("h2")
-          .first()
-          .text(),
-        "should toggle factor"
+      returns = result.find(ReactFactor).find(ReactReturnsChart);
+      expect(activeReturn).toBe(
+        returns
+          .find("div.return-types")
+          .find("button.inactive")
+          .text()
       );
 
-      result
-        .find(FactorInputs.ReactFactorInputs)
-        .instance()
-        .saveFactorSettings();
+      const inactiveFactor = result
+        .find("ul.list-group")
+        .find("a.inactive")
+        .first();
+      inactiveFactor.simulate("click");
       result.update();
-      t.ok(result.find(RemovableError).length, "should render error");
-      t.end();
-    }, 10);
-  }, 400);
+      setTimeout(() => {
+        result.update();
+        expect(
+          inactiveFactor
+            .find("div span")
+            .first()
+            .text()
+        ).toBe(
+          result
+            .find(ReactFactor)
+            .find("h2")
+            .first()
+            .text()
+        );
+
+        result
+          .find(ReactFactorInputs)
+          .instance()
+          .saveFactorSettings();
+        result.update();
+        expect(result.find(RemovableError).length).toBe(1);
+        done();
+      }, 10);
+    }, 400);
+  });
 });
