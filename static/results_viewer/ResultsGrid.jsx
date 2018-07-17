@@ -4,6 +4,7 @@ import moment from "moment";
 import PropTypes from "prop-types";
 import React from "react";
 
+import { ArchivePicker } from "../ArchivePicker";
 import ReportTitleRow from "../ReportTitleRow";
 import { STATS_LABELS } from "../constants";
 import gridUtils from "../gridUtils";
@@ -65,7 +66,7 @@ class ResultsGrid extends React.Component {
   }
 
   buildAction(name, stats) {
-    if (_.get(stats, "unlockable")) {
+    if (_.get(stats, "unlockable") && !this.props.selectedArchive) {
       const onClick = () => {
         $.get(`/esg/unlock-factor-settings?user=${name}`, data => {
           if (data.success && data.locked > 0) {
@@ -90,26 +91,6 @@ class ResultsGrid extends React.Component {
 
   renderTitleWithArchives() {
     const title = "Team Performance";
-    const archives = _.get(this.props, "results.archives", []);
-    let archivesMarkup = null;
-    if (_.size(archives)) {
-      archivesMarkup = (
-        <div className="input-group archives">
-          <span className="input-group-addon">Snapshot</span>
-          <select
-            value={this.props.selectedArchive || ""}
-            className="form-control custom-select"
-            onChange={event => this.props.toggleArchive(event.target.value)}>
-            <option value={""}>Active Users</option>
-            {_.map(archives, a => (
-              <option key={a} value={a}>
-                {moment(a, "YYYYMMDDHHmmss").format("M/D/YYYY h:mm:ss")}
-              </option>
-            ))}
-          </select>
-        </div>
-      );
-    }
     const unlocked = _.get(this.props, "results.unlocked", []);
     let unlockedMarkup = null;
     if (_.size(unlocked)) {
@@ -138,7 +119,11 @@ class ResultsGrid extends React.Component {
       <div className="title-section">
         <span>{title}</span>
         <div className="actions d-flex">
-          {archivesMarkup}
+          <ArchivePicker
+            archives={_.get(this.props, "results.archives", [])}
+            toggleArchive={this.props.toggleArchive}
+            selectedArchive={this.props.selectedArchive}
+          />
           {unlockedMarkup}
         </div>
       </div>

@@ -84,10 +84,13 @@
   line-height: 1;
 }
 
+.ResultsViewer .archives select.custom-select {
+  padding: 0.25rem 1.75rem 0.25rem 0.75rem;
+}
+
 .ResultsViewer .archives .input-group-addon {
   line-height: 15px !important;
   padding: 0 0.6rem;
-  margin-bottom: 0.35em;
   font-size: 0.725rem;
 }
 
@@ -96,11 +99,13 @@
 }
 
 .ResultsViewer .results-grid .col0 {
-  width: 27%;
+  width: 17%;
 }
+
 .ResultsViewer .results-grid .col3 {
   width: 13%;
 }
+
 .ResultsViewer .results-grid .col1,
 .ResultsViewer .results-grid .col2,
 .ResultsViewer .results-grid .col4,
@@ -130,8 +135,20 @@
   border: 1px solid lightgrey;
 }
 
+.ResultsViewer .factor-types .btn-group {
+  padding: 0;
+}
+
 @media (max-width: 767px) {
   .SectorExposures .chart-wrapper {
     height: 40em;
+  }
+
+  .ResultsViewer .title-section {
+    display: inline;
+  }
+
+  .ResultsViewer .actions {
+    padding-left: 0 !important;
   }
 }

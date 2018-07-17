@@ -1,4 +1,7 @@
+import _ from "lodash";
 import { combineReducers } from "redux";
+
+import { selectedArchive } from "./archive";
 
 function loadingSummary(state = false, action) {
   switch (action.type) {
@@ -14,7 +17,16 @@ function loadingSummary(state = false, action) {
 function summary(state = {}, action) {
   switch (action.type) {
     case "loaded-summary":
-      return action.summary;
+      return _.get(action, "summary.data", {});
+    default:
+      return state;
+  }
+}
+
+function archives(state = [], action) {
+  switch (action.type) {
+    case "loaded-summary":
+      return _.get(action, "summary.archives", []);
     default:
       return state;
   }
@@ -23,6 +35,8 @@ function summary(state = {}, action) {
 const summaryViewer = combineReducers({
   loadingSummary,
   summary,
+  archives,
+  selectedArchive,
 });
 
 export default summaryViewer;

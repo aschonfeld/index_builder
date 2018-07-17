@@ -59,6 +59,10 @@
   border: 1px solid lightgrey;
 }
 
+.SummaryViewer .summary-toggle .btn-group {
+  padding: 0;
+}
+
 .SummaryViewer .factor-selections-grid .col0 {
   width: 25%;
 }
@@ -68,4 +72,19 @@
 }
 .SummaryViewer .factor-selections-grid .col3 {
   width: 50%;
+}
+
+.SummaryViewer .archives select.form-control {
+  height: 25px !important;
+  line-height: 1;
+}
+
+.SummaryViewer .archives select.custom-select {
+  padding: 0.25rem 1.75rem 0.25rem 0.75rem;
+}
+
+.SummaryViewer .archives .input-group-addon {
+  line-height: 15px !important;
+  padding: 0 0.6rem;
+  font-size: 0.725rem;
 }

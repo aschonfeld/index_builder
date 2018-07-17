@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
 
+import { ArchivePicker } from "../ArchivePicker";
 import { Bouncer } from "../Bouncer";
 import { RemovableError } from "../RemovableError";
+import actions from "../actions/summary-viewer";
 import { STRENGTH_LABELS } from "../constants";
 import { FactorSelectionsGrid } from "./FactorSelectionsGrid";
 import { SummaryViewToggle } from "./SummaryViewToggle";
@@ -120,7 +122,22 @@ class ReactSummaryViewer extends React.Component {
 
     return (
       <div className="SummaryViewer">
-        <SummaryViewToggle />
+        <div className="row">
+          <div className="col-md-6">
+            <SummaryViewToggle />
+          </div>
+          <div className="col text-right">
+            <div className="d-flex float-right">
+              <div className="d-flex">
+                <ArchivePicker
+                  archives={this.props.archives}
+                  selectedArchive={this.props.selectedArchive}
+                  toggleArchive={this.props.toggleSelectedArchive}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="row">
           <div className="col-md-8">
             <div className="row factors-header">
@@ -166,15 +183,26 @@ ReactSummaryViewer.displayName = "ReactSummaryViewer";
 ReactSummaryViewer.propTypes = {
   loadingSummary: PropTypes.bool,
   summary: PropTypes.object,
+  archives: PropTypes.array,
+  selectedArchive: PropTypes.string,
+  toggleSelectedArchive: PropTypes.func,
 };
 
 function mapStateToProps(state) {
   return {
     loadingSummary: state.loadingSummary,
     summary: state.summary,
+    archives: state.archives,
+    selectedArchive: state.selectedArchive,
   };
 }
 
-const ReduxSummaryViewer = connect(mapStateToProps)(ReactSummaryViewer);
+function mapDispatchToProps(dispatch) {
+  return {
+    toggleSelectedArchive: archive => dispatch(actions.toggleSelectedArchive(archive)),
+  };
+}
+
+const ReduxSummaryViewer = connect(mapStateToProps, mapDispatchToProps)(ReactSummaryViewer);
 
 export { ReactSummaryViewer, ReduxSummaryViewer as SummaryViewer };

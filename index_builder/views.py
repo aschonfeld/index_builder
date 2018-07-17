@@ -242,7 +242,8 @@ def lock_summary():
 @index_builder.route('/archive-user-settings')
 def archive_user_settings():
     try:
-        utils.archive_all_user_factor_settings()
+        tag = utils.get_str_arg(request, 'tag')
+        utils.archive_all_user_factor_settings(tag)
         return jsonify(dict(success=True))
     except Exception as ex:
         logger.info(ex)
@@ -357,6 +358,9 @@ def find_cumulative_returns():
 def find_summary_data():
     try:
         factors = get_factors()
+        archive = utils.get_str_arg(request, 'archive')
+        current_user = session.get('username')
+        is_admin = current_user == 'admin'
         summary = {}
         for factor_id, factor in factors.items():
             summary[factor_id] = dict(
@@ -367,7 +371,7 @@ def find_summary_data():
                 reason_avg=dict(HI={}, LO={}),
             )
 
-        users = list(utils.get_all_user_factors())
+        users = list(utils.get_all_user_factors(archive=archive))
         for user, factor_settings in users:
             for factor_id, inputs in factor_settings.items():
                 summary[factor_id]['selections'][inputs['strength']].append(utils.dict_merge(inputs, dict(user=user)))
@@ -380,9 +384,15 @@ def find_summary_data():
                 for s in selections:
                     for r_id in s['reasons']:
                         reason_avg[r_id] += 1
-                factor['reason_avg'][strength] = {r_id: ((total * 1.0) / total_reason_users) * 100 for r_id, total in reason_avg.items()}
+                factor['reason_avg'][strength] = {
+                    r_id: ((total * 1.0) / total_reason_users) * 100
+                    for r_id, total in reason_avg.items()
+                }
 
-        return jsonify(summary)
+        return jsonify(dict(
+            data=summary,
+            archives=utils.find_available_archives() if is_admin else []
+        ))
     except Exception as ex:
         logger.info(ex)
         return jsonify(dict(error=str(ex), traceback=str(traceback.format_exc())))

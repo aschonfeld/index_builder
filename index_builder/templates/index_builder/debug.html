@@ -19,7 +19,10 @@
     }
   }
   function archiveUsers(){
-    $.get('/esg/archive-user-settings', {}, refreshPage());
+    var tag = prompt("Please enter a tag for your snapshot");
+    if(tag != null){
+      $.get('/esg/archive-user-settings', {tag: tag}, refreshPage());
+    }
   }
 </script>
 {% endblock %}

@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
 import { gicsMappings } from "./gics-mappings";
+import { selectedArchive } from "./archive";
 
 function loadingResults(state = false, action) {
   switch (action.type) {
@@ -26,15 +27,6 @@ function selectedUser(state = null, action) {
   switch (action.type) {
     case "changed-selected-user":
       return action.user;
-    default:
-      return state;
-  }
-}
-
-function selectedArchive(state = null, action) {
-  switch (action.type) {
-    case "changed-selected-archive":
-      return action.archive;
     default:
       return state;
   }

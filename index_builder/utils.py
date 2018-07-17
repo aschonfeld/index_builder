@@ -152,7 +152,7 @@ def find_available_archives():
     archives = []
     for fname in os.listdir(DATA_PATH):
         if fname.startswith('users_'):
-            archives.append(fname.split('_')[-1])
+            archives.append(fname.replace('users_', ''))
     return archives
 
 
@@ -200,10 +200,14 @@ def get_all_user_factor_settings(locked=True, include_last_update=False, archive
                 yield user, factor_settings
 
 
-def archive_all_user_factor_settings():
+def archive_all_user_factor_settings(tag=None):
     try:
         current_timestamp = pd.Timestamp('now').strftime('%Y%m%d%H%M%S')
-        os.rename(USERS_PATH, USERS_PATH.replace('users', 'users_{}'.format(current_timestamp)))
+        if tag is not None:
+            tag = '_'.join(tag.split(" "))
+            os.rename(USERS_PATH, USERS_PATH.replace('users', 'users_{}_{}'.format(tag, current_timestamp)))
+        else:
+            os.rename(USERS_PATH, USERS_PATH.replace('users', 'users_{}'.format(current_timestamp)))
         mkdir_p(USERS_PATH)
     except Exception as ex:
         logger.error(ex)
