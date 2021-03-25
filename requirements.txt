@@ -8,7 +8,7 @@ Jinja2==2.7.3
 numpy==1.9.2
 pandas==0.16.2
 Pympler==0.5
-PyYAML==3.11
+PyYAML==5.4
 scipy==0.15.1
 Werkzeug==0.11.11
 xlrd==1.0.0
