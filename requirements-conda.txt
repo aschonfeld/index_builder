@@ -2,7 +2,7 @@ decorator==3.4.2
 Flask==1.0.1
 Jinja2==2.7.3
 mock==1.0.1
-numpy==1.9.2
+numpy==1.21.0
 pandas==0.16.2
 Pympler==0.5
 pytest==2.9.1
