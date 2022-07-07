@@ -123,7 +123,7 @@
     "jquery": "3.5.0",
     "json-loader": "0.5.7",
     "lodash": "4.17.13",
-    "moment": "2.22.1",
+    "moment": "2.29.4",
     "ntee": "1.1.5",
     "popsicle": "9.2.0",
     "postcss-cli": "5.0.0",
